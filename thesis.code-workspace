@@ -5,5 +5,9 @@
 		}
 	],
 	"settings": {
+		"editor.rulers": [
+
+		],
+		"gitlens.currentLine.scrollable": false
 	}
 }

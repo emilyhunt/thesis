@@ -9,6 +9,29 @@
 \section{From seven sisters to a powerhouse of astronomy}
 \label{sec:intro:intro}
 
+In all of astronomy, few objects have retained relevance throughout the centuries as much as open clusters (OCs). Easily visible to the naked eye, the Pleiades has been observed since at least the dawn of civilisation CITEME, along with a handful of other OCs visible without a telescope. In the present day, the now thousands of known OCs are a key tool in modern astronomy for understanding stellar and galactic evolution.
+
+Star clusters are formed when clouds of cold molecular gas collapse due to gravity, forming stars. Sometimes, when star formation occurs densely enough, these stars fall further into gravitationally bound clusters that can survive in the galactic disk for as long as $\sim 10^9$~years \citep{lada_embedded_2003,portegies_zwart_young_2010}. It is this property of the formation of OCs that makes them so useful: all stars in an OC will have the same age and initial composition, allowing parameters of the overall group of stars to be measured significantly more precisely than when studying stars in isolation. 
+
+For instance, when a parameter such as the distance of member stars can simply be averaged over all member stars, then the precision of the mean distance of an OC (and hence the distance to all of its member stars) will be a factor $\sqrt{n}$ more precise than the distance to any individual star. Alternatively, when a property such as chemical composition is highly time consuming to derive, it can be derived for a fraction of stars in an OC and be applied to all stars in a cluster.
+
+The ease of studying stellar astrophysics with OCs results in OCs having an extremely wide range of scientific use cases. For instance, OCs are used as testing grounds for stellar evolution models CITEME, as tracers of galactic structure \citep{cantat-gaudin_painting_2020,castro-ginard_milky_2021}, or even as calibrators of cepheid variable stars \citep{medina_revisited_2021}, which are an essential first rung on the cosmic distance ladder and are vital in the derivation of the cosmological parameters of the universe. It is somewhat of a cliché to describe OCs as `the laboratories of stellar evolution', but it really is true: OCs are a fantastic way to observe stars of a given age and composition across a broad range of masses, and to do so with orders of magnitude more precision than when studying isolated field stars.
+
+The best part of the modern story of the OC's contribution to astrophysics comes with the \gaia\ satellite, however. In just five years since its first full data release \citep{brown_gaia_2018}, \gaia\ has revolutionised the study of our galaxy, including the study of OCs; with dozens of papers reporting thousands of new objects \citep[e.g.][]{liu_catalog_2019,castro-ginard_hunting_2019,castro-ginard_hunting_2020,castro-ginard_hunting_2022}, and a number of works deriving dramatically improved parameters and members for OCs in the Milky Way \citep[e.g.][]{cantat-gaudin_gaia_2018,tarricq_3d_2020}. Arguably, there has never been a better time to do science with OCs, owing to the incredible quantity and quality of data that \gaia\ has provided.
+
+There is, however, a catch. Even though the Milky Way is estimated to contain as many as $10^5$ OCs \citep{dias_new_2002}, there are still only a few thousand currently known in the literature -- representing a small fraction of the total number of OCs in our galaxy. It has been shown that the census of OCs is incomplete within even 1~kpc from the Sun \citep[e.g.][]{castro-ginard_new_2018}, and the extent of the remaining incompleteness is unknown. Worse still, it has been shown that many of the OCs catalogued previously in the literature may not exist \citep{cantat-gaudin_clusters_2020,piatti_catching_2023}, with it being largely unknown which OCs are or are not real. The many fantastic uses of OCs in other areas of astronomy are contingent on a reliable, accurate, and complete census of OCs; and the many current caveats with the census of OCs limit the science potential of these fantastic objects in a time when we have more available data with which to study them than ever before.
+
+In this thesis, I will present solutions to a number of the current issues with the OC census in the era of \gaia, using a range of data analysis and parameter inference techniques. I will then use these techniques to create the largest census of OCs to date and derive a range of parameters for these OCs. With this thesis, I also hope to present methods that could continue to be used to maximise the quality of the OC census for the coming decade of \gaia\ data releases -- as well as for whatever instruments supercede \gaia\ in the future.
+
+Before launching into the chapters detailing my work over the past three and a half years, it is worth first conducting an overview of the science behind OCs in the introduction to this thesis. In Sect.~\ref{sec:intro:history}, I will discuss the history of OC observations up to before the release of \gaia\ DR2 in 2018, as well as briefly discussing the techniques and results from pre-\gaia\ observations. Section~\ref{sec:intro:gaia} will then discuss the stunning data of \gaia\ and how it has already thoroughly revolutionised our understanding of OCs in just a handful of years. Finally, Sect.~\ref{sec:intro:theory} will briefly discuss some key pieces of theory surrounding the structure, dynamics, and lifetime of OCs, providing a good background on our theoretical knowledge of OCs that will assist with the reading of this thesis.
+
+The nomenclature and definition of star clusters varies throughout the literature. Hence, in the next section, I will first present a definition of OCs I will adopt throughout the rest of this work, contrasting them from related types of star clusters such as globular clusters (GCs) and hopefully minimising confusion that could arise in the rest of this thesis.
+
+
+% ---------------------------------------
+\section{The definition of an open cluster}
+\label{sec:intro:definition}
+
 \begin{figure}[tb]
 	\includegraphics[width=\textwidth]{fig/c1/oc_gc_mg_comparison.pdf}
 	\caption{TODO}
@@ -30,7 +53,7 @@
 \end{figure}
 
 % Plot of catalogues of OCs
-\begin{figure}[htb]
+\begin{figure}[tb]
 	\includegraphics[width=\textwidth]{fig/c1/catalogues.pdf}
 	\caption{TODO}
 	\label{fig:intro::history:catalogues}
@@ -38,7 +61,7 @@
 
 
 % Plot of reported OCs
-\begin{figure}[htb]
+\begin{figure}[tb]
 	\includegraphics[width=\textwidth]{fig/c1/papers.pdf}
 	\caption{TODO}
 	\label{fig:intro:history:papers}
@@ -47,10 +70,12 @@
 
 % ---------------------------------------
 \section{The \gaia\ revolution in open cluster science}
+\label{sec:intro:gaia}
 
 
 % ---------------------------------------
 \section{Some theoretical background into star clusters}
+\label{sec:intro:theory}
 
 
 % ---------------------------------------
