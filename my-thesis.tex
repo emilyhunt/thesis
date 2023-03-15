@@ -99,12 +99,19 @@
 }
 \cleardoublepage
 
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+%\pdfbookmark[0]{List of Figures}{List of Figures}
 \listoffigures
 \cleardoublepage
 
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
 \cleardoublepage
 
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Listings}
 \lstlistoflistings
 \cleardoublepage
 
@@ -120,9 +127,9 @@
 
 \newpage
 
-textwidth in in: \printinunitsof{in}\prntlen{\textwidth}
+% textwidth in in: \printinunitsof{in}\prntlen{\textwidth}
 
-textheight in in: \printinunitsof{in}\prntlen{\textheight}
+% textheight in in: \printinunitsof{in}\prntlen{\textheight}
 
 \mbox{}
 

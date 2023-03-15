@@ -4,8 +4,10 @@
 % **************************************************
 % Files' Character Encoding
 % **************************************************
+\usepackage[LGR,T1]{fontenc}
 \PassOptionsToPackage{utf8}{inputenc}
 \usepackage{inputenc}
+\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
 
 % CUSTOM EMILY ONES
 % Add extra math
