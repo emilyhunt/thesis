@@ -7,12 +7,22 @@
 \PassOptionsToPackage{utf8}{inputenc}
 \usepackage{inputenc}
 
+% CUSTOM EMILY ONES
+% Add extra math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Remove the comma after author name in inline cites (like in A&A)
+% \renewcommand*{\nameyeardelim}{\addspace}
+
 
 % **************************************************
 % Information and Commands for Reuse
 % **************************************************
 % Custom commands
 \newcommand{\gaia}{\emph{Gaia}}
+\newcommand{\Sun}{$\odot$}
+\newcommand{\MSun}{M\textsubscript{\Sun}}
 
 % Settings
 \newcommand{\thesisTitle}{Detection and characterisation of open clusters in the Milky Way with \gaia}
@@ -64,7 +74,7 @@
     configurebiblatex=true,%
     bibsys=bibtex,%
     bibfile=references,%
-    bibstyle=authoryear,%
+    bibstyle=authoryear-comp,%
     bibsorting=nty,%
 }{cleanthesis}
 \usepackage{cleanthesis}
@@ -80,3 +90,5 @@
     bookmarksnumbered=true,     %
     bookmarksopen=true          %
 }
+
+

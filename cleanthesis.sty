@@ -313,7 +313,7 @@
 		url=false,						% 	- don't show url tags
 		doi=false,						% 	- don't show doi tags
 		urldate=long,					% 	- display type for dates
-		maxnames=3,%
+		maxnames=2,%
 		minnames=1,%
 		maxbibnames=5,%
 		minbibnames=3,%
@@ -327,6 +327,9 @@
 		backrefpage = {{zitiert auf Seite}},%
 		backrefpages = {{zitiert auf den Seiten}},%
 	}
+
+	% CUSTOM ADDED: this removes the comma after author names.
+	\renewcommand*{\nameyeardelim}{\addspace}
 \fi
 
 % **************************************************
