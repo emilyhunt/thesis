@@ -151,7 +151,7 @@ Isochrone fitting is further complicated by the presence of other cluster featur
 
 Probably unsurprisingly, there are hence many methods used in the literature to fit isochrones to data. Particularly as computational power is a major hindrance to performing three or four-parameter fits with stellar isochrones, it was common to simply fit isochrones by hand (CITEME SOME EXAMPLES), which includes no robust uncertainty estimate and can open the door to human biases. The isochrones in \cite{kharchenko_global_2013} were fit using a hybrid method, with the authors fitting distances manually but then using $\chi^2$ minimisation to fit cluster age and reddening values. \cite{yen_reanalysis_2018} developed this methodology further to perform $\chi^2$ fitting of all cluster parameters. Finally, \cite{hippel_inverting_2006} created a full Bayesian methodology to fit isochrones to cluster CMDs, which is still used by works today in the \gaia\ era such as \cite{bossini_age_2019}.
 
-By far the main flaw of cluster isochrone fitting is speed. Three or four-parameter fits using complicated stellar isochrones are simply not 
+By far the main flaw of cluster isochrone fitting is speed. Three or four-parameter fits using complicated stellar isochrones simply cannot be performed quickly, requiring significant amounts of computation time to complete in e.g. \cite{yen_reanalysis_2018}, making these key cluster parameters relatively time-intensive to derive using traditional isochrone fitting techniques.
 
 \subsubsection{Radial profile fitting}
 
@@ -214,7 +214,8 @@ By far the main flaw of cluster isochrone fitting is speed. Three or four-parame
 
 % Plot of hipparcos vs. gaia Blanco 1
 \begin{figure}[tb]
-	\includegraphics[width=\textwidth]{fig/c1/gaia_hipparcos_oc_comparison.pdf}
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/c1/gaia_hipparcos_oc_comparison.pdf}
 	\caption[TODO]{TODO}
 	\label{fig:intro:gaia:blanco_1}
 \end{figure}
@@ -244,7 +245,8 @@ By far the main flaw of cluster isochrone fitting is speed. Three or four-parame
 
 % Plot of OC spiral arm sort-of correlation
 \begin{figure}[tb]
-	\includegraphics[width=\textwidth]{fig/c1/spiral_arms.png}
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/c1/spiral_arms.png}
 	\caption[TODO]{TODO}
 	\label{fig:intro:gaia:spiral}
 \end{figure}
@@ -275,7 +277,8 @@ By far the main flaw of cluster isochrone fitting is speed. Three or four-parame
 
 % Plot of feedback vs. virial ratio
 \begin{figure}[tb]
-	\includegraphics[width=\textwidth]{fig/c1/virialisation_placid_gas_expulsion.png}
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/c1/virialisation_placid_gas_expulsion.png}
 	\caption[TODO]{TODO}
 	\label{fig:intro:theory:feedback}
 \end{figure}
