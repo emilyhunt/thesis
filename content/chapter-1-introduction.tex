@@ -75,10 +75,11 @@ These definitions are summarised in Table~\ref{tab:intro:definition:definition} 
 
 
 % ---------------------------------------
-\section{The history and techniques of open cluster observations}
+\section{Open clusters in the pre-\gaia\ era: history and techniques}
 \label{sec:intro:history}
 
-\blindtext
+\subsection{The history of open cluster observations}
+\label{sec:intro:history:history}
 
 % Plot of the pleiades
 \begin{figure}[tb]
@@ -87,12 +88,102 @@ These definitions are summarised in Table~\ref{tab:intro:definition:definition} 
 	\label{fig:intro:history:pleiades}
 \end{figure}
 
+To truly understand just how groundbreaking the current data of the \gaia\ satellite is, it is worth first briefly reviewing the history of OC observations.
+
+Our ability to observe OCs has progressed incredibly far throughout the history of astronomy (Fig.~\ref{fig:intro:history:pleiades}). The invention of the refracting telescope allowed for early astronomers such as Galileo to observe that OCs and GCs are in fact clusters of many stars, as opposed to being dispered single sources as previously believed from unaided observations. It was, however, the invention and widespread adoptation of the reflecting telescope in the 17\textsuperscript{th} and 18\textsuperscript{th} centuries that led to catalogues of clusters like we use today.
+
 % Plot of catalogues of OCs
 \begin{figure}[tb]
 	\includegraphics[width=\textwidth]{fig/c1/catalogues.pdf}
-	\caption{TODO}
-	\label{fig:intro::history:catalogues}
+	\caption[The size of OC catalogues over time.]{The size of OC catalogues over time. After the initial rise in the size of catalogues due to the advent of reflecting telescopes in the 18\third\ and 19\third\ centuries, it was not until the past 25 years and the advent of large-scale astrometric and IR datasets that the OC census significantly increased in size. \\
+	{\footnotesize N.B.: this is not an exhaustive plot of all catalogues, and a number of old catalogues such as \cite{herschel_catalogue_one_1786} and \cite{herschel_general_catalogue_1864} without digitised versions are not included.}}
+	\label{fig:intro:history:catalogues}
 \end{figure}
+
+The power of reflecting telescopes allowed astronomers to scan the sky to signficantly greater depth, searching for clusters of stars and discovering many new objects in the process \citep[e.g.][]{herschel_catalogue_one_1786}, with the number of known OCs jumping from a few dozen to around 700 in a little over a century. Figure~\ref{fig:intro:history:catalogues} shows the evolution in size of OC catalogues over time, showing the peak of around 700 clusters by the turn of the 20\textsuperscript{th} century. Many of the OCs known and catalogued by astronomers at this point were some of the largest and most scientifically useful, with many of these OCs (especially those in the NGC catalogue) being some of the most frequently studied objects even today. 
+
+% Plot of CMDs of OCs
+\begin{figure}[tb]
+	\includegraphics[width=\textwidth]{fig/c1/cmd_comparison.pdf}
+	\caption[A comparison of the CMDs of a number of nearby OCs.]{A comparison of the CMDs of a number of nearby OCs, using membership lists from later in this thesis in Sect.~\ref{sec:census} and plotted with their absolute magnitude $M_G$ against colour $BP - RP$. The OCs are plotted from left to right in order of increasing age, with their distance $d$, logarithmic age $\log t$ and extinction $A_V$ shown in the top right. The dashed red line indicates the approximate 100\% completeness limit of these OC membership lists, with sources fainter than an apparent magnitude of $G=18$ frequently being missed and often having under-estimated $BP-RP$ colours. BH~23 is less than 10~Myr old and has almost no main sequence turn off; NGC~6475 is over 100~Myr old and has a clear turn off; Ruprecht~147 is around 1~Gyr old and even has a clear population of white dwarf stars.}
+	\label{fig:intro:history:cmds}
+\end{figure}
+
+The 20\textsuperscript{th} century saw improvements to data gathering and techniques, with early photometric and spectroscopic methods allowing authors such as \cite{rosenberg_uber_zusammenhang_1910} and \cite{hertzsprung_ueber_verwendung_1911} to plot the brightness of the stars in the Pleiades and the Hyades against their spectral features, noticing for the first time that the brightness of stars is related to their colour and spectral features. \cite{russell_relations_spectra_1914} derived the absolute magnitude of stars in the Hyades and ploted this against an early spectral analogue of the temperature of its member stars, plotting the luminosity of stars against their temperature for the first time and inventing `Hertzsprung-Russell' or `colour-magnitude' diagrams (CMDs), a type of plot used extensively in the present day as an essential tool to understand stellar evolution. Later, the differences in CMDs between different clusters were noticed and was interpreted as being a difference in age between the clusters, allowing for the ages of stars within star clusters to be estimated and beginning the foundation of our knowledge of stellar evolution.
+
+While the 20\textsuperscript{th} century saw huge strides in our understanding of stars and star clusters, the size of OC catalogues went relatively unchanged (Fig.~\ref{fig:intro:history:catalogues}). It was not until the 1990s and the arrival of new methodologies that the OC census itself has begun its largest upheaval since the widespread adoptation of reflecting telescopes more than 200 years prior.
+
+The launch of the \emph{Hipparcos} satellite and subsequent data releases \citep{perryman_hipparcos_1997} produced a catalogue of around 10$^5$ sources with five-parameter milliarcsecond-precision astrometry. OCs stand out as overdensities in \emph{Hipparcos} data, in particular in proper motions, as OCs are comoving groups of stars that often have different velocities to background field sources. This new data allowed works such as \cite{platais_search_1998} to discover a number of new OCs, with many being small objects near to the Sun that evaded detection with only two-dimensional visual observations. 
+
+This resulted in the catalogue of \cite{dias_new_2002} including over 300 more objects than the roughly ten years prior catalogue of \cite{mermilliod_database_1995} (Fig.~\ref{fig:intro:history:catalogues}), representing the largest 
+major jump in the size of the OC census in over a century, in addition to the much more accurate mean cluster proper motions and parallaxes provided by \emph{Hipparcos}. However, this was just the beginning, and more new science was to come.
+
+The release of the Two Micron All Sky Survey \citep[2MASS,][]{skrutskie_two_2006} in the 2000s provided the next major jump in data availability for furthering OC science. The infrared (IR) data of 2MASS and its associated catalogue of 471 million point sources allowed works such as \cite{froebrich_systematic_2007} to uncover over a thousand new OC candidates in the galactic disk, using IR data to peer through insterstellar dust and unveil many previously-obscured objects for the first time. In addition, works around this time began to make increasing use of advances in computing power, with works such as \cite{froebrich_systematic_2007} using automated retrieval to extract cluster candidates. CITEME MORE REFERENCES HERE
+
+Work predominantly with IR data culminated in the catalogue of \cite{kharchenko_global_2013}, who derived homoegeneous membership lists, ages, extinctions, distances, proper motions, radii, and many other parameters for a total of 3006 clusters, 2399 of which are OCs or probable OCs. Until \gaia\ DR2, the catalogue of \cite{kharchenko_global_2013} remained the largest catalogue of OCs.
+
+In around 20 years, the OC census had more than doubled in size between the work of \cite{mermilliod_database_1995} to the work of \cite{kharchenko_global_2013}. Yet catalogue size is just one tracer of the major improvements in knowledge of OCs that happened during this time. Before going any further, and talking about how \gaia\ is powering a new charge to revolutionise the OC census for the second time in a quarter century, it is worth providing some background on the landscape of methods and knowledge from the pre-\gaia\ era, discussing the many basic observational parameters of OCs (and how they are determined), as well as the flaws of various approaches.
+
+\subsection{Common techniques in open cluster observations}
+\label{sec:intro:history:techniques}
+\subsubsection{Membership determination}
+
+TODO. I honestly don't know enough here already lol
+
+\subsubsection{Blind searches for open clusters}
+
+TODO. Should lead in from the previous section.
+
+\subsubsection{Isochrone fitting}
+
+% Plot of CMDs of OCs
+\begin{figure}[tb]
+	\includegraphics[width=\textwidth]{fig/c1/isochrones.pdf}
+	\caption[A comparison between stellar isochrones of various different parameters.]{A comparison between stellar isochrones of various different parameters, derived from PARSEC stellar evolution models \citep{bressan_parsec_2012} and shown in \gaia\ photometric bands. \emph{Left:} isochrones of solar metallicity and zero extinction shown for six different ages. Most noticeably, as cluster age increases, the magnitude of the turn-off point decreases, with ever-more stars evolving into red giants and eventually reaching the end of their lives. The rest of the stars in the cluster also move down slightly, relaxing onto the main sequence as they age. \emph{Right:} the $\log t = 7.9$ isochrone from the left plotted at a range of different extinction values. Extinction reddens cluster stars as well as reducing their overall brightness. Extinction in \gaia\ photometry has a strong affect on the location of the turn-off point.}
+	\label{fig:intro:history:isochrones}
+\end{figure}
+
+As discussed previously, CMDs are essential tools to derive many key parameters of a star cluster (Fig.~\ref{fig:intro:history:cmds}). The most common method to determine the age, extinction, and to a lesser extent the distance of a cluster is by fitting isochrones to cluster CMDs. An isochrone gives the predicted colour and luminosity of a population of stars with a range of masses given that the stars have the same age, extinction, composition and distance. Stellar isochrones are derived from stellar evolution models such as PARSEC \citep{bressan_parsec_2012} and are widely used in many areas of observational astronomy.
+
+In practice, isochrones are difficult to fit, with age, extinction, distance and metallicity all being somewhat degenerate with one another. Figure~\ref{fig:intro:history:isochrones} shows the effect of varying age and extinction on stellar isochrones, with both age and extinction moving the location of the cluster turn-off point. Cluster distance merely shifts the isochrone up or down based on the cluster's distance modulus, although this is still slightly degenerate with age and extinction. Finally, the chemical composition of a cluster (most often parameterised with its metallicity $\left[\text{Fe}/\text{H}\right]$) has the smallest impact on cluster isochrones and is not shown, but will nevertheless slightly impact age and extinction determination.
+
+Isochrone fitting is further complicated by the presence of other cluster features, such as the presence of a binary sequence due to unresolved binaries (see binary sequences in Fig~\ref{fig:intro:history:cmds}, showing a clear second line of stars sat slightly above the main cluster population).
+
+Probably unsurprisingly, there are hence many methods used in the literature to fit isochrones to data. Particularly as computational power is a major hindrance to performing three or four-parameter fits with stellar isochrones, it was common to simply fit isochrones by hand (CITEME SOME EXAMPLES), which includes no robust uncertainty estimate and can open the door to human biases. The isochrones in \cite{kharchenko_global_2013} were fit using a hybrid method, with the authors fitting distances manually but then using $\chi^2$ minimisation to fit cluster age and reddening values. \cite{yen_reanalysis_2018} developed this methodology further to perform $\chi^2$ fitting of all cluster parameters. Finally, \cite{hippel_inverting_2006} created a full Bayesian methodology to fit isochrones to cluster CMDs, which is still used by works today in the \gaia\ era such as \cite{bossini_age_2019}.
+
+By far the main flaw of cluster isochrone fitting is speed. Three or four-parameter fits using complicated stellar isochrones are simply not 
+
+\subsubsection{Radial profile fitting}
+
+\subsubsection{Mass determination}
+
+
+\subsection{Other important observations}
+\label{sec:intro:history:other_obs}
+
+\subsubsection{Binary stars in open clusters}
+
+\subsubsection{Blue stragglers: some stars stay young for longer}
+
+\subsubsection{Extended main-sequence turn-offs (eMSTOs): not all OCs are perfect single populations}
+
+\subsection{The pre-\gaia\ issues with the open cluster census}
+\label{sec:intro:history:issues}
+
+
+
+
+
+
+% ---------------------------------------
+\section{The \gaia\ revolution in open cluster science}
+\label{sec:intro:gaia}
+
+\subsection{An overview of the \gaia\ satellite}
+\label{sec:intro:gaia:overview}
+
+\subsection{How \gaia\ has already revolutionised the open cluster census}
+\label{sec:intro:gaia:census}
 
 
 % Plot of reported OCs
@@ -103,9 +194,8 @@ These definitions are summarised in Table~\ref{tab:intro:definition:definition} 
 \end{figure}
 
 
-% ---------------------------------------
-\section{The \gaia\ revolution in open cluster science}
-\label{sec:intro:gaia}
+\subsection{Brand new insights into OCs}
+\label{sec:intro:gaia:census}
 
 
 % ---------------------------------------
