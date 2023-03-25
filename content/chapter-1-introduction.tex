@@ -30,6 +30,7 @@ The best part of the modern story of the OC's contribution to astrophysics comes
 
 There is, however, a catch. Even though the Milky Way is estimated to contain as many as $10^5$ OCs \citep{dias_new_2002}, there are still only a few thousand currently known in the literature -- representing a small fraction of the total number of OCs in our galaxy. It has been shown that the census of OCs is incomplete within even 1~kpc from the Sun \citep[e.g.][]{castro-ginard_new_2018}, and the extent of the remaining incompleteness is unknown. Worse still, it has been shown that many of the OCs catalogued previously in the literature may not exist \citep{cantat-gaudin_clusters_2020,piatti_catching_2023}, with it being largely unknown which OCs are or are not real. The many fantastic uses of OCs in other areas of astronomy are contingent on a reliable, accurate, and complete census of OCs; and the many current caveats with the census of OCs limit the science potential of these fantastic objects in a time when we have more available data with which to study them than ever before.
 
+% TODO: this paragraph is too weak
 In this thesis, I will present solutions to a number of the current issues with the OC census in the era of \gaia, using a range of data analysis and parameter inference techniques. I will then use these techniques to create the largest census of OCs to date and derive a range of parameters for these OCs. With this thesis, I also hope to present methods that could continue to be used to maximise the quality of the OC census for the coming decade of \gaia\ data releases -- as well as for whatever instruments supercede \gaia\ in the future.
 
 Before launching into the chapters detailing my work over the past three and a half years, it is worth first conducting an overview of the science behind OCs in the introduction to this thesis. In Sect.~\ref{sec:intro:history}, I will discuss the history of OC observations up to before the release of \gaia\ DR2 in 2018, as well as briefly discussing the techniques and results from pre-\gaia\ observations. Section~\ref{sec:intro:gaia} will then discuss the stunning data of \gaia\ and how it has already thoroughly revolutionised our understanding of OCs in just a handful of years. Finally, Sect.~\ref{sec:intro:theory} will briefly discuss some key pieces of theory surrounding the structure, dynamics, and lifetime of OCs, providing a good background on our theoretical knowledge of OCs that will assist with the reading of this thesis.
@@ -43,11 +44,13 @@ The nomenclature and definition of star clusters varies throughout the literatur
 
 \begin{figure}[tb]
 	\includegraphics[width=\textwidth]{fig/c1/oc_gc_mg_comparison.pdf}
-	\caption[A visual comparison between the three main types of star cluster found in the Milky Way.]{A visual comparison between the three main types of star cluster found in the Milky Way. \emph{Left:} the open cluster NGC~2547. \emph{Middle:} the globular cluster M~4. \emph{Right:} the moving group/OB association Monoceros~R2. All images contain a scale in the bottom right showing a length of 1~pc at the distance of each cluster. NGC~2547 is a sparser OC that has a clear core of young blue stars at its center, about $\sim 1$~pc across. On the other hand, despite being only slightly larger, M~4 clearly contains significantly more stars. The stars in M~4 are older, with the cluster having a whiter or redder appearance. On the other hand, Monoceros~R2 is simply a group of young blue stars, with no discernible core. \emph{Credit, left to right:} ESO / J. Pérez; ESO; ESO / J. Emerson / VISTA. }
+	\caption[A visual comparison between the three main types of star cluster found in the Milky Way.]{A visual comparison between the three main types of star cluster found in the Milky Way. \emph{Left:} the open cluster NGC~2547. \emph{Middle:} the globular cluster M~4. \emph{Right:} the moving group/OB association Monoceros~R2. All images contain a scale in the bottom right showing a length of 1~pc at the distance of each cluster. \emph{Credit, left to right:} ESO / J. Pérez; ESO; ESO / J. Emerson / VISTA. }
 	\label{fig:intro:definition:comparison}
 \end{figure}
 
-There are many different types of star cluster in the universe. This thesis will exclusively discuss clusters observed in the Milky Way, and will primarily discuss open clusters (OCs), although I will also touch on globular clusters (GCs) and moving groups (MGs). Avoiding confusion when talking about star clusters is important; hence, I differentiate between these three types of cluster approximately as follows, matching the definition in \cite{portegies_zwart_young_2010}.
+There are many different types of star cluster in the universe. Avoiding confusion when talking about star clusters is important, particularly since observers and theorists often use very different nomenclature. Definitions of star clusters can differ significantly between galactic and extra-galactic astronomy. I will use the following definitions consistently throughout this thesis for clarity.
+
+This thesis will almost exclusively discuss clusters observed in the Milky Way, which are traditionally divided into three broad categories. This thesis will primarily discuss open clusters (OCs), although I will also touch on globular clusters (GCs) and moving groups (MGs). I differentiate between these three types of cluster approximately as follows, matching the observational definitions in \cite{portegies_zwart_young_2010}.
 
 OCs are gravitationally bound clusters with a typical age of around 100~Myr, although some are older than 1~Gyr and some are as young as 0.1~Myr. OCs have masses of typically no greater than $10^4$~\MSun and may be made up of a few dozen to a few thousand stars, with a typical minimum being ten stars. OCs are remants of recent star formation and are hence predominantly located in the galactic disk where the star formation rate is highest. Most OCs have a size of around 3 to 10~pc. Other than some exceptions, OCs contain a single population of stars. 
 
@@ -68,17 +71,19 @@ On the other hand, MGs are of a similar mass and number count to OCs, except the
 	\caption{Approximate definitions for the three types of star cluster that will be discussed in this thesis.\label{tab:intro:definition:definition}}
 \end{table}
 
-These definitions are summarised in Table~\ref{tab:intro:definition:definition} and compared visually in Fig.~\ref{fig:intro:definition:comparison}.
+These definitions are summarised in Table~\ref{tab:intro:definition:definition} and compared visually in Fig.~\ref{fig:intro:definition:comparison}. The figure shows three clusters; NGC~2547, M~4, and Monoceros~R2. NGC~2547 is a sparser OC that has a clear core of young blue stars at its center, about $\sim 1$~pc across. On the other hand, despite being only slightly larger, the GC M~4 clearly contains significantly more stars. The stars in M~4 are older, with the cluster having a whiter, redder appearance. Finally, the MG Monoceros~R2 is simply a group of young blue stars, with no discernible core. 
 
 
 
 
 
 % ---------------------------------------
-\section{Open clusters in the pre-\gaia\ era: history and techniques}
+\section{The history of open cluster observations up until the present day}
 \label{sec:intro:history}
 
-\subsection{The history of open cluster observations}
+In this chapter, I present a literature review of how open clusters have been observed up until the present day, including many key results and touching on a number of still-unanswered questions.
+
+\subsection{The pre-\gaia\ history of open cluster observations}
 \label{sec:intro:history:history}
 
 % Plot of the pleiades
@@ -88,7 +93,7 @@ These definitions are summarised in Table~\ref{tab:intro:definition:definition} 
 	\label{fig:intro:history:pleiades}
 \end{figure}
 
-To truly understand just how groundbreaking the current data of the \gaia\ satellite is, it is worth first briefly reviewing the history of OC observations.
+While the results of this thesis are entirely derived using data from \gaia\ , to truly understand just how groundbreaking the current data of the \gaia\ satellite is, it is worth first briefly reviewing the history of OC observations.
 
 Our ability to observe OCs has progressed incredibly far throughout the history of astronomy (Fig.~\ref{fig:intro:history:pleiades}). The invention of the refracting telescope allowed for early astronomers such as Galileo to observe that OCs and GCs are in fact clusters of many stars, as opposed to being dispered single sources as previously believed from unaided observations. It was, however, the invention and widespread adoptation of the reflecting telescope in the 17\textsuperscript{th} and 18\textsuperscript{th} centuries that led to catalogues of clusters like we use today.
 
@@ -109,7 +114,7 @@ The power of reflecting telescopes allowed astronomers to scan the sky to signfi
 	\label{fig:intro:history:cmds}
 \end{figure}
 
-The 20\textsuperscript{th} century saw improvements to data gathering and techniques, with early photometric and spectroscopic methods allowing authors such as \cite{rosenberg_uber_zusammenhang_1910} and \cite{hertzsprung_ueber_verwendung_1911} to plot the brightness of the stars in the Pleiades and the Hyades against their spectral features, noticing for the first time that the brightness of stars is related to their colour and spectral features. \cite{russell_relations_spectra_1914} derived the absolute magnitude of stars in the Hyades and ploted this against an early spectral analogue of the temperature of its member stars, plotting the luminosity of stars against their temperature for the first time and inventing `Hertzsprung-Russell' or `colour-magnitude' diagrams (CMDs), a type of plot used extensively in the present day as an essential tool to understand stellar evolution. Later, the differences in CMDs between different clusters were noticed and was interpreted as being a difference in age between the clusters, allowing for the ages of stars within star clusters to be estimated and beginning the foundation of our knowledge of stellar evolution.
+The 20\textsuperscript{th} century saw improvements to data gathering and techniques, with early photometric and spectroscopic methods allowing authors such as \cite{rosenberg_uber_zusammenhang_1910} and \cite{hertzsprung_ueber_verwendung_1911} to plot the brightness of the stars in the Pleiades and the Hyades against their spectral features, noticing for the first time that the brightness of stars is related to their colour and spectral features. \cite{russell_relations_spectra_1914} derived the absolute magnitude of stars in the Hyades and ploted this against an early spectral analogue of the temperature of its member stars, plotting the luminosity of stars against their temperature for the first time and inventing `Hertzsprung-Russell' or `colour-magnitude' diagrams (CMDs), a type of plot used extensively in the present day as an essential tool to understand stellar evolution. Later, the differences in CMDs between different clusters were noticed and was interpreted as being a difference in age between the clusters, allowing for the ages of stars within star clusters to be estimated and beginning the foundation of our knowledge of stellar evolution \ref{fig:intro:history:cmds}.
 
 While the 20\textsuperscript{th} century saw huge strides in our understanding of stars and star clusters, the size of OC catalogues went relatively unchanged (Fig.~\ref{fig:intro:history:catalogues}). It was not until the 1990s and the arrival of new methodologies that the OC census itself has begun its largest upheaval since the widespread adoptation of reflecting telescopes more than 200 years prior.
 
@@ -120,9 +125,53 @@ major jump in the size of the OC census in over a century, in addition to the mu
 
 The release of the Two Micron All Sky Survey \citep[2MASS,][]{skrutskie_two_2006} in the 2000s provided the next major jump in data availability for furthering OC science. The infrared (IR) data of 2MASS and its associated catalogue of 471 million point sources allowed works such as \cite{froebrich_systematic_2007} to uncover over a thousand new OC candidates in the galactic disk, using IR data to peer through insterstellar dust and unveil many previously-obscured objects for the first time. In addition, works around this time began to make increasing use of advances in computing power, with works such as \cite{froebrich_systematic_2007} using automated retrieval to extract cluster candidates. CITEME MORE REFERENCES HERE
 
-Work predominantly with IR data culminated in the catalogue of \cite{kharchenko_global_2013}, who derived homoegeneous membership lists, ages, extinctions, distances, proper motions, radii, and many other parameters for a total of 3006 clusters, 2399 of which are OCs or probable OCs. Until \gaia\ DR2, the catalogue of \cite{kharchenko_global_2013} remained the largest catalogue of OCs.
+Work predominantly with IR data culminated in the catalogue of \cite{kharchenko_global_2013}, who derived homoegeneous membership lists, ages, extinctions, distances, proper motions, radii, and many other parameters for a total of 3006 clusters, 2399 of which are OCs or probable OCs. % Until \gaia\ DR2, the catalogue of \cite{kharchenko_global_2013} remained the largest catalogue of OCs.
 
-In around 20 years, the OC census had more than doubled in size between the work of \cite{mermilliod_database_1995} to the work of \cite{kharchenko_global_2013}. Yet catalogue size is just one tracer of the major improvements in knowledge of OCs that happened during this time. Before going any further, and talking about how \gaia\ is powering a new charge to revolutionise the OC census for the second time in a quarter century, it is worth providing some background on the landscape of methods and knowledge from the pre-\gaia\ era, discussing the many basic observational parameters of OCs (and how they are determined), as well as the flaws of various approaches.
+In around 20 years, the OC census more than doubled in size between the work of \cite{mermilliod_database_1995} to the work of \cite{kharchenko_global_2013}. This unprecedented shift represented the first time that the OC census had been significantly expanded in over a century, with improved datasets offering significantly better measurements of more clusters than ever before. 
+
+Yet seismic shift in cluster catalogues brought about by IR datasets and \emph{Hipparcos} was scarcely the beginning of the modern revolution in studies of OCs. \gaia's first full data release in 2018, DR2 \citep{brown_gaia_2018}, sparked the next revolution in the census of OCs.
+
+\subsection{The \gaia\ revolution}
+\label{sec:intro:history:gaia}
+
+For almost all of the history of astronomy, our view of the Milky Way has been strictly two-dimensional. Observing a three-dimensional galaxy in two dimensions is inherently limiting; it took until the 20\third century to even discover that galaxies are separate from the Milky Way. Although astrometric parameters like parallaxes have been measured for stars for over a century, and can be used to view the stars of galaxy in three dimensions, these datasets have always been limited to a few hundred or thousand stars until now.
+
+\gaia\ is a space-based telescope launched in 2013 that aims to measure a wealth of parameters to an unprecedented level of precision for around $10^9$ stars. \gaia\ is measuring precise positions, proper motions, parallaxes, and photometry for its full sample of stars, and also measures radial velocities and low-resolution spectra for a brighter subsample of sources \citep{gaia_collaboration_gaia_2016}. It is the incredible scale and precision of \gaia\ data that sets it apart from any previous datasets.
+
+% Plot of hipparcos vs. gaia astrometric accuracy
+\begin{figure}[tb]
+	\includegraphics[width=\textwidth]{fig/c1/gaia_dr2_astrometry.png}
+	\caption[TODO]{TODO}
+	\label{fig:intro:history:gaia_accuracy}
+\end{figure}
+
+Figure~\ref{fig:intro:history:gaia_accuracy} shows a comparison of the parallax uncertainty of \gaia\ data against data from the \emph{Hipparcos} satellite. In just over 20 years, technology progressed far enough to allow \gaia\ to measure parallaxes for $10^4$ times as many stars at a projected eventual accuracy as much as $10^3$ better than \emph{Hipparcos}.
+
+
+
+
+
+% Plot of gaia astrometric tracks
+\begin{figure}[tb]
+	\includegraphics[width=\textwidth]{fig/c1/tracks.pdf}
+	\caption[TODO]{TODO}
+	\label{fig:intro:history:gaia_tracks}
+\end{figure}
+
+% Plot of hipparcos vs. gaia Blanco 1
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/c1/gaia_hipparcos_oc_comparison.pdf}
+	\caption[TODO]{TODO}
+	\label{fig:intro:history:gaia_blanco_1}
+\end{figure}
+
+
+
+
+
+% everything below this line is shit
+\section{not sure where these bits will go yet}
 
 \subsection{Common techniques in open cluster observations}
 \label{sec:intro:history:techniques}
@@ -195,30 +244,7 @@ By far the main flaw of cluster isochrone fitting is speed. Three or four-parame
 \section{The \gaia\ revolution in open cluster science}
 \label{sec:intro:gaia}
 
-\subsection{An overview of the \gaia\ satellite}
-\label{sec:intro:gaia:overview}
 
-% Plot of hipparcos vs. gaia astrometric accuracy
-\begin{figure}[tb]
-	\includegraphics[width=\textwidth]{fig/c1/gaia_dr2_astrometry.png}
-	\caption[TODO]{TODO}
-	\label{fig:intro:gaia:accuracy}
-\end{figure}
-
-% Plot of gaia astrometric tracks
-\begin{figure}[tb]
-	\includegraphics[width=\textwidth]{fig/c1/tracks.pdf}
-	\caption[TODO]{TODO}
-	\label{fig:intro:gaia:tracks}
-\end{figure}
-
-% Plot of hipparcos vs. gaia Blanco 1
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.9\textwidth]{fig/c1/gaia_hipparcos_oc_comparison.pdf}
-	\caption[TODO]{TODO}
-	\label{fig:intro:gaia:blanco_1}
-\end{figure}
 
 
 \subsection{How \gaia\ has already revolutionised the open cluster census}
