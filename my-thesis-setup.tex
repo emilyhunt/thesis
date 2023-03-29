@@ -17,6 +17,9 @@
 % Adds degree symbol
 \usepackage{gensymb}
 
+% For landscape tables and figures
+\usepackage{rotating}
+
 % Remove the comma after author name in inline cites (like in A&A)
 % \renewcommand*{\nameyeardelim}{\addspace}
 
@@ -25,12 +28,41 @@
 % Information and Commands for Reuse
 % **************************************************
 % Custom commands
-\newcommand{\gaia}{\emph{Gaia}}
-\newcommand{\Sun}{$\odot$}
-\newcommand{\MSun}{M\textsubscript{\Sun}}
-\newcommand{\first}{\textsuperscript{st}}
-\newcommand{\second}{\textsuperscript{nd}}
-\newcommand{\third}{\textsuperscript{th}}
+\newcommand*{\gaia}{\emph{Gaia}}
+\newcommand*\sun{\ensuremath{\odot}}
+\newcommand*{\MSun}{M\textsubscript{\sun}}
+\newcommand*{\first}{\textsuperscript{st}}
+\newcommand*{\second}{\textsuperscript{nd}}
+\newcommand*{\third}{\textsuperscript{th}}
+\newcommand{\authorship}[1]{\textit{\textbf{Details of authorship.} #1}}
+
+% Commands imported from A&A paper style
+\newlength{\VSpaceBeforeTabBib}
+\setlength{\VSpaceBeforeTabBib}{2ex}
+\newlength{\VSpaceBeforeTabFoot}
+\setlength{\VSpaceBeforeTabFoot}{2ex}
+
+\newcommand\tablefoot[1]{\VSpaceBeforeTabBib=1ex%
+  \par\vspace{\VSpaceBeforeTabFoot}
+  \noindent
+  \begin{minipage}{\linewidth}
+    \textbf{Notes.}
+    \ignorespaces
+    #1%
+  \end{minipage}%
+}
+\newcommand*\tablefootmark[1]{%
+  \unskip
+  \hbox{\textsuperscript{\normalfont\itshape\ignorespaces#1}}%
+  \,%
+  \ignorespaces
+}
+\newcommand\tablefoottext[2]{%
+  \hbox{\textsuperscript{\normalfont({\itshape\ignorespaces#1})}}%
+  ~%
+  \ignorespaces
+  #2\ \ignorespaces%
+}
 
 % Settings
 \newcommand{\thesisTitle}{Detection and characterisation of open clusters in the Milky Way with \gaia}
