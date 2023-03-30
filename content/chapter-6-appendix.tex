@@ -1,40 +1,162 @@
 % !TEX root = ../my-thesis.tex
 %
-\chapter{Example Appendix}
+\chapter{Appendix}
 \label{sec:appendix}
 
-\Blindtext[1][1]
 
-\section{Appendix Section 1}
-\label{sec:appendix:sec1}
 
-\Blindtext[1][1]
+\section{Appendices for Chapter \ref{sec:census}}
 
-\begin{table}[h]
-	\begin{tabularx}{\textwidth}{X | X | X}
-		%\hline
-		Alpha		& Beta			& Gamma			\\ \hline
-		0			& 1				& 2				\\ \hline
-		3			& 4				& 5				\\ %\hline
-	\end{tabularx}
-	\label{tab:table1}
-	\caption{This is a caption text.}
+\subsection{Description of contents of online tables}\label{app:c3:tables}
+
+We provide tables of clusters, rejected clusters, member stars, and members stars for rejected clusters at the CDS. Tables of clusters follow the table format in Table~\ref{app:c3:tab:cluster_lists}. Tables of members follow the same columns and column naming scheme as in \emph{Gaia} DR3 \citep{gaia_collaboration_gaia_2022}, except while also having columns referencing the cluster name and cluster ID we assign them to, the cluster membership probability, and a flag for if the star is a member within our estimated tidal radius $r_t$.
+
+% Cluster lists table
+\begin{table}\label{app:c3:tab:cluster_lists}
+\caption{Description of the columns in the tables of detected clusters.}
+\centering
+\begin{tabular}{c c c l}
+\hline\hline
+Col. & Label & Unit & Description \\
+\hline          
+% Name and designation
+1     & Name                  & --  & Designation \\
+2     & Internal ID           & --  & Internal designation \\
+3     & All names             & --  & All literature names \\
+4     & Kind                  & --  & Estimated object type\tablefootmark{c} \\
+5     & $n_\text{stars}$      & --  & Num. of member stars \\
+6     & $\text{S/N}$          & --  & Astrometric S/N \\
+7     & $n_\text{stars}|_{r_\text{t}}$ & --  & $n_\text{stars}$ within $r_t$ \\
+8     & $\text{S/N}|_{r_\text{t}}$ & --  & $\text{S/N}$ within $r_t$ \\
+\hline
+
+% Position, radii
+9-10     & $\alpha$, $\delta$ & deg & ICRS position \\
+11-12    & $l$, $b$           & deg & Galactic position \\
+13-16    & $r_{50,\,c,\,t,\,\text{tot}}$ & deg & Angular radii \\
+17-20    & $R_{50,\,c,\,t,\,\text{tot}}$ & pc & Physical radii \\
+
+% Other astrometry and distance stuff
+21-26\tablefootmark{a} & $\mu_{\alpha^*}$, $\mu_\delta$ & mas yr$^{-1}$ & ICRS proper motions \\
+27-29\tablefootmark{a} & $\varpi$              & mas & Parallax \\
+30-32\tablefootmark{b} & $d$                   & pc  & Distance \\
+33    & $n_d$                 & pc  & $n_\text{stars}$ for distance calc. \\
+34    & $\varpi_0$ type       & --  & Parallax offset type\tablefootmark{d} \\
+35-37 & $X$, $Y$, $Z$         & pc  & Galactocentric coords. \\
+
+% RVs
+38-40\tablefootmark{a} & RV   & km s$^{-1}$ & Radial velocity\tablefootmark{e} \\
+41    & $n_\text{RV}$         & --  & $n_\text{stars}$ with RVs \\
+\hline
+
+% CMD classifier
+42-46\tablefootmark{b} & CMD class & --  & CMD class quantiles\tablefootmark{f} \\
+47    & Human class           & --  & (where available)\tablefootmark{f} \\
+
+% AgeNN
+48-50\tablefootmark{b} & $\log t$              & $\log \left[ \text{yr} \right]$  & Cluster age \\
+51-53\tablefootmark{b} & $A_V$                 & mag & V-band extinction \\
+54-56\tablefootmark{b} & $\Delta A_V$        & mag & Differential $A_V$ \\
+57-59\tablefootmark{b} & $m-M$                 & mag & Photometric dist. mod. \\
+\hline
+
+% Other stuff
+60    & $m_{clSize}$          & --  & HDBSCAN parameter \\
+61    & \texttt{merged}  & --  & Flag if merged\tablefootmark{g} \\
+62    & \texttt{is\_gmm}  & --  & Flag if GMM used\tablefootmark{h} \\
+63    & $n_\text{crossmatches}$ & --  & Num. crossmatches \\
+64    & Xmatch type  & --  & Type of crossmatch\tablefootmark{i} \\
+
+\hline
+\end{tabular}
+
+\tablefoot{The full version is available at the CDS.
+\tablefoottext{a}{Mean value, standard deviation $\sigma$, and standard error $\sigma \, / \sqrt{n}$ are given.}
+\tablefoottext{b}{Median value and various confidence intervals are given.}
+\tablefoottext{c}{\texttt{g} for objects in the \cite{vasiliev_gaia_2021} GC catalogue, otherwise \texttt{o} (OC) or \texttt{m} (moving group) for clusters according to the empirical cuts in \cite{cantat-gaudin_clusters_2020}.}
+\tablefoottext{d}{Flag indicating six clusters for which parallax bias correction using the method of \cite{lindegren_gaia_2021} was not possible, and a global offset was used instead (see Sect.~\ref{c3:sec:clustering:parameters}).}
+\tablefoottext{e}{Corrected using cluster distances to be relative to cluster centre.}
+\tablefoottext{f}{Cluster CMD classes derived using the neural network in Sect.~\ref{c3:sec:cmd_classifier}.}
+\tablefoottext{g}{Indicates 25 clusters merged by hand (see Sect.~\ref{c3:sec:clustering}).}
+\tablefoottext{h}{Indicates nine clusters with members from an additional Gaussian mixture model clustering step.}
+\tablefoottext{i}{Method used to assign name to cluster (see Sect.~\ref{c3:sec:crossmatching:names}.)}
+}
+
 \end{table}
 
-\section{Appendix Section 2}
-\label{sec:appendix:sec2}
+\subsection{Table of crossmatch results}\label{app:c3:crossmatches}
 
-\Blindtext[1][1]
+% Cluster lists table
+\begin{sidewaystable}[p]
+\caption{All cluster crossmatches, including literature clusters that have no match.\label{app:c3:tab:all_crossmatches}}
+\centering
+\begin{tabular}{*{12}{c}}
+\hline\hline
+ID & Name & Source & Type & $\theta$ & $\theta_r$\tablefootmark{a} & $s_{\mu_{\alpha*}}$ & $\sigma_{\mu_{\alpha*}}$ & $s_{\mu_{\delta}}$ & $\sigma_{\mu_{\delta*}}$ & $s_{\varpi}$ & $\sigma_{\varpi}$ \\
+& & & & ($^\circ$) & & (mas yr$^{-1}$) & & (mas yr$^{-1}$) & & (mas) \\
+	
+\hline
 
-\begin{table}[h]
-	\begin{tabularx}{\textwidth}{X | X | X}
-		%\hline
-		Alpha		& Beta			& Gamma			\\ \hline
-		0			& 1				& 2				\\ \hline
-		3			& 4				& 5				\\ %\hline
-	\end{tabularx}
-	\label{tab:table2}
-	\caption{This is a caption text.}
-\end{table}
+\multicolumn{12}{c}{$\cdot \cdot \cdot$} \\ 
 
-\Blindtext[1][2]
+176 & Basel 1 & Cantat-Gaudin+20 & gaia dr2 & 0.01 & 0.04 & 0.03 & 0.00 & 0.01 & 0.00 & 0.01 & 0.00\\
+176 & Basel 1 & Dias+02 & position & 0.03 & 0.12 & - & - & - & - & - & -\\
+176 & Basel 1 & Kharchenko+13 & hipparcos & 0.01 & 0.04 & 0.40 & 0.09 & 1.04 & 0.24 & 0.06 & 0.17\\
+179 & Basel 10 & Bica+18 & position & 0.01 & 0.04 & - & - & - & - & - & -\\
+179 & Basel 10 & Dias+02 & position & 0.01 & 0.04 & - & - & - & - & - & -\\
+179 & Basel 10 & Cantat-Gaudin+20 & gaia dr2 & 0.01 & 0.07 & 0.03 & 0.00 & 0.05 & 0.01 & 0.01 & 0.00\\
+179 & Basel 10 & Kharchenko+13 & hipparcos & 0.01 & 0.07 & 0.30 & 0.05 & 2.49 & 0.51 & 0.02 & 0.00\\
+179 & Basel 10 & Kharchenko+13 & position & 0.01 & 0.07 & - & - & - & - & - & -\\
+183 & Basel 11A & Cantat-Gaudin+20 & gaia dr2 & 0.01 & 0.01 & 0.02 & 0.00 & 0.05 & 0.00 & 0.02 & 0.00\\
+183 & Basel 11A & Kharchenko+13 & hipparcos & 0.01 & 0.04 & 0.52 & 0.12 & 1.66 & 0.42 & 0.11 & 0.81\\
+183 & Basel 11A & Dias+02 & position & 0.02 & 0.06 & - & - & - & - & - & -\\
+183 & Basel 11A & Bica+18 & position & 0.03 & 0.06 & - & - & - & - & - & -\\
+183 & Basel 11A & Kharchenko+13 & position & 0.01 & 0.04 & - & - & - & - & - & -\\
+3003 & Basel 11B & Kharchenko+13 & position & 0.11 & 0.25 & - & - & - & - & - & -\\
+184 & Basel 11B & Kharchenko+13 & hipparcos & 0.02 & 0.06 & 1.28 & 0.37 & 0.24 & 0.06 & 0.17 & 1.40\\
+184 & Basel 11B & Kharchenko+13 & position & 0.02 & 0.06 & - & - & - & - & - & -\\
+184 & Basel 11B & Dias+02 & position & 0.01 & 0.02 & - & - & - & - & - & -\\
+184 & Basel 11B & Cantat-Gaudin+20 & gaia dr2 & 0.01 & 0.03 & 0.02 & 0.00 & 0.01 & 0.00 & 0.03 & 0.00\\
+184 & Basel 11B & Bica+18 & position & 0.00 & 0.01 & - & - & - & - & - & -\\
+6363 & Basel 11B & Kharchenko+13 & hipparcos & 0.11 & 0.39 & 2.15 & 0.64 & 1.99 & 0.59 & 0.22 & 1.98\\
+6363 & Basel 11B & Kharchenko+13 & position & 0.11 & 0.39 & - & - & - & - & - & -\\
+% - & Basel 12 & Dias+02 & position & - & - & - & - & - & - & - & -\\
+% - & Basel 12 & Kharchenko+13 & hipparcos & - & - & - & - & - & - & - & -\\
+% - & Basel 12 & Bica+18 & position & - & - & - & - & - & - & - & -\\
+% 180 & Basel 13 & Kharchenko+13 & position & 0.11 & 0.74 & - & - & - & - & - & -\\
+% - & Basel 13A & Bica+18 & position & - & - & - & - & - & - & - & -\\
+% - & Basel 14 & Dias+02 & position & - & - & - & - & - & - & - & -\\
+% - & Basel 14 & Kharchenko+13 & hipparcos & - & - & - & - & - & - & - & -\\
+% - & Basel 15 & Bica+18 & position & - & - & - & - & - & - & - & -\\
+% - & Basel 15 & Kharchenko+13 & hipparcos & - & - & - & - & - & - & - & -\\
+% - & Basel 15 & Dias+02 & position & - & - & - & - & - & - & - & -\\
+% 181 & Basel 17 & Kharchenko+13 & position & 0.00 & 0.02 & - & - & - & - & - & -\\
+% 181 & Basel 17 & Cantat-Gaudin+20 & gaia dr2 & 0.01 & 0.07 & 0.01 & 0.00 & 0.06 & 0.08 & 0.01 & 0.00\\
+% 181 & Basel 17 & Kharchenko+13 & hipparcos & 0.00 & 0.02 & 0.62 & 0.10 & 2.37 & 0.43 & 0.11 & 0.93\\
+% 181 & Basel 17 & Dias+02 & position & 0.00 & 0.02 & - & - & - & - & - & -\\
+
+\multicolumn{12}{c}{$\cdot \cdot \cdot$} \\ 
+
+\hline
+\end{tabular}
+
+\tablefoot{The full version is available at the CDS; the above only shows crossmatches against a selection of Basel clusters. Depending on the type of work crossmatched against, only separations in terms of position $\theta$ may be listed. For works with astrometry, separations $s$ with respect to $\mu_{\alpha*}$, $\mu_\delta$, and $\varpi$ are shown, in addition to separations $\sigma$ which are in terms of standard deviations about the mean of the astrometry of these clusters added together in quadrature, after accounting for worst-case systematics. Cluster entries in the literature that did not have a valid crossmatch against any cluster detected in this study are listed with only the name, source, and source type columns filled. Recalling Sect.~\ref{c3:sec:crossmatching}, for a valid crossmatch, we require $\theta_r < 1$, and additionally, when crossmatching to a work with full five parameter astrometry, all $\sigma$ values to be less than two. 
+\tablefoottext{a}{The separation between cluster centres in terms of the largest cluster radius available, $\theta_r = \theta / \text{max}(r_t, \, r_{t,\,\text{lit}})$}
+}
+
+\end{sidewaystable}
+
+Here we provide a table of all crossmatches to all literature clusters that meet our adopted crossmatch criteria from Sect.~\ref{c3:sec:crossmatching} in Table~\ref{app:c3:tab:all_crossmatches}. For every cluster in the literature that we detect in this work, the table lists the internal cluster ID corresponding to our table of clusters in Table~\ref{c3:tab:catalogue} that corresponds to this object. For clusters that we do not redetect, only a blank row with the cluster name, source paper, and type of crossmatch is shown.
+
+
+\subsection{Bayesian neural networks}\label{app:c3:bayesian_nets}
+
+Given that Bayesian neural networks (BNNs) are only just beginning to see use in the astronomical literature \citep[e.g.][]{huertas-company_hubble_2019}, here we provide a brief background overview of the advantages and caveats of the approximate BNN methodology we adopted in Sect.~\ref{c3:sec:cmd_classifier} and Sect.~\ref{c3:sec:agenn}.
+
+BNNs are a somewhat elusive area of open research in machine learning. Their appeal is clear: unlike a deterministic approach or an approach based on simply perturbing network inputs, a perfect BNN would be able to estimate both aleatoric uncertainties, which are uncertainties that result from random phenomena, such as uncertainty on photometric measurements; and epistemic uncertainties, which are uncertainties that result from a lack of knowledge about the underlying processes being modelled. For instance, any remaining gaps or issues in the simulated training data we use would cause a traditional deterministic neural network to always output an incorrect answer, whereas a probabilistic neural network should at least output a wide range of answers that demonstrate its uncertainty in such difficult cases (\cite{goan_bayesian_2020}, \cite{jospin_hands-bayesian_2022}).
+
+In practice, there is currently no perfect BNN architecture, with all approaches having some flaws (\cite{goan_bayesian_2020}, \cite{jospin_hands-bayesian_2022}). While a Monte-Carlo Markov chain (MCMC)-based approach should in theory be superior, where every network weight has an arbitrary posterior distribution, MCMC-based BNNs are extremely difficult or impossible to train accurately, with current sampling techniques being inadequate \citep{goan_bayesian_2020}. In addition, BNNs are often time consuming to train. Instead, `variational inference' is widely used to approximate BNNs. In this technique, an ideal BNN is approximated by perturbing network features, approximating a BNN by `emphasising or de-emphasising' certain parts of a trained model when the model is sampled. This can then be used to estimate the epistemic uncertainty of a model by sampling a variational network multiple times.
+
+Many approaches for variational inference exist in the literature, with a common approach being dropout regularisation as an approximation of a BNN \citep{gal_dropout_2015-1}, having also been used within astronomy (e.g. \cite{huertas-company_hubble_2019}, \cite{leung_deep_2019}). However, this approximation is not inherently Bayesian \citep{hron_variational_2017}, and may be improved upon with recent developments in the literature. Another common approximation is to assume that all layer kernel and bias weights are drawn from simple distributions, such as independent Gaussian distributions. This allows for gradients during network training to be calculated straightforwardly using Bayes by backpropagation \citep{blundell_weight_2015}. This approximation can hold relatively well for (simple) neural networks, which often have normally distributed weights, but may cause underfitting on more complicated problems \citep{goan_bayesian_2020}. Due to the time-consuming nature of repeated samples of all kernel and bias posterior distributions, we also apply an approximation known as Flipout to more efficiently sample them with a lower runtime while preserving good training characteristics \citep{wen_flipout_2018}. Similar approaches using Bayes by backpropagation and Flipout have seen some use in the astronomy literature \citep[e.g.][]{lin_detection_2021}. We use the implementations of \texttt{DenseFlipout} and \texttt{Convolution2DFlipout} layers in TensorFlow Probability \citep{dillon_tensorflow_2017}, minimising the evidence lower bound (ELBO) loss \citep{blundell_weight_2015}.
+
+In initial tests, these approximations produced network outputs with reliable uncertainty estimates that correspond well to the uncertainty inherent to classifying star cluster CMDs. It is worth noting from the literature that variational-inference based approaches are still more overconfident than a true BNN when applied to unseen data \citep{goan_bayesian_2020}, and that this approach is still an imperfect estimator of the true uncertainty of our model; nevertheless, our adopted method was found to be as accurate as a traditional deterministic network architecture of the same configuration when applied to our training data, but while providing an estimate of its uncertainty and without dramatically increasing runtime during training or sampling.
