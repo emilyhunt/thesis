@@ -134,7 +134,10 @@ Yet seismic shift in cluster catalogues brought about by IR datasets and \emph{H
 \subsection{The \gaia\ revolution}
 \label{sec:intro:history:gaia}
 
-For almost all of the history of astronomy, our view of the Milky Way has been strictly two-dimensional. Observing a three-dimensional galaxy in two dimensions is inherently limiting; it took until the 20\third century to even discover that galaxies are separate from the Milky Way. Although astrometric parameters like parallaxes have been measured for stars for over a century, and can be used to view the stars of galaxy in three dimensions, these datasets have always been limited to a few hundred or thousand stars until now.
+For almost all of the history of astronomy, our view of the Milky Way has been strictly two-dimensional. Observing a three-dimensional galaxy in two dimensions is inherently limiting; it took until the 20\third century to even discover that galaxies are separate from the Milky Way CITEME. Although astrometric parameters like parallaxes have been measured for stars for over a century, and can be used to view the stars of galaxy in three dimensions, these datasets have always been limited to a few hundred or thousand stars until now. % can I get PMs in here somehow?
+
+\subsubsection{Background on the \gaia\ satellite}
+\label{sec:intro:history:gaia:background}
 
 \gaia\ is a space-based telescope launched in 2013 that aims to measure a wealth of parameters to an unprecedented level of precision for around $10^9$ stars. \gaia\ is measuring precise positions, proper motions, parallaxes, and photometry for its full sample of stars, and also measures radial velocities and low-resolution spectra for a brighter subsample of sources \citep{gaia_collaboration_gaia_2016}. It is the incredible scale and precision of \gaia\ data that sets it apart from any previous datasets.
 
@@ -145,11 +148,7 @@ For almost all of the history of astronomy, our view of the Milky Way has been s
 	\label{fig:intro:history:gaia_accuracy}
 \end{figure}
 
-Figure~\ref{fig:intro:history:gaia_accuracy} shows a comparison of the parallax uncertainty of \gaia\ data against data from the \emph{Hipparcos} satellite. In just over 20 years, technology progressed far enough to allow \gaia\ to measure parallaxes for $10^4$ times as many stars at a projected eventual accuracy as much as $10^3$ times better than \emph{Hipparcos}.
-
-
-
-
+Figure~\ref{fig:intro:history:gaia_accuracy} shows a comparison of the parallax uncertainty of \gaia\ data against data from the \emph{Hipparcos} satellite. The difference in accuracy and quantity of data is clear: \gaia\ can measure parallaxes for $10^4$ times as many stars at a projected eventual accuracy as much as $10^3$ times better than \emph{Hipparcos}. Inevitably, such a large increase in the amount (and quality) of data has huge implications for the study of all objects in the Milky Way, of course including OCs.
 
 % Plot of gaia astrometric tracks
 \begin{figure}[tb]
@@ -158,6 +157,13 @@ Figure~\ref{fig:intro:history:gaia_accuracy} shows a comparison of the parallax 
 	\label{fig:intro:history:gaia_tracks}
 \end{figure}
 
+To truly understand the wonder of the \gaia\ satellite, it is first worth discussing how exactly it works. Although our galaxy is a dynamic system, with stars continually orbiting around the centre of the Milky Way \citep{binney_galactic_1987}, it is exceptionally difficult to capture the movement of our galaxy in real time. To the human eye, the night sky is static; even the closest stars with the highest proper motions and parallaxes have movements across the sky measured in arcseconds, with one arcsecond being equivalent to just $1/3600$ of a degree. For stars at a distance of, say, 1~kpc, their parallax will amount to just 1~mas. With the Milky Way having an estimated radius of around 25~kpc CITEME, it is clear that measuring precise astrometry for so many sources requires an incredible level of precision.
+
+\gaia\ operates quite unconventionally relative to traditional 'point and take a picture' telescopes, originally pioneered in the design of the \emph{Hipparcos} satellite. Instead, \gaia\ gathers data by rotating at a rate of exactly 1\textdegree per minute, spreading point sources into lines on its detector which are then processed into sources at a given location. This scanning pattern coupled with the field of view of the telescope means it visits every location on the celestial sphere around 14 times a year, allowing the complicated track of sources across the sky (particular for binary stars) to be reconstructed to an exceptionally high level of precision for around 1~billion sources (see Fig.~\ref{fig:intro:history:gaia_tracks}). The controlled rate of rotation coupled with \gaia's view of the cosmos being undisturbed by atmospheric distortion (as is the case with ground-based astrometry) and precise, modern detectors allows for \gaia's revolutionary measurements to be possible.
+
+\subsubsection{The \gaia\ contribution to open cluster science}
+\label{sec:intro:history:gaia:background}
+
 % Plot of hipparcos vs. gaia Blanco 1
 \begin{figure}[tb]
 	\centering
@@ -165,6 +171,8 @@ Figure~\ref{fig:intro:history:gaia_accuracy} shows a comparison of the parallax 
 	\caption[Comparison between the regions around the star cluster Blanco~1 in data from \emph{Hipparcos} and \gaia]{Comparison between the regions around the star cluster Blanco~1 in data from \emph{Hipparcos} and \gaia. \emph{Hipparcos}-2 data \citep{vanleeuwen_hipparcos_new_2007} is shown on the left and \gaia\ DR3 data \citep{gaia_collaboration_gaia_2022} is shown on the right. The top row shows proper motions, the middle row shows parallax as a function of right ascension, and the bottom row shows the CMD of the stars in each region. While \emph{Hipparcos} only sees a few dozen bright stars for the cluster, \gaia\ can detect up to 1000, and to a significantly higher degree of astrometric accuracy.}
 	\label{fig:intro:history:gaia_blanco_1}
 \end{figure}
+
+The story for open clusters is clear. 
 
 
 
