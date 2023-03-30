@@ -129,12 +129,13 @@ Work predominantly with IR data culminated in the catalogue of \cite{kharchenko_
 
 In around 20 years, the OC census more than doubled in size between the work of \cite{mermilliod_database_1995} to the work of \cite{kharchenko_global_2013}. This unprecedented shift represented the first time that the OC census had been significantly expanded in over a century, with improved datasets offering significantly better measurements of more clusters than ever before. 
 
-Yet seismic shift in cluster catalogues brought about by IR datasets and \emph{Hipparcos} was scarcely the beginning of the modern revolution in studies of OCs. \gaia's first full data release in 2018, DR2 \citep{brown_gaia_2018}, sparked the next revolution in the census of OCs.
+Yet the seismic shift in cluster catalogues brought about by IR datasets and \emph{Hipparcos} was scarcely the beginning of the modern revolution in studies of OCs. \gaia's first full data release in 2018, DR2 \citep{brown_gaia_2018}, sparked the next revolution in the census of OCs.
+
 
 \subsection{The \gaia\ revolution}
 \label{sec:intro:history:gaia}
 
-For almost all of the history of astronomy, our view of the Milky Way has been strictly two-dimensional. Observing a three-dimensional galaxy in two dimensions is inherently limiting; it took until the 20\third century to even discover that galaxies are separate from the Milky Way CITEME. Although astrometric parameters like parallaxes have been measured for stars for over a century, and can be used to view the stars of galaxy in three dimensions, these datasets have always been limited to a few hundred or thousand stars until now. % can I get PMs in here somehow?
+For almost all of the history of astronomy, our view of the Milky Way has been strictly two-dimensional. Observing a three-dimensional galaxy in two dimensions is inherently limiting; it took until the 20\third\ century to even discover that galaxies are separate from the Milky Way CITEME. Although astrometric parameters like parallaxes have been measured for stars for over a century, and can be used to view the stars of the galaxy in three dimensions, these datasets have always been limited to a few hundred or thousand stars until very recently. % can I get PMs in here somehow?
 
 \subsubsection{Background on the \gaia\ satellite}
 \label{sec:intro:history:gaia:background}
@@ -157,39 +158,87 @@ Figure~\ref{fig:intro:history:gaia_accuracy} shows a comparison of the parallax 
 	\label{fig:intro:history:gaia_tracks}
 \end{figure}
 
-To truly understand the wonder of the \gaia\ satellite, it is first worth discussing how exactly it works. Although our galaxy is a dynamic system, with stars continually orbiting around the centre of the Milky Way \citep{binney_galactic_1987}, it is exceptionally difficult to capture the movement of our galaxy in real time. To the human eye, the night sky is static; even the closest stars with the highest proper motions and parallaxes have movements across the sky measured in arcseconds, with one arcsecond being equivalent to just $1/3600$ of a degree. For stars at a distance of, say, 1~kpc, their parallax will amount to just 1~mas. With the Milky Way having an estimated radius of around 25~kpc CITEME, it is clear that measuring precise astrometry for so many sources requires an incredible level of precision.
+To truly understand the wonder of the \gaia\ satellite, it is first worth discussing how exactly it works. Although our galaxy is a dynamic system, with stars continually orbiting around the centre of the Milky Way \citep{binney_galactic_1987}, it is exceptionally difficult to capture the movement of our galaxy in real time. To the human eye, the night sky is static; even the closest stars with the highest proper motions and parallaxes have movements across the sky measured in arcseconds, with one arcsecond being equivalent to just $1/3600$ of a degree. For stars at a distance of, say, 1~kpc, their parallax will amount to just 1~mas. With the Milky Way having an estimated radius of around 25~kpc CITEME, it is clear that measuring precise astrometry for even a small fraction of the stars in the galaxy requires an incredible level of precision.
 
-\gaia\ operates quite unconventionally relative to traditional 'point and take a picture' telescopes, originally pioneered in the design of the \emph{Hipparcos} satellite. Instead, \gaia\ gathers data by rotating at a rate of exactly 1\textdegree per minute, spreading point sources into lines on its detector which are then processed into sources at a given location. This scanning pattern coupled with the field of view of the telescope means it visits every location on the celestial sphere around 14 times a year, allowing the complicated track of sources across the sky (particular for binary stars) to be reconstructed to an exceptionally high level of precision for around 1~billion sources (see Fig.~\ref{fig:intro:history:gaia_tracks}). The controlled rate of rotation coupled with \gaia's view of the cosmos being undisturbed by atmospheric distortion (as is the case with ground-based astrometry) and precise, modern detectors allows for \gaia's revolutionary measurements to be possible.
+Using techniques originally pioneered with the \emph{Hipparcos} satellite, \gaia\ operates quite unconventionally relative to traditional `point and take a picture' telescopes. Instead, \gaia\ gathers data by rotating at a rate of exactly 1\textdegree\ per minute, spreading point sources into lines on its detector which are then processed into sources at a given location. Coupled with the field of view of the telescope, this scanning pattern means it visits every location on the celestial sphere around 14 times a year, allowing the complicated track of sources across the sky (particularly for binary stars) to be reconstructed to an exceptionally high level of precision for around 1~billion sources (see Fig.~\ref{fig:intro:history:gaia_tracks}). \gaia's controlled rate of rotation, its view of the cosmos undisturbed by atmospheric distortion, and its precise, modern detectors allow for \gaia's revolutionary measurements to be possible \citep{gaia_collaboration_gaia_2016}.
 
-\subsubsection{The \gaia\ contribution to open cluster science}
-\label{sec:intro:history:gaia:background}
+
+\subsubsection{The \gaia\ impact on the census of OCs}
+\label{sec:intro:history:gaia:census}
 
 % Plot of hipparcos vs. gaia Blanco 1
-\begin{figure}[tb]
+\begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth]{fig/c1/gaia_hipparcos_oc_comparison.pdf}
+	\includegraphics[width=\textwidth]{fig/c1/gaia_hipparcos_oc_comparison.pdf}
 	\caption[Comparison between the regions around the star cluster Blanco~1 in data from \emph{Hipparcos} and \gaia]{Comparison between the regions around the star cluster Blanco~1 in data from \emph{Hipparcos} and \gaia. \emph{Hipparcos}-2 data \citep{vanleeuwen_hipparcos_new_2007} is shown on the left and \gaia\ DR3 data \citep{gaia_collaboration_gaia_2022} is shown on the right. The top row shows proper motions, the middle row shows parallax as a function of right ascension, and the bottom row shows the CMD of the stars in each region. While \emph{Hipparcos} only sees a few dozen bright stars for the cluster, \gaia\ can detect up to 1000, and to a significantly higher degree of astrometric accuracy.}
 	\label{fig:intro:history:gaia_blanco_1}
 \end{figure}
 
-The story for open clusters is clear. 
+With so much data at an incredible level of quality, it is perhaps unsurprising that the OC census has been completely overhauled in just five years since the release of \gaia\ DR2. In many ways, \gaia\ is the perfect instrument for the study of OCs. Most OCs (such as NGC~2547 in Fig.~\ref{fig:intro:definition:comparison}) have relatively low star counts and are situated on the galactic disk, where high numbers of field stars are present -- making them challenging to isolate from background sources \citep{kharchenko_global_2012}. However, as OCs are comoving groups at a similar distance to one another and denser than the surrounding field, \gaia's proper motions and parallaxes provide an excellent way to isolate clusters from the field \citep{cantat-gaudin_characterising_2018}.
+
+Figure~\ref{fig:intro:history:gaia_blanco_1} shows the region around the high galactic latitude OC Blanco~1 in data from the Hipparcos-2 catalogue \citep{vanleeuwen_hipparcos_new_2007}, compared against the same region in data from \gaia\ DR3 \citep{gaia_collaboration_gaia_2022}. The difference in precision between the two datasets is dramatic. In \emph{Hipparcos}, while the cluster is visible as an overdensity in proper motion space, in \gaia, the cluster becomes a small, compact group of stars that is trivially easy to separate from field stars. In addition, while Hipparcos parallaxes have accuracies on the order of 1~mas, \gaia\'s $\sim100\times$ better parallaxes make the cluster stand out as a clearly visible horizontal line as a function of right ascension. Combined together, proper motions and parallaxes make an exceptionally powerful tool to isolate OCs from field stars and derive clean, minimally contaminated membership lists. In addition, the difference in dataset size between the two telescopes is abundantly clear: \gaia\ DR3 can be used to probe the cluster eight to ten magnitudes fainter than \emph{Hipparcos}, resulting in a membership list around $\sim50\times$ larger than the cluster in \emph{Hipparcos} data. This incredible level of astrometric precision is repeated across the entire galactic disk, and has powered the last five years of revolution in the OC census.
+
+% TODO: DR1? you may want to talk about DR1 tbh
+
+Not long after the release of \gaia\ DR2, \cite{cantat-gaudin_gaia_2018} produced an updated catalogue of OCs and OC membership lists, using pre-\gaia\ works such as \cite{kharchenko_global_2013} as input and trying to redetect their catalogued clusters in \gaia\ data. \cite{cantat-gaudin_gaia_2018} were able to derive updated cluster membership lists with around twice as many members on average as in \cite{kharchenko_global_2013}, as well as deriving cluster proper motions to around two orders of magnitude greater precision than in \cite{kharchenko_global_2013} and precise distances to clusters.
+
+One of the largest results of the work on the OC census so far in the era of \gaia\ has been that many clusters catalogued before \gaia\ cannot be detected in \gaia\ data. This is clear in Fig.~\ref{fig:intro:history:catalogues}, with the catalogue of \cite{cantat-gaudin_gaia_2018} containing around half as many clusters as \cite{kharchenko_global_2013}. The reasons for the non-detection of such a large number of OCs remain unclear. How can so many objects catalogued before \gaia\ be undetectable?
+
+\cite{cantat-gaudin_clusters_2020} provided some answers to this question, searching again in \gaia\ DR2 data for many of the clusters they were unable to detect. They found that many clusters reported earlier in IR datasets continued to be undetectable in \emph{Gaia}, being able to strongly rule out 38 objects as definite asterisms. The asterisms they found are generally older and at high galactic latitudes, and were typically reported in IR datasets. They comment that although \gaia's visual observations should mean some clusters are too heavily reddened to be visible to \gaia, there are nevertheless many objects that \gaia\ should still be able to detect, owing to its deep visual photometry and ease of separating OCs from the field. However, the status of at least another $\sim$1000 clusters remains unknown, with the exact reasons for their non-detection in \emph{Gaia} being only speculation at this time. 
+
+
+\subsubsection{New open clusters found with \gaia}
+
+% Plot of reported OCs
+\begin{figure}[tb]
+	\includegraphics[width=\textwidth]{fig/c1/papers.pdf}
+	\caption[The approximate number of papers reporting new open clusters in the 21\first\ century]{The approximate number of papers reporting new open clusters in the 21\first\ century, shown as a stacked bar chart of peer reviewed and non-peer reviewed works.}
+	\label{fig:intro:history:papers}
+\end{figure}
+
+At the same time that \gaia\ has been an invaluable tool to probe which OCs are and are not real, \gaia\ has also allowed for a large number of new OC discoveries, particularly for smaller, sparser objects that are otherwise impossible to find in 2D datasets. Figure~\ref{fig:intro:history:papers} shows the approximate number of papers reporting new OCs in the 21\first\ century. Papers were found by searching the ADS\footnote{\url{https://ui.adsabs.harvard.edu/}} in Februrary 2023 for papers whose title or abstract contained the string `\texttt{new open cluster}'. The release of \gaia\ DR2 in 2018 \citep{brown_gaia_2018} clearly corresponds with the number of papers reporting new OCs roughly doubling or tripling.
+
+The central challenge of finding new OCs in data from \gaia\ is the sheer size of the \gaia\ dataset, with hundreds of millions of stars to search through in a five-dimensional dataset of positions, proper motions and parallaxes for each star. While traditional approaches in the 19\third\ and 20\third\ centuries searched for clusters by hand, and works such as \cite{froebrich_systematic_2007} refined this approach by using kernel density estimation to identify overdense regions in the two-dimensional 2MASS dataset, the release of \gaia\ has also seen an explosion in new approaches for OC recovery.
+
+Machine learning has exploded into observational astronomy over the last decade, developing from a niche method into 
 
 
 
 
 
-% everything below this line is shit
-\section{not sure where these bits will go yet}
 
-\subsection{Common techniques in open cluster observations}
-\label{sec:intro:history:techniques}
-\subsubsection{Membership determination}
+\subsubsection{\gaia's brand new insights into open clusters}
+\label{sec:intro:history:gaia:insights}
 
-TODO. I honestly don't know enough here already lol
+% Plot of Meingast+ tidal tails/comas
+\begin{figure}[tb]
+	\includegraphics[width=\textwidth]{fig/c1/meingast_tidal_tails.png}
+	\caption[TODO]{TODO}
+	\label{fig:intro:gaia:comas}
+\end{figure}
 
-\subsubsection{Blind searches for open clusters}
+% Plot of OC spiral arm sort-of correlation
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/c1/spiral_arms.png}
+	\caption[TODO]{TODO}
+	\label{fig:intro:gaia:spiral}
+\end{figure}
 
-TODO. Should lead in from the previous section.
+
+\section{The issues with the open cluster census}
+
+
+
+
+
+
+% ---------------------------------------
+\section{Further background into star clusters and associated common methods}
+\label{sec:intro:theory}
+
+\subsection{Observational methods}
+\label{sec:intro:theory:observations}
 
 \subsubsection{Isochrone fitting}
 
@@ -210,89 +259,6 @@ Probably unsurprisingly, there are hence many methods used in the literature to 
 
 By far the main flaw of cluster isochrone fitting is speed. Three or four-parameter fits using complicated stellar isochrones simply cannot be performed quickly, requiring significant amounts of computation time to complete in e.g. \cite{yen_reanalysis_2018}, making these key cluster parameters relatively time-intensive to derive using traditional isochrone fitting techniques.
 
-\subsubsection{Radial profile fitting}
-
-\subsubsection{Mass determination}
-
-
-\subsection{Other important observations}
-\label{sec:intro:history:other_obs}
-
-\subsubsection{Binary stars in open clusters}
-
-\subsubsection{Blue stragglers: some stars stay young for longer}
-
-% Plot of blue stragglers
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.6\textwidth]{fig/c1/ngc_188_blue_stragglers.png}
-	\caption[TODO]{TODO}
-	\label{fig:intro:history:blue_stragglers}
-\end{figure}
-
-\subsubsection{Extended main-sequence turn-offs (eMSTOs): not all OCs are perfect single populations}
-
-% Plot of LMC cluster eMSTO
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{fig/c1/emsto.png}
-	\caption[TODO]{TODO}
-	\label{fig:intro:history:emsto}
-\end{figure}
-
-\subsection{The pre-\gaia\ issues with the open cluster census}
-\label{sec:intro:history:issues}
-
-
-
-
-
-
-% ---------------------------------------
-\section{The \gaia\ revolution in open cluster science}
-\label{sec:intro:gaia}
-
-
-
-
-\subsection{How \gaia\ has already revolutionised the open cluster census}
-\label{sec:intro:gaia:census}
-
-
-% Plot of reported OCs
-\begin{figure}[tb]
-	\includegraphics[width=\textwidth]{fig/c1/papers.pdf}
-	\caption{TODO}
-	\label{fig:intro:history:papers}
-\end{figure}
-
-
-\subsection{\gaia's brand new insights into open clusters}
-\label{sec:intro:gaia:insights}
-
-% Plot of Meingast+ tidal tails/comas
-\begin{figure}[tb]
-	\includegraphics[width=\textwidth]{fig/c1/meingast_tidal_tails.png}
-	\caption[TODO]{TODO}
-	\label{fig:intro:gaia:comas}
-\end{figure}
-
-% Plot of OC spiral arm sort-of correlation
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.8\textwidth]{fig/c1/spiral_arms.png}
-	\caption[TODO]{TODO}
-	\label{fig:intro:gaia:spiral}
-\end{figure}
-
-
-\subsection{The issues with open clusters in the \gaia\ era}
-\label{sec:intro:gaia:issues}
-
-
-% ---------------------------------------
-\section{Some theoretical background into star clusters}
-\label{sec:intro:theory}
 
 \subsection{Radial profiles}
 \label{sec:intro:theory:profile}
@@ -319,7 +285,7 @@ By far the main flaw of cluster isochrone fitting is speed. Three or four-parame
 
 
 % ---------------------------------------
-\section{Thesis structure}
+\section{The structure of this thesis}
 \label{sec:intro:structure}
 
 \textbf{Chapter \ref{sec:intro}} \\[0.2em]
