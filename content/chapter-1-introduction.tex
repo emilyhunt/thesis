@@ -78,13 +78,8 @@ These definitions are summarised in Table~\ref{tab:intro:definition:definition} 
 
 
 % ---------------------------------------
-\section{The history of open cluster observations up until the present day}
-\label{sec:intro:history}
-
-In this chapter, I present a literature review of how open clusters have been observed up until the present day, including many key results and touching on a number of still-unanswered questions.
-
-\subsection{The pre-\gaia\ history of open cluster observations}
-\label{sec:intro:history:history}
+\section{The pre-\gaia\ history of open cluster observations}
+\label{sec:intro:pre-gaia}
 
 % Plot of the pleiades
 \begin{figure}[tb]
@@ -132,12 +127,12 @@ In around 20 years, the OC census more than doubled in size between the work of 
 Yet the seismic shift in cluster catalogues brought about by IR datasets and \emph{Hipparcos} was scarcely the beginning of the modern revolution in studies of OCs. \gaia's first full data release in 2018, DR2 \citep{brown_gaia_2018}, sparked the next revolution in the census of OCs.
 
 
-\subsection{The \gaia\ revolution}
-\label{sec:intro:history:gaia}
+\section{The \gaia\ revolution}
+\label{sec:intro:gaia}
 
 For almost all of the history of astronomy, our view of the Milky Way has been strictly two-dimensional. Observing a three-dimensional galaxy in two dimensions is inherently limiting; it took until the 20\third\ century to even discover that galaxies are separate from the Milky Way CITEME. Although astrometric parameters like parallaxes have been measured for stars for over a century, and can be used to view the stars of the galaxy in three dimensions, these datasets have always been limited to a few hundred or thousand stars until very recently. % can I get PMs in here somehow?
 
-\subsubsection{Background on the \gaia\ satellite}
+\subsection{Background on the \gaia\ satellite}
 \label{sec:intro:history:gaia:background}
 
 \gaia\ is a space-based telescope launched in 2013 that aims to measure a wealth of parameters to an unprecedented level of precision for around $10^9$ stars. \gaia\ is measuring precise positions, proper motions, parallaxes, and photometry for its full sample of stars, and also measures radial velocities and low-resolution spectra for a brighter subsample of sources \citep{gaia_collaboration_gaia_2016}. It is the incredible scale and precision of \gaia\ data that sets it apart from any previous datasets.
@@ -163,8 +158,8 @@ To truly understand the wonder of the \gaia\ satellite, it is first worth discus
 Using techniques originally pioneered with the \emph{Hipparcos} satellite, \gaia\ operates quite unconventionally relative to traditional `point and take a picture' telescopes. Instead, \gaia\ gathers data by rotating at a rate of exactly 1\textdegree\ per minute, spreading point sources into lines on its detector which are then processed into sources at a given location. Coupled with the field of view of the telescope, this scanning pattern means it visits every location on the celestial sphere around 14 times a year, allowing the complicated track of sources across the sky (particularly for binary stars) to be reconstructed to an exceptionally high level of precision for around 1~billion sources (see Fig.~\ref{fig:intro:history:gaia_tracks}). \gaia's controlled rate of rotation, its view of the cosmos undisturbed by atmospheric distortion, and its precise, modern detectors allow for \gaia's revolutionary measurements to be possible \citep{gaia_collaboration_gaia_2016}.
 
 
-\subsubsection{The \gaia\ impact on the census of OCs}
-\label{sec:intro:history:gaia:census}
+\subsection{The \gaia\ impact on the census of OCs}
+\label{sec:intro:gaia:census}
 
 % Plot of hipparcos vs. gaia Blanco 1
 \begin{figure}[p]
@@ -187,28 +182,34 @@ One of the largest results of the work on the OC census so far in the era of \ga
 \cite{cantat-gaudin_clusters_2020} provided some answers to this question, searching again in \gaia\ DR2 data for many of the clusters they were unable to detect. They found that many clusters reported earlier in IR datasets continued to be undetectable in \emph{Gaia}, being able to strongly rule out 38 objects as definite asterisms. The asterisms they found are generally older and at high galactic latitudes, and were typically reported in IR datasets. They comment that although \gaia's visual observations should mean some clusters are too heavily reddened to be visible to \gaia, there are nevertheless many objects that \gaia\ should still be able to detect, owing to its deep visual photometry and ease of separating OCs from the field. However, the status of at least another $\sim$1000 clusters remains unknown, with the exact reasons for their non-detection in \emph{Gaia} being only speculation at this time. 
 
 
-\subsubsection{New open clusters found with \gaia}
+\subsection{New open clusters found with \gaia}
+\label{sec:intro:gaia:new_clusters}
 
 % Plot of reported OCs
 \begin{figure}[tb]
 	\includegraphics[width=\textwidth]{fig/c1/papers.pdf}
-	\caption[The approximate number of papers reporting new open clusters in the 21\first\ century]{The approximate number of papers reporting new open clusters in the 21\first\ century, shown as a stacked bar chart of peer reviewed and non-peer reviewed works.}
+	\caption[The approximate number of papers reporting new open clusters in the 21\first\ century]{The approximate number of papers reporting new open clusters in the 21\first\ century, shown as a stacked bar chart of peer reviewed and non-peer reviewed works. Data for 2022-2023 are incomplete.}
 	\label{fig:intro:history:papers}
 \end{figure}
 
-At the same time that \gaia\ has been an invaluable tool to probe which OCs are and are not real, \gaia\ has also allowed for a large number of new OC discoveries, particularly for smaller, sparser objects that are otherwise impossible to find in 2D datasets. Figure~\ref{fig:intro:history:papers} shows the approximate number of papers reporting new OCs in the 21\first\ century. Papers were found by searching the ADS\footnote{\url{https://ui.adsabs.harvard.edu/}} in Februrary 2023 for papers whose title or abstract contained the string `\texttt{new open cluster}'. The release of \gaia\ DR2 in 2018 \citep{brown_gaia_2018} clearly corresponds with the number of papers reporting new OCs roughly doubling or tripling.
+At the same time that \gaia\ has been an invaluable tool for better cataloguing already-known OCs, \gaia\ has also allowed for a large number of new OC discoveries; particularly for smaller, sparser objects that are otherwise impossible to find in 2D datasets \citep{cantat-gaudin_milky_2022}. Figure~\ref{fig:intro:history:papers} shows the approximate number of papers reporting new OCs in the 21\first\ century. Papers were found by searching the ADS\footnote{\url{https://ui.adsabs.harvard.edu/}} in Februrary 2023 for papers whose title or abstract contained the string `\texttt{new open cluster}'. The release of \gaia\ DR2 in 2018 \citep{brown_gaia_2018} clearly corresponds with the number of papers reporting new OCs each year roughly doubling.
 
-The central challenge of finding new OCs in data from \gaia\ is the sheer size of the \gaia\ dataset, with hundreds of millions of stars to search through in a five-dimensional dataset of positions, proper motions and parallaxes for each star. While traditional approaches in the 19\third\ and 20\third\ centuries searched for clusters by hand, and works such as \cite{froebrich_systematic_2007} refined this approach by using kernel density estimation to identify overdense regions in the two-dimensional 2MASS dataset, the release of \gaia\ has also seen an explosion in new approaches for OC recovery.
+The central challenge of finding new OCs in data from \gaia\ is the sheer size of the \gaia\ dataset, with hundreds of millions of stars to search through in a five-dimensional dataset of positions, proper motions and parallaxes for each star. While traditional approaches in the 19\third\ and 20\third\ centuries searched for clusters by hand, and works such as \cite{froebrich_systematic_2007} refined this approach by using kernel density estimation to identify overdense regions in the two-dimensional 2MASS dataset, the release of \gaia\ has also seen many new approaches for OC recovery.
 
-Machine learning has exploded into observational astronomy over the last decade, developing from a niche method into 
+Machine learning (ML) has exploded into observational astronomy over the last decade, developing from a niche method into a mainstay of observational methods CITEME. ML has two primary appeals. Firstly, it mostly automates the solving of complicated problems. ML can learn the relationship between input data and a desired output largely autonomously, with the user only being responsible for checking its work. Especially for arduous tasks like classification of large datasets \citep[e.g.][]{killestein_transient-optimised_2021}, ML-based approaches can be orders of magnitude more straightforward to implement than creating a brand new algorithm or approach to solve every problem every time, or by simply solving a problem by hand as would be done traditionally. In this way, ML methods can be considered a `Swiss army knife' of model fitting, with every method being applicable to a very wide range of potential problems. Secondly, ML-based approaches are generally much quicker than previous methodologies \citep{hunt_improving_2021}, leveraging the latest computing hardware such as graphics processing units (GPUs) significantly more efficiently than previous methods.
+
+While ML is not without caveats which will be discussed at length later in this thesis, ML has still been essential to the dramatic increase in newly reported OCs in the \gaia\ era. \cite{castro-ginard_new_2018} were the first authors to adopt an ML-based approach for OC recovery, using two kinds of ML to automate tasks in cluster searches. Firstly, they used a clustering algorithm called DBSCAN (a form of unsupervised ML) to recover 31 new OCs in \gaia\ DR2 data, automating the process of cluster retrieval. Then, they used a neural network (a form of supervised ML) to classify OCs based on their CMD, also automating the process of assuring that OC CMDs have single stellar populations. Aside from \cite{sim_207_2019} and a handful of works where small numbers of new OCs were noticed by mistake \citep[e.g.][]{zari_3d_2018,bastian_gaia_2019,anders_ngc_2022-1}, all of the other roughly two dozen papers over the past few years that have found new OCs have used ML techniques to search for clusters.
+
+Since then, many other works have used DBSCAN or variations on it to detect new clusters, with it proving to be an extremely popular method in the literature for OC retrieval \citep{castro-ginard_hunting_2019,castro-ginard_hunting_2020,castro-ginard_hunting_2022,liu_catalog_2019,he_catalogue_2021,he_new_2022,he_unveiling_hidden_2022,he_blind_allsky_2022,qin_discovery_2021,hao_sixteen_2020,hao_newly_2022,qin_hunting_2023}. In total, these works have reported nearly 4000 new OC candidates, which -- if all of these objects are real -- presents a major expansion in the size of the OC census.
 
 
 
 
 
 
-\subsubsection{\gaia's brand new insights into open clusters}
-\label{sec:intro:history:gaia:insights}
+
+\subsection{\gaia's brand new insights into open clusters}
+\label{sec:intro:gaia:insights}
 
 % Plot of Meingast+ tidal tails/comas
 \begin{figure}[tb]
