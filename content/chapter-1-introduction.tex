@@ -90,6 +90,9 @@ These definitions are summarised in Table~\ref{tab:intro:definition:definition} 
 
 While the results of this thesis are entirely derived using data from \gaia\ , to truly understand just how groundbreaking the current data of the \gaia\ satellite is, it is worth first briefly reviewing the history of OC observations.
 
+
+\subsection{Open clusters up to the 20th century}
+
 Our ability to observe OCs has progressed incredibly far throughout the history of astronomy (Fig.~\ref{fig:intro:history:pleiades}). The invention of the refracting telescope allowed for early astronomers such as Galileo to observe that OCs and GCs are in fact clusters of many stars, as opposed to being dispered single sources as previously believed from unaided observations. It was, however, the invention and widespread adoptation of the reflecting telescope in the 17\textsuperscript{th} and 18\textsuperscript{th} centuries that led to catalogues of clusters like we use today.
 
 % Plot of catalogues of OCs
@@ -112,6 +115,9 @@ The power of reflecting telescopes allowed astronomers to scan the sky to signfi
 The 20\textsuperscript{th} century saw improvements to data gathering and techniques, with early photometric and spectroscopic methods allowing authors such as \cite{rosenberg_uber_zusammenhang_1910} and \cite{hertzsprung_ueber_verwendung_1911} to plot the brightness of the stars in the Pleiades and the Hyades against their spectral features, noticing for the first time that the brightness of stars is related to their colour and spectral features. \cite{russell_relations_spectra_1914} derived the absolute magnitude of stars in the Hyades and ploted this against an early spectral analogue of the temperature of its member stars, plotting the luminosity of stars against their temperature for the first time and inventing `Hertzsprung-Russell' or `colour-magnitude' diagrams (CMDs), a type of plot used extensively in the present day as an essential tool to understand stellar evolution. Later, the differences in CMDs between different clusters were noticed and was interpreted as being a difference in age between the clusters, allowing for the ages of stars within star clusters to be estimated and beginning the foundation of our knowledge of stellar evolution \ref{fig:intro:history:cmds}.
 
 While the 20\textsuperscript{th} century saw huge strides in our understanding of stars and star clusters, the size of OC catalogues went relatively unchanged (Fig.~\ref{fig:intro:history:catalogues}). It was not until the 1990s and the arrival of new methodologies that the OC census itself has begun its largest upheaval since the widespread adoptation of reflecting telescopes more than 200 years prior.
+
+
+\subsection{The advent of modern astrometry and infra-red datasets}
 
 The launch of the \emph{Hipparcos} satellite and subsequent data releases \citep{perryman_hipparcos_1997} produced a catalogue of around 10$^5$ sources with five-parameter milliarcsecond-precision astrometry. OCs stand out as overdensities in \emph{Hipparcos} data, in particular in proper motions, as OCs are comoving groups of stars that often have different velocities to background field sources. This new data allowed works such as \cite{platais_search_1998} to discover a number of new OCs, with many being small objects near to the Sun that evaded detection with only two-dimensional visual observations. 
 
@@ -245,7 +251,7 @@ It goes without saying that all scientific use cases of OCs rely on the OC censu
 
 
 
-\section{The aims of this thesis}
+\section{Issues and solutions for the open cluster census}
 \label{sec:intro:aims}
 
 As detailed in Sects.~\ref{sec:intro:pre-gaia} and \ref{sec:intro:gaia}, there has been a huge amount of recent scientific progress in the OC census and in the study of OCs as a whole. However, the \gaia\ era of OC science is still relatively new, with many more years of data releases being anticipated. Inevitably, this will allow for a huge range of new scientific studies into OCs \citep{gaia_collaboration_gaia_2022}. 
@@ -255,10 +261,10 @@ To maximise the scientific potential of OCs, it makes sense to improve the censu
 
 \subsection{The issues with the open cluster census}
 \label{sec:intro:aims:issues}
-\subsubsection{Problem 1. The methods used to detect open clusters and their biases}
+\subsubsection{Problem 1. The methods used to detect open clusters (and their biases)}
 \label{sec:intro:aims:issues:detection}
 
-Firstly, as mentioned in Sect.~\ref{sec:intro:gaia}, the \gaia\ mission has provided the OC community with a tremendous quantity of data. However, until now, many different works have tried many different approaches for OC recovery (both for recovery of existing clusters and for blind searches), with no direct comparison having been done between different approaches. Additionally, modern computer science is fast-paced, particularly in the field of machine learning. Many different approaches exist for clustering data, only a handful of which have been trialed for OC recovery \citep{xu_comprehensive_2015}, despite the fact that publically available open-source implementations of these algorithms are often available and ready to use \citep[e.g.][]{scikit-learn}.
+As mentioned in Sect.~\ref{sec:intro:gaia}, the \gaia\ mission has provided the OC community with a tremendous quantity of data. However, until now, many different works have tried many different approaches for OC recovery (both for recovery of existing clusters and for blind searches), with no direct comparison having been done between different approaches. Additionally, modern computer science is fast-paced, particularly in the field of machine learning. Many different approaches exist for clustering data, only a handful of which have been trialed for OC recovery \citep{xu_comprehensive_2015}, despite the fact that publically available open-source implementations of these algorithms are often available and ready to use \citep[e.g.][]{scikit-learn}.
 
 This causes a number of problems. Primarily, it is unclear whether or not existing approaches are subject to biases. Particularly since almost all blind searches for OCs have used DBSCAN (Sect.~\ref{sec:intro:gaia:new_clusters}), it could be that a bias with the algorithm could prevent certain clusters from being detected depending on their age, distance, or other parameters, which may mean that a whole type of new OC has been as-yet undiscovered within \gaia\ data. There is no certainty that all OCs that \emph{can} be detected \emph{have} been detected with \gaia.
 
@@ -314,14 +320,32 @@ A `gold standard' observational definition of an OC might be more directly deriv
 \subsection{The aims of this thesis}
 \label{sec:intro:issues:aims}
 
+Even relative to the major improvements to OC science in the 1990s and 2000s, \gaia\ has still been utterly groundbreaking in the quality and quantity of data it provides on our galaxy. Never before has so much precise data been available for so many stars; \gaia\ will rewrite textbooks on the composition and characteristics of the Milky Way. Within the field of OCs, this is clear from the many incredible new \gaia\ results highlighted in Sect.~\ref{sec:intro:gaia}. Yet as the many problems discussed in the previous section show, many issues remain with the census of OCs. In this thesis, I hope to showcase timely research that can present solutions or partial solutions to the above problems, developing the methods used to analyse OCs in the \gaia\ era to maximise the scientific potential of these objects.
+
+First and foremost, it is impossible to solve many of the other issues in the OC census without an understanding of the limitations and biases inherent to different methods for OC retrieval (Problem 1). In addition, numerous unexplored methods for cluster retrieval present in the computer science literature could provide better options for the recovery of OCs \citep{xu_comprehensive_2015}. To date, there has been no comparative study into the advantages and disadvantages of different approaches for cluster retrieval, despite the clear importance of understanding the limitations of different methods; hence, the first part of this thesis focuses on trialing different algorithms for OC recovery in \gaia\ DR2 data, performing a comparative study into their effectiveness. In this study, I will also aim to find optimal ways to divide \gaia\ data for OC retrieval, aiming to present a method that can be ran efficiently even on larger datasets, allowing for more sources to be incorporated in the future as \gaia\ data releases improve. In the best case scenario, a method can be found that can redetect the clusters reported by all other works with minimal bias.
+
+With a best method found, other problems in the census will be more straightforward to solve. Finding the best methodology for OC retrieval and knowing its biases will allow for the application of the method to solve Problems 2 and 3, and to a lesser extent Problem 4. Specifically, in the second study of this thesis, I conduct a large-scale unbiased blind search for OCs using the best method found and data from \gaia\ (E)DR3. Depending on which \gaia-discovered clusters can be found in this search and depending on the effectiveness of the method found in the first study, it will be relatively simple to solve Problem 3, as some clusters will (or will not) be possible to re-detect. This study will conduct the largest validation of OCs discovered using \gaia\ to date.
+
+An unbiased all-sky search will also allow for a solution to Problem 2. Previously, studies have generally focused on small, case-by-case attempts to retrieve OCs that were originally catalogued in pre-\gaia\ works \citep[e.g.][]{cantat-gaudin_clusters_2020}. However, an all-sky search ought to recover all OCs visible in \gaia\ within the limitations of the adopted methodology; given the understanding of this methodology gained from the first study, it should be possible to say with reasonable certainty whether or not \gaia\ should be able to detect many of the as-yet undetected OCs from before \gaia. This will greatly aid in bridging the OC census from pre-\gaia\ works to the \gaia\ era, tracing down any remaining missing clusters while suggesting that some are not real.
+
+Inferring the completeness of the OC census is a major task, which this thesis will contribute towards but may not completely solve. An unbiased all-sky blind search for OCs is a good tool to find as many OCs as possible and reduce the incompleteness of the OC census. Despite the many works that have already searched for new OCs (Sect.~\ref{sec:intro:gaia:new_clusters}), there may still be many new objects left to discover. This search can be used as a drop-in replacement for the methodology of e.g. \cite{anders_milky_2020}, serving as a better `experiment' to detect a large sample of OCs. However, given that cluster masses are expected to be a major contributor to the selection function of OCs in \gaia, with less massive clusters being more difficult to detect, it will also be important to calculate accurate cluster masses for the entire sample of objects from the blind search. The final study of this thesis partly focuses on calculating cluster masses, which will help to solve Problem 4 while also deriving a generally useful parameter for OCs that has never been derived for such a large catalogue before. Cluster masses also require cluster ages, which I aim to derive estimates of in the second study to accompany the overall OC catalogue.
+
+Finally, Problem 5 is likely to continue to plague the OC community for years to come, owing to the complexity of precisely defining OCs observationally. However, throughout this thesis, I will present new methods to try and convert a theoretical, first-principles oriented definition of an open cluster into a practical observational method to classify objects as OCs, MGs, GCs, false positives, or somewhere inbetween one of those categories. I aim to do so statistically, never presenting simple binary probabilities of an object being a false positive or one of the classes of real star cluster, but rather using a statistical treatment to aid in the definition of edge-case objects that could be between different classes. In the first study of this thesis, I augment clustering algorithms by trialing a number of different tests for the density of a cluster compared to its field, deriving a simple and efficient test of a cluster's astrometric signal to noise in \gaia\ data. In the second study of this thesis, I use an approximately Bayesian neural network to classify the likelihood of an OC being compatible with a single stellar population given the predictions of stellar evolution models. In the final study of this thesis, I present a preliminary method to test the boundness of OC candidates and ascertain if they are a real bound object or simply an MG.
+
+In total, with this thesis, I hope to contribute to the difficult task of cataloguing and characterising the OCs of the Milky Way in the era of \gaia. Implicitly, all of these methods will be `future-proof' and applicable to future \gaia\ data releases, or future surveys that could replace the \gaia\ telescope. Inevitably, no method is perfect, and I will conclude by speculating on future avenues of research that could further develop the methods used to analyse OCs.
 
 
-
+Before launching into the scientific content of this thesis, it is important to also present some theoretical background to OCs.
 
 
 % ---------------------------------------
 \section{Further background into star clusters and associated common methods}
 \label{sec:intro:theory}
+
+To improve the reach and readability of this thesis, I feel it is important to review some common techniques and pieces of theory from the literature. For the seasoned open cluster astronomer, this section could be browsed quickly; for the non-specialist, I hope that this section provides more insight into pieces of theoretical knowledge that I will assume for the scientific parts of this thesis.
+
+I begin by going into more depth on some of the most important methods to OC observers.
+
 
 \subsection{Observational methods}
 \label{sec:intro:theory:observations}
