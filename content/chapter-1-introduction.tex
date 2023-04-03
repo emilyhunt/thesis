@@ -245,11 +245,76 @@ It goes without saying that all scientific use cases of OCs rely on the OC censu
 
 
 
-\section{The issues with the open cluster census}
+\section{The aims of this thesis}
+\label{sec:intro:aims}
 
-% Issues are something like...
-% 1. How many OCs are missing?
-% 2. 
+As detailed in Sects.~\ref{sec:intro:pre-gaia} and \ref{sec:intro:gaia}, there has been a huge amount of recent scientific progress in the OC census and in the study of OCs as a whole. However, the \gaia\ era of OC science is still relatively new, with many more years of data releases being anticipated. Inevitably, this will allow for a huge range of new scientific studies into OCs \citep{gaia_collaboration_gaia_2022}. 
+
+To maximise the scientific potential of OCs, it makes sense to improve the census of OCs as much as possible, as well as developing `future-proof' methodologies that can be applied to future \gaia\ data releases as well as the current ones. The issues with the census of OCs in the Milky Way can be divided into five broad topics that I will discuss next.
+
+
+\subsection{The issues with the open cluster census}
+\label{sec:intro:aims:issues}
+\subsubsection{Problem 1. The methods used to detect open clusters and their biases}
+\label{sec:intro:aims:issues:detection}
+
+Firstly, as mentioned in Sect.~\ref{sec:intro:gaia}, the \gaia\ mission has provided the OC community with a tremendous quantity of data. However, until now, many different works have tried many different approaches for OC recovery (both for recovery of existing clusters and for blind searches), with no direct comparison having been done between different approaches. Additionally, modern computer science is fast-paced, particularly in the field of machine learning. Many different approaches exist for clustering data, only a handful of which have been trialed for OC recovery \citep{xu_comprehensive_2015}, despite the fact that publically available open-source implementations of these algorithms are often available and ready to use \citep[e.g.][]{scikit-learn}.
+
+This causes a number of problems. Primarily, it is unclear whether or not existing approaches are subject to biases. Particularly since almost all blind searches for OCs have used DBSCAN (Sect.~\ref{sec:intro:gaia:new_clusters}), it could be that a bias with the algorithm could prevent certain clusters from being detected depending on their age, distance, or other parameters, which may mean that a whole type of new OC has been as-yet undiscovered within \gaia\ data. There is no certainty that all OCs that \emph{can} be detected \emph{have} been detected with \gaia.
+
+It is also unclear how many false positives current approaches produce. Most works do not include an estimate of how many of their reported clusters are real \citep[e.g.][]{castro-ginard_new_2018,liu_catalog_2019,he_catalogue_2021}. It is not known whether or not it is safe to assume that the results of a clustering algorithm can always be trusted, and it is not known whether certain algorithms are more or less trustworthy.
+
+Additionally, there are many quirks with the usability of current approaches. For instance, the comprehensive DBSCAN-based works of \cite{castro-ginard_new_2018,castro-ginard_hunting_2019,castro-ginard_hunting_2020,castro-ginard_hunting_2022} have adopted a sky tiling scheme that requires a large number of algorithm re-runs, resulting in a method that must be applied on a supercomputer \citep{castro-ginard_hunting_2022}. It is not known whether a more efficient approach that requires fewer computational resources and is easier to repeat on future data releases is possible. This is a particular issue as future \gaia\ data releases are likely to contain higher numbers of reliable sources \citep{gaia_collaboration_gaia_2022}, meaning that current approaches will need to be ran on five to ten times as many sources\footnote{Calculated for \gaia\ DR3, which contains $\sim$250 million sources with $G\leq18$, which is a commonly adopted cut; however, the final \gaia\ data release is projected to contain at least 1 billion sources \citep{gaia_collaboration_gaia_2016}.}.
+
+
+\subsubsection{Problem 2. The status of clusters discovered before \gaia}
+\label{sec:intro:aims:issues:pre_gaia}
+
+Of the many clusters discovered before \gaia, fewer than 50\% have so far been re-detected in \gaia\ data \citep{cantat-gaudin_gaia_2018,cantat-gaudin_clusters_2020}. The fact that so many objects are missing from \gaia-based OC studies could represent a total paradigm shift in the census of OCs in the Milky Way, or it could be indicative of the limitations of \gaia. For every cluster, there are two possibilities.
+
+In the case that an object is real but cannot be detected in \gaia\ data, such as for heavily reddened clusters discovered using IR datasets that are obscured by dust in \gaia\ data \citep{cantat-gaudin_clusters_2020}, such an object would be a sign of the incompleteness of the \gaia\ OC census. If a significant number of IR clusters are in fact real, then to study all known OCs, it would be necessary to use both \gaia\ and IR datasets simultaneously.
+
+On the other hand, it is also possible that such objects are not real. \gaia\ has significantly higher astrometric accuracy than all previous astrometric catalogues, and \gaia\ should be sensitive to a large number of real OCs, even for those with intermediate levels of reddening \citep{cantat-gaudin_clusters_2020}. 
+
+While some studies have performed small investigations into clusters missing from \gaia\ on a case-by-case basis \citep[e.g.][]{cantat-gaudin_clusters_2020,piatti_catching_2023}, the status of most objects is still unknown. It should be possible to rule out many OCs reported previously in the literature given a large enough study. Alternatively, if \gaia\ is in fact a major limitation in recovering many OCs discovered before \gaia\ using IR datasets, then different datasets would need to be used to study such objects. This would also be a further strong science case for \gaia\ follow-up missions such as the proposed \emph{GaiaNIR} mission for near-infrared astrometry \citep{hobbs_gaianir_combining_2016}.
+
+
+\subsubsection{Problem 3. The status of clusters discovered with \gaia}
+\label{sec:intro:aims:issues:post_gaia}
+
+At the same time as the aforementioned `re-detection crisis' of clusters reported before \gaia, thousands of new OC candidates have been reported in the literature. Most of these objects have not been independently verified \cite{cantat-gaudin_milky_2022}, meaning that a large number of objects exist in the literature and may be being used for studies of OCs and galactic structure but without knowing which objects are or are not real \citep[e.g.][]{anders_milky_2020,castro-ginard_milky_2021}. Given that so many clusters cannot be detected from recent works reporting new OCs before \gaia, with some works such as \citep{scholz_global_2015} having as many as 100\% of their clusters being impossible to redetect \citep{cantat-gaudin_gaia_2018}, it is not far-fetched to suggest that there can be reproducibility issues between different studies when reporting new objects. Hence, there is a need to independently verify new OC candidates reported recently using \gaia\ data, preferably also with an alternative methodology and an analysis of which objects are and are not real.
+
+Additionally, it is also possible that some objects reported recently are duplicates. The large number of papers reporting new OCs since the release of \gaia\ DR2 (Fig.~\ref{fig:intro:history:papers}) can make the literature difficult to keep up with \citep{cantat-gaudin_milky_2022}. There is likely a need to verify that new cluster candidates are unique and have not been previously reported in the literature. For instance, during the writing of this thesis, \cite{chi_blind_search_2023} (accepted in ApJS) reported 1179 new OCs, which would represent a large increase in the number of newly discovered OCs in the \gaia\ era. However, many plots of their `new' clusters are clearly compatible with OCs previously reported in the literature (e.g. candidate 14677, which is Blanco~1). The existence of works containing duplicates `muddies the water' when attempting to use existing catalogues of OCs in combination with papers reporting new objects. There is a clear need to verify that newly reported OCs are real, unique clusters. 
+
+
+\subsubsection{Problem 4. The completeness of the \gaia\ open cluster census}
+\label{sec:intro:aims:issues:completeness}
+
+Despite the publication of many works that have used \gaia\ data to report thousands of new OCs (Sect.~\ref{sec:intro:gaia:new_clusters}), it is still unclear how complete the \gaia\ census of OCs is. It is not clear how many objects are missing or if any further biases contribute to certain objects being missing. Beyond the widespread disproving of the result in \cite{kharchenko_global_2013} that the OC census is complete within 1.8~kpc, there has been little study in the \gaia\ era on the completeness of the OC census.
+
+Nevertheless, the completeness of any catalogue, not least the OC census, is an interesting thing to know that would enable a large number of scientific studies. The study of star clusters in the Milky Way is unique in that we are able to study bound star clusters of significantly lower masses and luminosities than is possible in extragalactic studies \citep{portegies_zwart_young_2010}. While extragalactic astronomy is able to probe the occurence rates of massive, highly luminous clusters in a large number of galaxies, it is only in the Milky Way that study of low-mass objects is possible, due to their low luminosity. Milky Way OCs are hence an important calibration point for understanding star formation at lower mass ranges.
+
+Given that the Milky Way's cluster age and mass functions are uniquely important in the general study of star clusters, it is vital that the completeness of the OC census can be well known. Although this has been attempted in \gaia\ data by \cite{anders_milky_2020}, who also derive a completeness estimate of the OC census, their work has two main limitations. Firstly, they used the blind searches of \cite{castro-ginard_new_2018,castro-ginard_hunting_2019,castro-ginard_hunting_2020} to calibrate their completeness function. However, it is not known if the DBSCAN algorithm used in these works has any biases that their completeness estimate would inherit (see Problem~1/Sect.~\ref{sec:intro:aims:issues:detection}). Secondly, they only create a selection function in terms of cluster age and distance. They expect that other parameters, such as cluster mass or size, could be major factors in the OC selection function. They were unable to include mass in their selection function due to the lack of cluster mass measurements in the \gaia\ era.
+
+In addition, it is not clear how many more new OCs could be detected with future \gaia\ data releases. In theory, it should also be possible to extend such a prediction to other proposed surveys and instruments such as \emph{GaiaNIR} \citep{hobbs_gaianir_combining_2016}. Given that the proposals for \emph{GaiaNIR} describe science with OCs as a key scientific justification for the mission, a way to predict how many OCs would be discovered by a near-infrared astrometric mission such as \emph{GaiaNIR} would be an interesting way to strengthen the science case for future astrometric missions and surveys.
+
+
+\subsubsection{Problem 5. The observational definition of open clusters}
+\label{sec:intro:aims:issues:definition}
+
+Finally, and somewhat amusingly, possibly the greatest issue with the OC census in the \gaia\ era is that no work can agree on what OCs actually are (at least observationally). While the theoretical definitions of star clusters in the Milky Way can now be reasonably clearly defined \citep[Sect.~\ref{sec:intro:definition}][]{portegies_zwart_young_2010}, it is challenging to convert these theoretical definitions into a firm observational definition for OCs. Critically, this presents a number of issues when comparing between different works or when trying to combine the results of separate OC studies.
+
+Most works reporting new OCs use different quality criteria to decide which objects are or are not included in their work. Almost all use some sort of criteria on colour-magnitude diagrams, requiring that the cluster CMD is narrow and compatible with a single stellar population. However, this is implemented in many different ways; including by using statistical criteria \citep[e.g.][]{liu_catalog_2019}, a neural network classifier \citep[e.g.][]{castro-ginard_new_2018}, or simple manual classification \citep[e.g.][]{he_catalogue_2021}. Some works require that clusters are clear statistical overdensities in \gaia, deriving something analogous to a signal to noise ratio (S/N) for their cluster candidates \citep[e.g.][]{cantat-gaudin_gaia_2019}. Some works also limit clusters based on their physical parameters, requiring that they are compact groups and hence more likely to be gravitationally bound \citep[e.g.][]{liu_catalog_2019}. Finally, all works adopt a different minimum size for an OC, ranging from as low as 8 stars \citep{castro-ginard_new_2018} to as high as 50 \citep{liu_catalog_2019}. With so many differing definitions of what constitutes a good enough OC candidate, it can be difficult to compare the results of multiple works or to combine them into singular catalogues without introducing biases. In addition, most works use simple binary `yes/no' cuts on whether or not an OC passes a given constraint, which may not capture all of the uncertainty inherent in deciding whether an edge-case object is or is not a real OC.
+
+\cite{cantat-gaudin_clusters_2020} outlined a set of empirical criteria to follow that all new OC candidates should meet, requiring that OCs are a clear overdensity in astrometric data, that they have a CMD with a clear homoegeneous population of stars, and that the cluster meets two cuts on its parameters intended to be an analogous test for being bound: that the radius containing 50\% of members is smaller than 20~pc, and that the cluster's proper motion dispersion corresponds to an internal velocity dispersion of less than 5~kms\textsuperscript{-1}. While these criteria are an empirical minimum for an OC, as a thought experiment, it is still relatively straightforward in a dense region of the galactic disk to find $\sim$10 or more stars within 50~pc of each other and with a velocity dispersion below 5~kms\textsuperscript{-1}, and so these criteria are not infallible, and could allow unbound moving groups to be misclassified as OCs.
+
+A `gold standard' observational definition of an OC might be more directly derived from the theoretical definition presented in Sect.~\ref{sec:intro:definition} -- requiring that an OC is an overdensity, a single stellar population, and gravitationally bound. However, no such way to transform observations into such a definition currently exists, principally due to the difficulty in measuring the dynamics and boundness of a large catalogue of star clusters.
+
+
+\subsection{The aims of this thesis}
+\label{sec:intro:issues:aims}
+
+
 
 
 
