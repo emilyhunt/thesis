@@ -347,10 +347,8 @@ To improve the reach and readability of this thesis, I feel it is important to r
 I begin by going into more depth on some of the most important methods to OC observers.
 
 
-\subsection{Observational methods}
-\label{sec:intro:theory:observations}
-
-\subsubsection{Isochrone fitting}
+\subsection{Analysis of CMDs}
+\label{sec:intro:theory:cmds}
 
 % Plot of CMDs of OCs
 \begin{figure}[tb]
@@ -367,20 +365,89 @@ Isochrone fitting is further complicated by the presence of other cluster featur
 
 Probably unsurprisingly, there are hence many methods used in the literature to fit isochrones to data. Particularly as computational power is a major hindrance to performing three or four-parameter fits with stellar isochrones, it was common to simply fit isochrones by hand (CITEME SOME EXAMPLES), which includes no robust uncertainty estimate and can open the door to human biases. The isochrones in \cite{kharchenko_global_2013} were fit using a hybrid method, with the authors fitting distances manually but then using $\chi^2$ minimisation to fit cluster age and reddening values. \cite{yen_reanalysis_2018} developed this methodology further to perform $\chi^2$ fitting of all cluster parameters. Finally, \cite{hippel_inverting_2006} created a full Bayesian methodology to fit isochrones to cluster CMDs, which is still used by works today in the \gaia\ era such as \cite{bossini_age_2019}.
 
-By far the main flaw of cluster isochrone fitting is speed. Three or four-parameter fits using complicated stellar isochrones simply cannot be performed quickly, requiring significant amounts of computation time to complete in e.g. \cite{yen_reanalysis_2018}, making these key cluster parameters relatively time-intensive to derive using traditional isochrone fitting techniques.
+By far the main flaw of cluster isochrone fitting is speed. Three or four-parameter fits using complicated stellar isochrones simply cannot be performed quickly, requiring significant amounts of computation time to complete in e.g. \cite{yen_reanalysis_2018}, making these key cluster parameters relatively time-intensive to derive using traditional isochrone fitting techniques. Alternatively, a recently developed approach used in \cite{cantat-gaudin_painting_2020} and \cite{kounkel_untangling_2020} uses neural networks trained on the results of a small subsample of precise isochrone fitting results for OCs to derive ages, extinctions and distances to clusters with significantly less computational time, although this approach has the disadvantage of first requiring that isochrone fits are available to use as a training dataset.
 
 
 \subsection{Radial profiles}
 \label{sec:intro:theory:profile}
 
+The physical size of OCs is another important property that can be measured. The size of observed clusters can be compared against theoretical predictions, and interesting relationships between parameters such as the size of clusters as a function of their age can be determined \citep{tarricq_structural_2022}.
+
+The simplest commonly used measure of the size of an open cluster is the radius containing 50\% of members, $r_{50}$, which is the median radius of all detected member stars from the cluster centre. This radius has been commonly measured in the literature for OCs \citep[e.g.][]{cantat-gaudin_gaia_2018,cantat-gaudin_clusters_2020}. For a cluster where the mass of member stars is not correlated with their position in the cluster, such that high and low mass stars are equally distributed throughout the cluster (i.e., the cluster is not mass segregated), $r_{50}$ is equivalent to a common theoretical definition -- the half-mass radius $r_{hm}$, a radius commonly measured in theoretical works due to its use in various dynamical equations \citep{portegies_zwart_young_2010}.
+
+However, simple measures of cluster radius are not informative about the shape of a cluster, as clusters have long been known to have different shapes, with some clusters being more centrally concentrated in their `core' and others being sparser. It is helpful to apply models to OC radial profiles, allowing for the shape of clusters to be compared given models of a small number of parameters.
+
+\citep{king_structure_star_1962} models are the most common models applied to star clusters. While originally derived for globular clusters, these models have also been shown to be a good fit to many OCs \citep[e.g. in ][]{piskunov_towards_2007}, with a radial distribution function $f$ given by:
+
+\begin{equation}
+	f = k \left\{ \frac{1}{\sqrt{1 + \left(r/r_c\right)^2}} - \frac{1}{\sqrt{1 + \left(r_t/r_c\right)^2}} \right\}^2
+\end{equation}
+
+\noindent
+where $r$ is the distance from the cluster centre, $r_c$ is the radius of the core of the cluster (the radius at which the surface density drops to half that of the centre), and $r_t$ is the tidal radius of the cluster beyond which the Milky Way's potential is dominant. This can also be convenient to express in terms of the total number of stars within a distance $r$ from the center of a cluster $n(x)$, which is given by:
+
+\begin{equation}
+	n(x) = \pi r_c^2 k \left[ \ln(1+x) - 4 \frac{\sqrt{1+x} - 1}{\sqrt{1 + x_t}} + \frac{x}{1 + x_t} \right]
+\end{equation}
+
+\noindent
+where $x = (r / r_c)^2$ and $x_t = (r_t / r_c)^2$.
+
+As an empirical model, the \cite{king_structure_star_1962} model is mostly useful for simple observational comparisons between clusters, such as comparisons between the core and tidal radii between clusters of different ages \citep{kharchenko_global_2013,tarricq_structural_2022}. \cite{king_structure_1966} re-derives a similar model from theoretical principles, including by assuming that the velocity distribution of stars in the centre of a star cluster is isothermal and that the cluster is in virial equilibrium. The shape of these models is parameterised by a dimensionless variable $W_0$ which parameterises the concentration of a cluster, with higher values corresponding to a more centrally concentrated cluster. For $W_0 \lesssim 7$, \cite{king_structure_star_1962} and \cite{king_structure_1966} models are very similar. In practice, almost all OCs have $W_0 < 7$, and so these models can be used somewhat interchangeably \citep{portegies_zwart_young_2010}. Due to the significantly simpler functional form of \cite{king_structure_star_1962} models, they are used almost exclusively in the OC literature relative to \cite{king_structure_1966} models \citep{portegies_zwart_young_2010,cantat-gaudin_milky_2022}.
+
+Finally, it is worth mentioning the model of \cite{plummer_problem_1911}. Once again originally designed for GCs, this model parameterises how centrally concentrated a star cluster is based on a single scale factor $a$. Unlike \cite{king_structure_star_1962,king_structure_1966} models, the \cite{plummer_problem_1911} model assumes star clusters do not have a physical limiting radius and extend to infinity, which is of course unrealistic. Nevertheless, the \cite{plummer_problem_1911} model is still a satisfactory approximation of star cluster distribution functions, and it is still used in the literature due to its simple functional form which can be solved analytically \citep{dejonghe_completely_analytical_1987}. \cite{plummer_problem_1911} models are particularly popular in theoretical studies of star clusters due to this reason \citep{portegies_zwart_young_2010}.
+
 
 \subsection{Dynamics}
 \label{sec:intro:theory:dynamics}
 
+Later in this thesis, I use measures of OC dynamics to test if OCs are bound. Some works such as \cite{bravi_gaia-eso_2018} and \cite{pang_3d_2021} have used similar methods on small scales to test if OCs are bound. The following useful definitions are all from \cite{portegies_zwart_young_2010}.
 
-\subsection{Timescales}
-\label{sec:intro:theory:timescales}
+Firstly, for a cluster with a one-dimensional velocity dispersion $\sigma_{1D}$, its total kinetic energy $T$ is approximately
 
+\begin{equation}
+	T = \frac{3}{2} M \sigma_{1D}^2
+\end{equation}
+
+\noindent
+where $M$ is the total cluster mass. In addition, one can define the total potential energy of a cluster $U$ as 
+
+\begin{equation}
+	U = - \frac{GM^2}{2r_{vir}}
+\end{equation}
+
+\noindent
+where $G$ is the gravitational constant and $r_{vir}$ is the theoretically definied virial radius of the cluster, a parameter that is difficult to calculate observationally as it requires three-dimensional positions. In practice, the virial radius can be defined as 
+
+\begin{equation}
+	r_{vir} = \frac{\eta}{6} r_{50}
+\end{equation}
+
+\noindent
+where $\eta$ is a constant that is model-dependent. For an ideal \cite{plummer_problem_1911} model, $\eta$ is equal to 9.75, although in practice, this value can be out by a factor of two to four in extreme cases of star clusters with distributions that are poorly described by a \cite{plummer_problem_1911} model \citep{portegies_zwart_young_2010}.
+
+Finally, putting these together, one can define the virial ratio $Q$ of a cluster, which is the ratio of kinetic to potential energy for a given bound system. Since the virial theorem predicts that $2T + U = 0$, $Q$ is hence given by
+
+\begin{equation}
+	Q = \frac{T}{\left| U \right|}
+	  = \frac{\eta r_{50} \sigma_{1D}^2}{2GM}
+	  \approx \frac{1}{2} \quad \text{for a bound cluster.}
+	\label{eqn:intro:virial_ratio}
+\end{equation}
+
+\noindent
+Equation~\ref{eqn:intro:virial_ratio} is also commonly expressed in terms of the predicted one-dimensional velocity dispersion of a virialised cluster $\sigma_{vir}$ \citep[e.g. in][]{bravi_gaia-eso_2018} as
+
+\begin{equation}
+	\sigma_{vir} = \sqrt{\frac{GM}{\eta r_{50}}}.
+	\label{eqn:intro:virial_velocity}
+\end{equation}
+
+With these equations and measures of cluster mass, radius, and velocity dispersion, it is possible to probe the overall dynamical state of a cluster observationally or in the result of simulations \citep{banerjee_how_2017}.
+
+
+% \subsection{Timescales}
+% \label{sec:intro:theory:timescales}
 
 \subsection{Formation, evolution and destruction}
 \label{sec:intro:theory:evolution}
@@ -389,9 +456,13 @@ By far the main flaw of cluster isochrone fitting is speed. Three or four-parame
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{fig/c1/virialisation_placid_gas_expulsion.png}
-	\caption[TODO]{TODO}
+	\caption[The evolution of the virial ratio of simulated star clusters with a `placid' model of explosive feedback]{The evolution of the virial ratio of simulated star clusters with a `placid' model of explosive feedback. Simulations were conducted given a cluster of mass  $3\times10^4$~\MSun, with the dashed line showing a cluster with an initial half-mass radius of 1~pc and the solid line showing a cluster with an initial half-mass radius of 4~pc. \emph{Credit}: \cite{banerjee_how_2017}.}
 	\label{fig:intro:theory:feedback}
 \end{figure}
+
+Finally, having considered various pieces of important theory, it is also worth discussing the current accepted theory of star cluster 
+
+
 
 
 % ---------------------------------------
