@@ -403,24 +403,24 @@ Finally, it is worth mentioning the model of \cite{plummer_problem_1911}. Once a
 
 Later in this thesis, I use measures of OC dynamics to test if OCs are bound. Some works such as \cite{bravi_gaia-eso_2018} and \cite{pang_3d_2021} have used similar methods on small scales to test if OCs are bound. The following useful definitions are all from \cite{portegies_zwart_young_2010}.
 
-Firstly, for a cluster with a one-dimensional velocity dispersion $\sigma_{1D}$, its total kinetic energy $T$ is approximately
+Firstly, for a cluster with a one-dimensional velocity dispersion $\sigma_\text{1D}$, its total kinetic energy $T$ is approximately
 
 \begin{equation}
-	T = \frac{3}{2} M \sigma_{1D}^2
+	T = \frac{3}{2} M \sigma_\text{1D}^2
 \end{equation}
 
 \noindent
 where $M$ is the total cluster mass. In addition, one can define the total potential energy of a cluster $U$ as 
 
 \begin{equation}
-	U = - \frac{GM^2}{2r_{vir}}
+	U = - \frac{GM^2}{2r_\text{vir}}
 \end{equation}
 
 \noindent
-where $G$ is the gravitational constant and $r_{vir}$ is the theoretically definied virial radius of the cluster, a parameter that is difficult to calculate observationally as it requires three-dimensional positions. In practice, the virial radius can be defined as 
+where $G$ is the gravitational constant and $r_\text{vir}$ is the theoretically definied virial radius of the cluster, a parameter that is difficult to calculate observationally as it requires three-dimensional positions. In practice, the virial radius can be defined as 
 
 \begin{equation}
-	r_{vir} = \frac{\eta}{6} r_{50}
+	r_\text{vir} = \frac{\eta}{6} r_{50}
 \end{equation}
 
 \noindent
@@ -430,20 +430,20 @@ Finally, putting these together, one can define the virial ratio $Q$ of a cluste
 
 \begin{equation}
 	Q = \frac{T}{\left| U \right|}
-	  = \frac{\eta r_{50} \sigma_{1D}^2}{2GM}
+	  = \frac{\eta r_{50} \sigma_\text{1D}^2}{2GM}
 	  \approx \frac{1}{2} \quad \text{for a bound cluster.}
 	\label{eqn:intro:virial_ratio}
 \end{equation}
 
 \noindent
-Equation~\ref{eqn:intro:virial_ratio} is also commonly expressed in terms of the predicted one-dimensional velocity dispersion of a virialised cluster $\sigma_{vir}$ \citep[e.g. in][]{bravi_gaia-eso_2018} as
+Equation~\ref{eqn:intro:virial_ratio} is also commonly expressed in terms of the predicted one-dimensional velocity dispersion of a virialised cluster $\sigma_\text{vir}$ \citep[e.g. in][]{bravi_gaia-eso_2018} as
 
 \begin{equation}
-	\sigma_{vir} = \sqrt{\frac{GM}{\eta r_{50}}}.
+	\sigma_\text{vir} = \sqrt{\frac{GM}{\eta r_{50}}}.
 	\label{eqn:intro:virial_velocity}
 \end{equation}
 
-With these equations and measures of cluster mass, radius, and velocity dispersion, it is possible to probe the overall dynamical state of a cluster observationally or in the result of simulations \citep{banerjee_how_2017}.
+With these equations and measures of cluster mass, radius, and velocity dispersion, it is possible to probe the overall dynamical state of a cluster observationally or in the result of simulations \citep{banerjee_how_2017,bravi_gaia-eso_2018,pang_3d_2021}.
 
 
 % \subsection{Timescales}
@@ -451,6 +451,18 @@ With these equations and measures of cluster mass, radius, and velocity dispersi
 
 \subsection{Formation, evolution and destruction}
 \label{sec:intro:theory:evolution}
+
+Finally, having considered various individual pieces of important theory, it is also worth discussing the current overall theory of star cluster formation and evolution, which should give some theoretical context to the clusters observed at different ages in this work.
+
+
+\subsubsection{Formation (up to \textasciitilde1 Myr)}
+
+As discussed previously, stars form when clouds of cold molecular gas (giant molecular clouds, GMCs) within galaxies collapse due to gravity. This process is not believed or observed to be continuous: stellar winds from young stars rapidly heat and blow away any remaining gas within the cluster, preventing further star formation from occuring. Effectively, this process `freezes' star formation, ensuring that the resulting group of stars is roughly homogeneous in age and chemical composition \citep{lada_embedded_2003,krumholz_how_2020}. If the parent GMC is dense enough, then the stars will eventually collapse into a bound star cluster \citep{portegies_zwart_young_2010,krumholz_star_2019,krumholz_how_2020}. GMCs in the local universe generally have masses in the range $\sim10^3$ to $\sim10^7$~\MSun \citep{krause_physics_2020}. For exceptionally large GMCs with masses in excess of $\sim10^8$~\MSun, it is believed that they are large enough to form clusters as massive as GCs. Such conditions are rare in the current universe, being much more common at redshifts $z \gtrsim 2$ \citep{krumholz_star_2019}; such high-mass GMCs and the clusters they form are hence outside of the range of open clusters in this study, which generally have ages of no more than $\sim$1~Gyr. 
+
+Historically, it was believed that all stars formed in bound star clusters. However, recent observations with \gaia\ have suggested that it may only be a minority of stars that form in bound clusters \citep{ward_not_2019,wright_ob_associations_2020}. Nevertheless, for GMCs that are dense enough to at least form an OC, a bound, virialised young cluster will emerge.
+
+
+\subsubsection{Supernova feedback and expansion (\textasciitilde1 to \textasciitilde30~Myr)}
 
 % Plot of feedback vs. virial ratio
 \begin{figure}[tb]
@@ -460,9 +472,24 @@ With these equations and measures of cluster mass, radius, and velocity dispersi
 	\label{fig:intro:theory:feedback}
 \end{figure}
 
-Finally, having considered various pieces of important theory, it is also worth discussing the current accepted theory of star cluster 
+Once stellar winds expel the initial gas a bound cluster formed from, star clusters in the disk of the Milky Way continue to have a somewhat tumultuous life. Young clusters were typically observed to have sizes larger than those predicted by N-body simulations; it is now believed that other processes must inject energy into early young star clusters in order for them to reach their present-day larger sizes \citep{banerjee_how_2017}.
+
+After initial gas expulsion within the cluster stops additional star formation, star clusters are believed to continue interacting with surrounding gas in their parent GMC for multiple Myr. Stellar winds and feedback from supernovae will continue to disperse the GMC well beyond the radius of the cluster, forming a HII region. This causes a `gravitational feedback' effect, where the massive GMC is blown away and net forces on stars in the cluster also add energy in the system, causing the cluster to be supervirial and undergo a phase of expansion \citep{krause_physics_2020}.
+
+The exact physics of this feedback are still under study, although Fig.~\ref{fig:intro:theory:feedback} taken from \cite{banerjee_how_2017} shows the virial ratio of simulated star clusters with respect to time, for an intermediate or `placid' model of explosive stellar feedback. Within the first 10~Myr of the cluster's lives, feedback causes them to become supervirial. Once the parent GMC has been dispersed, the clusters continue to expand, before eventually reaching dynamical equilibrium and returning to a state with $Q\approx0.5$ after a few tens of Myr. These simulations echo the results of \cite{kuhn_kinematics_2019}, who studied 28 young stellar groups with \gaia\ DR2 and found that 75\% were undergoing expansion (i.e. are supervirial). 
+
+All star clusters are expected to lose a significant portion of their initial mass during this phase of expansion. It has been theorised that bound clusters that form with low initial masses or high initial radii may even be completely destroyed in the initial phase of feedback and expansion, which ought to be visible as unbound cluster remnants \citep{krause_physics_2020}.
 
 
+\subsubsection{Evaporation and destruction (upto \textasciitilde1~Gyr)}
+
+Since OCs are rarely observed at ages greater than $\sim1$~Gyr, it is clear that some processes eventually destroy them over time. This is believed to happen in three ways.
+
+Firstly, stellar evolution will gradually cause mass loss in a cluster, with more massive stars undergoing supernovae and evolving into compact remnants, losing a significant proportion of their mass in the process. However, since most stars are more compact M, K, or G stars with lifetimes significantly longer than the typical maximum OC lifetime of 1~Gyr, this effect is relatively insignificant during the lifespan of an OC \citep{krause_physics_2020}.
+
+Secondly, clusters gradually lose stars over time in a process known as evaporation. The stars in a cluster will not all have the same velocity; a cluster in dynamical equilibrium will have an isothermal velocity dispersion that is approximately Maxwellian. Some stars with velocities at the tail end of this distribution will have velocities higher than the escape velocity of the cluster $v_\text{esc}$, and will be ejected from the cluster. Over time, two and three-body interactions will accelerate some stars preferentially and ensure that a small proportion of cluster members always have velocities greater than the cluster's $v_\text{esc}$ \citep{portegies_zwart_young_2010,krause_physics_2020}. Stars are preferentially ejected via the cluster's $L_1$ and $L_2$ Lagrange points relative to the tidal field of the Milky Way, which produces the observed tidal tails of many clusters in \gaia\ \citep{portegies_zwart_young_2010,tarricq_structural_2022}. Less commonly, stars will still be ejected in a random direction (opposed to via a Lagrange point), producing an additional spherical `coma' or `corona' of recently ejected stars around a cluster, an effect that has also been observed in \gaia\ data for a number of nearby OCs \citep{meingast_extended_2021,tarricq_structural_2022}.
+
+Finally, star clusters are theorised to be heavily disrupted by tidal `shocks' (perturbations). Reasonably often within every 1~Gyr, star clusters in the Milky Way's disk are expected to come close to or even collide with various pieces of massive galactic structure, such as GMCs or transient spiral arms. The tidal perturbations from these interactions increase the energy of stars in a cluster and should cause considerable mass loss. Due to the rarity of these events, they are yet to be directly observed for OCs in the Milky Way; nevertheless, simple theoretical arguments can show that these events will occur reasonably often for any star cluster in the disk. Especially within the first 1~Gyr of an OC's life, tidal shocks are expected to be a major (and potentially even dominant) method of star cluster destruction.
 
 
 % ---------------------------------------
