@@ -44,7 +44,7 @@ In this series of papers, we will work to improve the OC census: primarily by at
 \begin{figure*}
    \centering
    \includegraphics[width=\textwidth]{fig/c2/fig_fields.pdf}
-   \caption{Target fields for this study plotted above a  \emph{\review{Gaia}} map of stellar density in an equirectangular projection. Cyan regions show the 100 main HEALPix level five pixels. Each main pixel was merged with its eight nearest neighbours, which are shown in blue. Some nearest neighbour pixels overlap between different fields.}\label{c2:fig:targetfields}%
+   \caption[Target fields for this study plotted above a  \emph{\review{Gaia}} map of stellar density in an equirectangular projection]{Target fields for this study plotted above a  \emph{\review{Gaia}} map of stellar density in an equirectangular projection. Cyan regions show the 100 main HEALPix level five pixels. Each main pixel was merged with its eight nearest neighbours, which are shown in blue. Some nearest neighbour pixels overlap between different fields.}\label{c2:fig:targetfields}%
 \end{figure*}
 
 The results of any unsupervised search for OCs are always highly dependent on the input data and how it is preprocessed: assumptions must be made for reasons of computational efficiency (for instance, splitting the dataset into separate chunks to improve runtime), and dimensions of the data with different units and coordinate systems must be intelligently preprocessed to allow an unsupervised algorithm to take full advantage of \emph{Gaia} data. We briefly introduce the \emph{Gaia} satellite and explain the preprocessing pipeline we developed to prepare its data for use with unsupervised clustering algorithms.
@@ -100,7 +100,7 @@ Machine learning algorithms benefit from having scaled inputs, so the five dimen
 
 % Algorithms table
 \begin{table}
-\caption{Algorithms considered for inclusion by this study.}
+\caption[Algorithms considered for inclusion by this study]{Algorithms considered for inclusion by this study.}
 \centering
 \begin{tabular}{l c c c}
 \hline\hline
@@ -162,7 +162,7 @@ In the following sub-sections, each selected algorithm will be explained in brie
 \begin{figure}[t]
    \centering
    \includegraphics[width=0.7\textwidth]{fig/c2/fig_dbscan.pdf}
-   \caption{Nearest neighbour graphs for both methods of determining the optimum $\epsilon$ for DBSCAN. To produce this plot, which is effectively an unnormalised log cumulative density function (CDF) of nearest neighbour distances, stars are sorted based on their $k^{\text{th}}$NN distances and numbered from one to $n$. These labels as a function of $k^{\text{th}}$NN distance are then plotted to form a continuous curve. The black line on both plots is the $9^{\text{th}}$NN distances of a 2.5$^\circ$ field around the nearby OC Blanco 1. On the upper plot, $\epsilon$ estimates are determined by re-sampling the field 30 times (shown in red) to smooth out the signature of clustered stars. On the lower plot, a model of the signature of the cluster (cyan, dashed) and the field (magenta, dashed) is summed (red, solid) to approximate the curve and produce four $\epsilon$ estimates.}\label{c2:fig:dbscan}%
+   \caption[Nearest neighbour graphs for both methods of determining the optimum $\epsilon$ for DBSCAN]{Nearest neighbour graphs for both methods of determining the optimum $\epsilon$ for DBSCAN. To produce this plot, which is effectively an unnormalised log cumulative density function (CDF) of nearest neighbour distances, stars are sorted based on their $k^{\text{th}}$NN distances and numbered from one to $n$. These labels as a function of $k^{\text{th}}$NN distance are then plotted to form a continuous curve. The black line on both plots is the $9^{\text{th}}$NN distances of a 2.5$^\circ$ field around the nearby OC Blanco 1. On the upper plot, $\epsilon$ estimates are determined by re-sampling the field 30 times (shown in red) to smooth out the signature of clustered stars. On the lower plot, a model of the signature of the cluster (cyan, dashed) and the field (magenta, dashed) is summed (red, solid) to approximate the curve and produce four $\epsilon$ estimates.}\label{c2:fig:dbscan}%
 \end{figure}
 
 \subsubsection{Description of algorithm}
@@ -252,7 +252,7 @@ An example fit is shown in Fig.~\ref{c2:fig:dbscan}. \review{Once a field has be
 \begin{figure}[t]
    \centering
    \includegraphics[width=0.7\textwidth]{fig/c2/fig_hdbscan.pdf}
-   \caption{Condensed tree graph for HDBSCAN with $m_{clSize}=80$ applied to a $2.5^{\circ}$ field around Blanco 1, a nearby cluster without any other known OCs in the field. The colour and width of each icicle denotes the number of stars remaining in the cluster. Horizontal splits occur when clusters are no longer connected. The long icicle on the left is Blanco 1, which is an extremely clear, nearby cluster and hence splits early from field stars. On the right, the algorithm continues discarding field stars, splitting into two very short icicles at the end which are false positive clusters. The two small sub-plots in the lower right are zoomed in on the two small icicles.}\label{c2:fig:hdbscan}%
+   \caption[Condensed tree graph for HDBSCAN with $m_{clSize}=80$ applied to a $2.5^{\circ}$ field around Blanco 1]{Condensed tree graph for HDBSCAN with $m_{clSize}=80$ applied to a $2.5^{\circ}$ field around Blanco 1, a nearby cluster without any other known OCs in the field. The colour and width of each icicle denotes the number of stars remaining in the cluster. Horizontal splits occur when clusters are no longer connected. The long icicle on the left is Blanco 1, which is an extremely clear, nearby cluster and hence splits early from field stars. On the right, the algorithm continues discarding field stars, splitting into two very short icicles at the end which are false positive clusters. The two small sub-plots in the lower right are zoomed in on the two small icicles.}\label{c2:fig:hdbscan}%
 \end{figure}
 
 HDBSCAN \citep{hutchison_hdbscan_2013} is a more recently developed clustering algorithm \review{that attempts to improve the performance and usability of previous approaches. HDBSCAN combines the density-based approach of DBSCAN with hierarchical clustering, allowing it to deal with datasets of varying densities. Despite the extra computations, HDBSCAN does not have a significant increase in runtime compared to DBSCAN. 
@@ -315,7 +315,7 @@ The implementation of GMMs freely available in \texttt{scikit-learn} \citep{pedr
 \begin{figure}[t]
    \centering
    \includegraphics[width=0.7\textwidth]{fig/c2/fig_gmm.pdf}
-   \caption{Schematic, top-down representation of the GMM partitioning system. Each box represents a column of sub-partitions viewed from the top. For the highlighted sub-partition also marked with an asterisk (*), the dashed width of the box shows the region in which extra stars with a parallax uncertainty of greater than 1 mas would be included. The height of the dashed box shows the extra overlap between this sub-partition and nearby other sub-partitions. Any cluster with a centroid within the dashed region but not within the main highlighted region was automatically discarded, as it will be better characterised by the neighbouring sub-partition its centroid is in.}\label{c2:fig:gmm}%
+   \caption[Schematic, top-down representation of the GMM partitioning system]{Schematic, top-down representation of the GMM partitioning system. Each box represents a column of sub-partitions viewed from the top. For the highlighted sub-partition also marked with an asterisk (*), the dashed width of the box shows the region in which extra stars with a parallax uncertainty of greater than 1 mas would be included. The height of the dashed box shows the extra overlap between this sub-partition and nearby other sub-partitions. Any cluster with a centroid within the dashed region but not within the main highlighted region was automatically discarded, as it will be better characterised by the neighbouring sub-partition its centroid is in.}\label{c2:fig:gmm}%
 \end{figure}
 
 \subsubsection{Parameter tuning \& dataset sub-partitioning}
@@ -327,7 +327,7 @@ To rectify this and ensure that GMMs can still be included in this study, a meth
 Instead, stars in a given field were divided into five segments based on parallax, where stars may be a member of any segment that they have a better than $2\sigma_{\varpi}$ agreement with. Each parallax segment was sub-divided into smaller HEALPix pixels at a specific level. Neighbouring HEALPix pixels were also selected to overlap sub-partitions between each other. The levels of the primary and overlap pixels were carefully selected to ensure that the nearest edge of every sub-partition could always fully contain an OC of 10 pc radius. In the case of the most diffuse OCs, this method could miss some stars that are far from the OC's centre, but should always be able to detect the core of all OCs. When any sub-partition in a parallax range contained fewer than $10m_s$ stars, the main HEALPix level for the parallax segment was decreased by one to increase the number of stars in the sub-partitions. This ensured that no sub-partition was impractically small for later GMM fitting. A schematic representation of this is shown in Fig.~\ref{c2:fig:gmm}, and the values for the sub-partitions are listed in Table~\ref{c2:tab:gmm_parameters}.
 
 \begin{table}
-\caption{Specifications of the GMM sub-partitioning scheme.}
+\caption[Specifications of the GMM sub-partitioning scheme]{Specifications of the GMM sub-partitioning scheme.}
 \label{c2:tab:gmm_parameters}
 \centering
 \begin{tabular}{c c c c}
@@ -410,7 +410,7 @@ The radius containing half of the members of the OC candidate was also required 
 \begin{figure}[t]
    \centering
    \includegraphics[width=0.7\textwidth]{fig/c2/fig_nn_distances.pdf}
-   \caption{Two examples of NNDs used to test the significance of OC candidates. The solid black line shows the NND of nearby field stars. The blue line shows the NND of distances between cluster members. For a cluster to be significant and not simply a selection of unclustered field stars, the cluster NND must be incompatible with being drawn from the field distribution. For later illustrative purposes, the NND of a cluster member to the nearest field star is shown by the dashed orange line, although this is not used for the CST. In the upper plot, an OC candidate detected by HDBSCAN and crossmatched to the well-characterised OC NGC 6830 is shown, which has a clearly different NND to field stars with a significance of over 20$\sigma$. In the lower plot, a false positive OC detected by HDBSCAN in field 19 is shown that has a significance of 0$\sigma$.}\label{c2:fig:nn_distances}%
+   \caption[Two examples of NNDs used to test the significance of OC candidates]{Two examples of NNDs used to test the significance of OC candidates. The solid black line shows the NND of nearby field stars. The blue line shows the NND of distances between cluster members. For a cluster to be significant and not simply a selection of unclustered field stars, the cluster NND must be incompatible with being drawn from the field distribution. For later illustrative purposes, the NND of a cluster member to the nearest field star is shown by the dashed orange line, although this is not used for the CST. In the upper plot, an OC candidate detected by HDBSCAN and crossmatched to the well-characterised OC NGC 6830 is shown, which has a clearly different NND to field stars with a significance of over 20$\sigma$. In the lower plot, a false positive OC detected by HDBSCAN in field 19 is shown that has a significance of 0$\sigma$.}\label{c2:fig:nn_distances}%
 \end{figure}
 
 Secondly, a method was implemented to compare the density of OC candidates with the density of local field stars and evaluate the significance of the OC candidate, hence referred to as the cluster significance test (CST). Ninth nearest neighbour distances between stars were used as a proxy for density, as this corresponds exactly to how two of the three methods in this study performed clustering analysis (since they used $m_{Pts}=10$, i.e. $k=9$) and since this value is free of contamination from binary or multiple star systems, since they will have significantly smaller first or second nearest neighbour distances.
@@ -468,7 +468,7 @@ We also list additional comparisons of our results with other catalogues in Appe
 
 % Table showing detections as a fn of class
 \begin{sidewaystable}[p]
-\caption{Performance of different algorithm and parameter combinations on the 100 main OCs.}              % title of Table
+\caption[Performance of different algorithm and parameter combinations on the 100 main OCs]{Performance of different algorithm and parameter combinations on the 100 main OCs.}              % title of Table
 \label{c2:table:classifications}      % is used to refer this table in the text
 \centering                                      % used for centering table
 \begin{tabular}{l l | c c c c | c c c}          % centered columns (4 columns)
@@ -509,12 +509,12 @@ $\quad$-  & $m_{s} = $ variable          & 13 $^{16.2}_{10.4}$ & 0 $^{1.8}_{0.0}
 \begin{figure}[ht]
    \centering
    \includegraphics[width=\textwidth]{fig/c2/fig_crossmatches.pdf}
-   \caption{Distance and size dependence of detections by different algorithm and parameter combinations for all  \review{1385 }OCs in all studied fields, plotted against the reported size and distance of the OCs in the literature. OC candidates not passing the criterion in Sect.~\ref{c2:sec:false_positives} and with a CST of less than 3$\sigma$ were discarded. HDBSCAN detects the most OCs, especially at nearby distances. GMMs only perform well at detecting well populated OCs. While individual DBSCAN results at different $\epsilon$ values do not detect especially many OCs, combining them all together nearly matches the performance of HDBSCAN -- even exceeding it slightly at large distances.}\label{c2:fig:detections_by_distance}%
+   \caption[Distance and size dependence of detections by different algorithm and parameter combinations for all 1385 OCs in all studied fields]{Distance and size dependence of detections by different algorithm and parameter combinations for all  \review{1385 }OCs in all studied fields, plotted against the reported size and distance of the OCs in the literature. OC candidates not passing the criterion in Sect.~\ref{c2:sec:false_positives} and with a CST of less than 3$\sigma$ were discarded. HDBSCAN detects the most OCs, especially at nearby distances. GMMs only perform well at detecting well populated OCs. While individual DBSCAN results at different $\epsilon$ values do not detect especially many OCs, combining them all together nearly matches the performance of HDBSCAN -- even exceeding it slightly at large distances.}\label{c2:fig:detections_by_distance}%
 \end{figure}
 
 %DIF >  Table with extra information about runtimes etc
 \begin{sidewaystable}[p]
-\caption{\review{Extra information on the algorithms' performance.}}
+\caption[Extra information on the algorithms' performance]{\review{Extra information on the algorithms' performance.}}
 \label{c2:tab:algorithm_performance}
 \centering
 \begin{tabular}{l c c c c}
@@ -610,7 +610,7 @@ While this study shows that GMMs are not scalable to a large-scale blind search,
 \begin{sidewaystable}[p]
 
 % Define first header
-\caption{\label{c2:table:new_ocs_short}\reviewtwo{Mean parameters for a selection of the new OCs detected in this study.}}
+\caption[Mean parameters for a selection of the new OCs detected in this study]{\label{c2:table:new_ocs_short}\reviewtwo{Mean parameters for a selection of the new OCs detected in this study.}}
 
 \centering
 \begin{tabular}{*{11}{c}}

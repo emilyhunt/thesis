@@ -58,8 +58,8 @@
 \input{content/abstract}		% INCLUDE: the abstracts (english and german)
 \cleardoublepage
 %
-\input{content/acknowledgement} % INCLUDE: acknowledgement
-\cleardoublepage
+% \input{content/acknowledgement} % INCLUDE: acknowledgement
+% \cleardoublepage
 %
 \currentpdfbookmark{\contentsname}{toc}
 \setcounter{tocdepth}{2}		% define depth of toc
@@ -110,10 +110,11 @@
 \listoftables
 \cleardoublepage
 
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Listings}
-\lstlistoflistings
-\cleardoublepage
+% List of listings - doesn't seem to be necessary
+% \phantomsection
+% \addcontentsline{toc}{chapter}{List of Listings}
+% \lstlistoflistings
+% \cleardoublepage
 
 \appendix\cleardoublepage
 \input{content/chapter-6-appendix}       % INCLUDE: appendix
