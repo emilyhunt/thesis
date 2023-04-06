@@ -23,6 +23,12 @@
 % For landscape tables and figures
 \usepackage{rotating}
 
+% Add refs to chapter titles
+\usepackage{nameref}
+
+% Colours
+%\usepackage{xcolor}
+
 % Remove the comma after author name in inline cites (like in A&A)
 % \renewcommand*{\nameyeardelim}{\addspace}
 
@@ -38,6 +44,12 @@
 \newcommand*{\second}{\textsuperscript{nd}}
 \newcommand*{\third}{\textsuperscript{th}}
 \newcommand{\authorship}[1]{\textit{\textbf{Details of authorship.} #1}}
+\newcommand{\todo}[1]{{\color{red}\textbf{TODO: #1}}}
+\newcommand{\citeme}[1]{{\color{red}\textbf{ADD CITATION #1}}}
+
+% To make Paper 1 work
+\newcommand{\review}{}
+\newcommand{\reviewtwo}{}
 
 % Commands imported from A&A paper style
 \newlength{\VSpaceBeforeTabBib}
@@ -67,7 +79,10 @@
   #2\ \ignorespaces%
 }
 
+
+% **************************************************
 % Settings
+% **************************************************
 \newcommand{\thesisTitle}{Improving the census of open clusters in the Milky Way with data from \gaia}
 \newcommand{\thesisName}{Emily Lauren Hunt}
 \newcommand{\thesisSubject}{Observational astronomy}
