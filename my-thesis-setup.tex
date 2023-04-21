@@ -10,9 +10,24 @@
 \newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
 
 % CUSTOM EMILY ONES
-% Add extra math
+% Add extra math functionality
 \usepackage{amsmath}
 \usepackage{amssymb}
+
+% Adds degree symbol
+\usepackage{gensymb}
+
+% Adds degree symbol within text
+\usepackage{textcomp}
+
+% For landscape tables and figures
+\usepackage{rotating}
+
+% Add refs to chapter titles
+\usepackage{nameref}
+
+% Colours
+%\usepackage{xcolor}
 
 % Remove the comma after author name in inline cites (like in A&A)
 % \renewcommand*{\nameyeardelim}{\addspace}
@@ -22,15 +37,53 @@
 % Information and Commands for Reuse
 % **************************************************
 % Custom commands
-\newcommand{\gaia}{\emph{Gaia}}
-\newcommand{\Sun}{$\odot$}
-\newcommand{\MSun}{M\textsubscript{\Sun}}
-\newcommand{\first}{\textsuperscript{st}}
-\newcommand{\second}{\textsuperscript{nd}}
-\newcommand{\third}{\textsuperscript{th}}
+\newcommand*{\gaia}{\emph{Gaia}}
+\newcommand*\sun{\ensuremath{\odot}}
+\newcommand*{\MSun}{M\textsubscript{\sun}}
+\newcommand*{\first}{\textsuperscript{st}}
+\newcommand*{\second}{\textsuperscript{nd}}
+\newcommand*{\third}{\textsuperscript{th}}
+\newcommand{\authorship}[1]{\textit{\textbf{Details of authorship.} #1}}
+\newcommand{\todo}[1]{{\color{red}\textbf{TODO: #1}}}
+\newcommand{\citeme}[1]{{\color{red}\textbf{ADD CITATION #1}}}
 
+% To make Paper 1 work
+\newcommand{\review}{}
+\newcommand{\reviewtwo}{}
+
+% Commands imported from A&A paper style
+\newlength{\VSpaceBeforeTabBib}
+\setlength{\VSpaceBeforeTabBib}{2ex}
+\newlength{\VSpaceBeforeTabFoot}
+\setlength{\VSpaceBeforeTabFoot}{2ex}
+
+\newcommand\tablefoot[1]{\VSpaceBeforeTabBib=1ex%
+  \par\vspace{\VSpaceBeforeTabFoot}
+  \noindent
+  \begin{minipage}{\linewidth}
+    \textbf{Notes.}
+    \ignorespaces
+    #1%
+  \end{minipage}%
+}
+\newcommand*\tablefootmark[1]{%
+  \unskip
+  \hbox{\textsuperscript{\normalfont\itshape\ignorespaces#1}}%
+  \,%
+  \ignorespaces
+}
+\newcommand\tablefoottext[2]{%
+  \hbox{\textsuperscript{\normalfont({\itshape\ignorespaces#1})}}%
+  ~%
+  \ignorespaces
+  #2\ \ignorespaces%
+}
+
+
+% **************************************************
 % Settings
-\newcommand{\thesisTitle}{Detection and characterisation of open clusters in the Milky Way with \gaia}
+% **************************************************
+\newcommand{\thesisTitle}{Improving the census of open clusters in the Milky Way with data from \gaia}
 \newcommand{\thesisName}{Emily Lauren Hunt}
 \newcommand{\thesisSubject}{Observational astronomy}
 \newcommand{\thesisDate}{May 2nd, 2023}
