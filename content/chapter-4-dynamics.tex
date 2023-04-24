@@ -13,6 +13,16 @@
 \section{Introduction}
 \label{sec:dynamics:introduction}
 
+Five years on since the release of \gaia\ DR2 \citeme{}, the census of open clusters (OCs) has been resoundingly overhauled \citeme{tcg universe}. Thousands of new objects have been discovered, parameters have been determined to previously impossible levels of accuracy, and many OCs reported before \gaia\ have been ruled out as asterisms \citeme{multiple papers here}. However, the OC census in the age of \gaia\ remains far from perfect, and one resoundingly large issue stands out that I will attempt to address in this chapter: there is no robust observational criteria or definition for what an OC actually is.
+
+Following up from the first major catalogue of OCs in the \gaia\ era \citeme{cantat 2018}, \citeme{cantat anders 20} conducted a search for OCs that remained undetected in \gaia\ data, and created a set of empirical observational criteria intended to split dubious objects apart from OCs. This included recommendations that a candidate OC is a clear overdensity with at least $\sim10$ member stars, a colour-magnitude diagram (CMD) that follows a clear isochrone, a median radius $r_{50}$ smaller than 15~pc and a proper motion dispersion corresponding to an upper limit no greater than 5~km\,s\textsuperscript{-1}. In their work, they used these criteria to show that a number of objects were asterisms.
+
+However, in \citeme{paper 2} (hereafter Paper 2), in which we constructed the largest catalogue of OCs to date from a blind search using \gaia\ DR3 data \citeme{DR3}, we found that these observational criteria were too permissive, with many of the objects we detect that pass these criteria being visually much more reminiscent of moving groups (MGs). As a thought experiment, one can  This creates an awkward situation where our Paper 2 catalogue is challenging to use in many respects, with simple queries of the catalogue (particularly within a few hundred pc of the Sun where MGs are most common) returning mostly MGs. 
+
+More accurate determination of whether or not a given object is a real bound cluster 
+
+
+
 % PLAN
 % - Masses are useful! Dynamics are useful! They're comparable to theory and represent measurements of fundamental (physical) parameters of OCs.
 % - BUT: very limited measurements so far of these parameters.
@@ -164,18 +174,20 @@
 \centering
 \begin{tabular}{lcc}
 \hline\hline
-Type & Identifier & Count \\
+Type & Criteria & Identifier & Count \\
 \hline
 
-OC & \texttt{o} & TODO \\
-- bound OC & \texttt{o} & TODO \\
-- unbound OC & \texttt{ou} & TODO \\
+OC & $P(r_J) > 0.5$ and $M_J < 50$ \MSun & & TODO \\
+- bound OC & $Q_{J,\text{corrected}} \leq 10$ & \texttt{o} & TODO \\
+- dissolving OC & $Q_{J,\text{corrected}} \geq 10$ & \texttt{od} & TODO \\
+- unbound OC? & $Q_{J,\text{corrected}} \geq 50$ & \texttt{ou} & TODO \\
 \hline
-MG & \texttt{m} & TODO \\
-- $P(r_J) < 0.5$ & \texttt{m} & TODO \\
-- $P(r_J) > 0.5$, $M_J < 50$ \MSun & \texttt{mj} & TODO \\
+MG & $P(r_J) > 0.5$ or $M_J < 50$ & & TODO \\
+- without Jacobi component & $P(r_J) < 0.5$ & \texttt{m} & TODO \\
+- with Jacobi component & $P(r_J) > 0.5$ & \texttt{mj} & TODO \\
 \hline
-GC & \texttt{g} & TODO \\
+GC & in \citeme{Vasiliev} & \texttt{g} & TODO \\
+\hline
 
 \end{tabular}
 

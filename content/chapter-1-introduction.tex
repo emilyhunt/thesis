@@ -393,7 +393,14 @@ where $r$ is the distance from the cluster centre, $r_c$ is the radius of the co
 \end{equation}
 
 \noindent
-where $x = (r / r_c)^2$ and $x_t = (r_t / r_c)^2$.
+where $x = (r / r_c)^2$ and $x_t = (r_t / r_c)^2$. Within the tidal field of a galaxy (such as the Milky Way), it is also helpful to compare the King tidal radius with the theoretically predicted Jacobi radius of a spherically symmetric cluster $r_J$:
+
+\begin{equation}
+	r_J = \left( \frac{GM}{4\Omega^2 - k^2} \right)
+\end{equation}
+
+\noindent % https://astronomy.stackexchange.com/questions/26099/jacobi-vs-tidal-radius-for-star-cluster
+which relates the limiting radius of a cluster's potential field (its Roche surface) $r_J$ to the cluster's mass $M$, given the circular frequency $\Omega$ and the epicyclic frequency $k$ of the cluster's orbit. Stars outside of $r_J$ are no longer bound to the cluster, with the galaxy's gravitational potential instead being dominant. For a spherically symmetric cluster on a circular orbit, $r_J \approx r_t$, relating a cluster's mass to the product of a King model fit (or vice versa) \citeme{BINNEY TREMAINE, PLUS SEE COMMENT}. Works including \citeme{PISKUNOV MASSES} have used this relation to derive cluster masses from King model fits.
 
 As an empirical model, the \cite{king_structure_star_1962} model is mostly useful for simple observational comparisons between clusters, such as comparisons between the core and tidal radii between clusters of different ages \citep{kharchenko_global_2013,tarricq_structural_2022}. \cite{king_structure_1966} re-derives a similar model from theoretical principles, including by assuming that the velocity distribution of stars in the centre of a star cluster is isothermal and that the cluster is in virial equilibrium. The shape of these models is parameterised by a dimensionless variable $W_0$ which parameterises the concentration of a cluster, with higher values corresponding to a more centrally concentrated cluster. For $W_0 \lesssim 7$, \cite{king_structure_star_1962} and \cite{king_structure_1966} models are very similar. In practice, almost all OCs have $W_0 < 7$, and so these models can be used somewhat interchangeably \citep{portegies_zwart_young_2010}. Due to the significantly simpler functional form of \cite{king_structure_star_1962} models, they are used almost exclusively in the OC literature relative to \cite{king_structure_1966} models \citep{portegies_zwart_young_2010,cantat-gaudin_milky_2022}.
 
