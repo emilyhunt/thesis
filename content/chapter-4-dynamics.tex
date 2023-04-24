@@ -13,13 +13,15 @@
 \section{Introduction}
 \label{sec:dynamics:introduction}
 
-Five years on since the release of \gaia\ DR2 \citeme{}, the census of open clusters (OCs) has been resoundingly overhauled \citeme{tcg universe}. Thousands of new objects have been discovered, parameters have been determined to previously impossible levels of accuracy, and many OCs reported before \gaia\ have been ruled out as asterisms \citeme{multiple papers here}. However, the OC census in the age of \gaia\ remains far from perfect, and one resoundingly large issue stands out that I will attempt to address in this chapter: there is no robust observational criteria or definition for what an OC actually is.
+Five years on since the release of \gaia\ DR2 \citep{brown_gaia_2018}, the census of open clusters (OCs) has been resoundingly overhauled \citep{cantat-gaudin_milky_2022}. Thousands of new objects have been discovered \citep[e.g.][]{liu_catalog_2019,castro-ginard_hunting_2020}, parameters have been determined to previously impossible levels of accuracy \citep[e.g.][]{bossini_age_2019,cantat-gaudin_painting_2020}, and many OCs reported before \gaia\ have been ruled out as asterisms \citep{cantat-gaudin_clusters_2020,piatti_assessing_2023,hunt_improving_open_2023}. However, the OC census in the age of \gaia\ remains far from perfect, and one resoundingly large issue stands out that I will attempt to address in this chapter: there is no robust observational criteria or definition for what an OC actually is \citep{hunt_improving_open_2023}.
 
-Following up from the first major catalogue of OCs in the \gaia\ era \citeme{cantat 2018}, \citeme{cantat anders 20} conducted a search for OCs that remained undetected in \gaia\ data, and created a set of empirical observational criteria intended to split dubious objects apart from OCs. This included recommendations that a candidate OC is a clear overdensity with at least $\sim10$ member stars, a colour-magnitude diagram (CMD) that follows a clear isochrone, a median radius $r_{50}$ smaller than 15~pc and a proper motion dispersion corresponding to an upper limit no greater than 5~km\,s\textsuperscript{-1}. In their work, they used these criteria to show that a number of objects were asterisms.
+Following up from the first major catalogue of OCs in the \gaia\ era \citep{cantat-gaudin_gaia_2018}, \citep{cantat-gaudin_clusters_2020} conducted a search for OCs that remained undetected in \gaia\ data, and created a set of empirical observational criteria intended to split dubious objects apart from OCs. This included recommendations that a candidate OC is a clear overdensity with at least $\sim10$ member stars, a colour-magnitude diagram (CMD) that follows a clear isochrone, a median radius $r_{50}$ smaller than 15~pc, and a proper motion dispersion corresponding to an upper limit no greater than 5~km\,s\textsuperscript{-1}. In their work, they used these criteria to show that a number of objects were asterisms.
 
-However, in \citeme{paper 2} (hereafter Paper 2), in which we constructed the largest catalogue of OCs to date from a blind search using \gaia\ DR3 data \citeme{DR3}, we found that these observational criteria were too permissive, with many of the objects we detect that pass these criteria being visually much more reminiscent of moving groups (MGs). As a thought experiment, one can  This creates an awkward situation where our Paper 2 catalogue is challenging to use in many respects, with simple queries of the catalogue (particularly within a few hundred pc of the Sun where MGs are most common) returning mostly MGs. 
+However, in \citep{hunt_improving_open_2023} (hereafter Paper 2), in which we constructed the largest catalogue of OCs to date from a blind search using \gaia\ DR3 data \citep{gaia_collaboration_gaia_2022}, we found that these observational criteria were too permissive. Many of the objects we detected that passed these criteria were visually much more reminiscent of moving groups (MGs), with sparse, flat distributions that do not resemble the clustered nature of reliable, gravitationally bound OCs. In turn, this creates an awkward situation where our Paper 2 catalogue is challenging to use in many respects, with simple queries of the catalogue returning mostly MGs, particularly within a few hundred pc of the Sun where MGs are most common. It is clear that a more accurate method to distinguish between bound OCs and unbound MGs is required. 
 
-More accurate determination of whether or not a given object is a real bound cluster 
+Thanfully, theoretical models of star clusters are well studied, particularly for simple \citep{plummer_problem_1911} models for which a wide range of parameters can be derived \citep{portegies_zwart_young_2010}.
+
+% As a thought experiment, one can imagine a reliable cluster such as Melotte~22 (the Pleiades), one of the most nearby and well-studied OCs in the Milky Way. Unsurprisingly, Melotte~22 passes all of the tests outlined in \citep{cantat-gaudin_clusters_2020}. In Paper 2, we detected around 1000 member stars for this cluster. An object with the same distance, radius, and velocity dispersion as Melotte~22 but merely ten member stars (i.e. 1\% of the mass) would have far too little mass in too large a radius and with too much kinetic energy to be gravitationally bound \citep{portegies_zwart_young_2010}. Yet since the 
 
 
 
@@ -172,7 +174,7 @@ More accurate determination of whether or not a given object is a real bound clu
 \caption{\label{tab:dynamics:catalogue_results}TODO}
 
 \centering
-\begin{tabular}{lcc}
+\begin{tabular}{lccc}
 \hline\hline
 Type & Criteria & Identifier & Count \\
 \hline
