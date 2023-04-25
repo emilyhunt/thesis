@@ -25,7 +25,7 @@ On the other hand, the proper motion dispersion upper limit from \cite{cantat-ga
 
 These rough estimates suggest that analysis of the masses and dynamics could be fruitful in attempting to discern between bound OCs and unbound moving groups. In this chapter, I hence aim to refine the observational definition of OCs by measuring the masses, Jacobi radii, and dynamics of star clusters in our catalogue from Paper 2. Doing so will allow for a new, more accurate determination of which objects are compatible with bound OCs. 
 
-\todo{discuss what comes next in the paper from here}
+\todo{discuss what comes next in the paper from here. emphasise that it's a W.I.P..}
 
 % PLAN
 % - Masses are useful! Dynamics are useful! They're comparable to theory and represent measurements of fundamental (physical) parameters of OCs.
@@ -42,10 +42,10 @@ These rough estimates suggest that analysis of the masses and dynamics could be 
 
 
 % -------------------------------------
-\section{Mass calculations}
+\section{Mass and radius calculations}
 \label{sec:dynamics:masses}
 
-At the time of writing, there exists no large catalogue of OC masses derived using \gaia\ data, with the largest study to date including only 78 of the many thousands of OCs in the Milky Way \citep{cordoni_photometric_binaries_2023}. In this section, I outline a method to accurately derive photometric masses of a given cluster of stars detected in \gaia, including accounting for a range of selection effects, in addition to using that mass to derive the Jacobi radius of a given population.
+At the time of writing, there exists no large catalogue of OC masses derived using \gaia\ data, with the largest study to date including only 78 of the many thousands of OCs in the Milky Way \citep{cordoni_photometric_binaries_2023}. In this section, I outline a method to accurately derive photometric masses of a given cluster of stars detected in \gaia, including accounting for a range of selection effects. Then, this mass determination method is used to determine the Jacobi radius of every cluser (for those that have one).
 
 % PLAN
 % - give a quick overview of what's in this methods section
@@ -60,9 +60,15 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \label{fig:dynamics:masses:stellar_masses}
  \end{figure}
 
- The first step in deriving the photometric mass of a cluster requires calculating the masses of the cluster's member stars. To do so, I follow a common method as used in numerous other works, such as \cite{meingast_extended_2021} and \cite{cordoni_photometric_2023}.
+ The first step in deriving the photometric mass of a cluster requires calculating the masses of the cluster's member stars. To do so, I follow a similar method to those as used in numerous other works, such as \cite{meingast_extended_2021} and \cite{cordoni_photometric_2023}.
 
- Firstly, using 100 isochrones for each cluster in our sample, 
+Using isochrone fits from Paper 2 and assuming solar metallicity for all clusters, PARSEC isochrones \citep{bressan_parsec_2012} were interpolated to predict mass as a function of G-band magnitude, $m(G)$. In general, this is sufficient for most member stars within clusters, and derives the most accurate stellar mass given \gaia\ G-band photometry and other calculated cluster parameters. 
+ 
+However, particularly for older clusters, many clusters have giant stars beyond the turn-off point that dip below the tip of the main sequence (see Fig.~\ref{fig:intro:history:isochrones}), meaning that a single value of $G$ can correspond to multiple different stellar masses $m$. Hence, for isochrones where the a direct conversion from magnitude to stellar mass is not possible for all stars, the interpolation region was split into a main sequence and turn-off point component. For stars near to and above the turn-off point, $BP-RP$ colours were also used to select the best fitting stellar mass. I do not use colours across the entire isochrone as \gaia\ DR3 colours can be under-estimated for stars fainter than $G\sim19$ \citep[especially in the BP band,][]{riello_gaia_2021}, and it is hence likely to be more accurate to limit the use of colour information in stellar mass interpolation as much as possible.
+
+Since the age inference neural network from Paper 2 used variational inference to incorporate uncertainties, it can be sampled to produce multiple estimates on parameters for each cluster. Hence, for every cluster, the stellar mass interpolation process was repeated 100 times, allowing the uncertainty inherent from age and extinction determination to be incorproated into the stellar masses stoachastically. Figure~\ref{fig:dynamics:masses:stellar_masses} shows the CMD of NGC~2451A, with its member stars shaded by their median sampled stellar mass and the 100 isochrone samples plotted in the background.
+
+As this interpolation process does not account for binaries, these stellar masses can be considered as being roughly equal to the stellar mass of the primary stars of any binary system. A separate correction for binaries is discussed and added later in Sect.~\ref{sec:dynamics:masses:binaries}.
 
 
 \subsection{Correction for selection effects}
@@ -73,7 +79,40 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \includegraphics[width=\textwidth]{fig/c4/mass_selection_functions.pdf}
     \caption[Estimated cluster selection functions for three OCs from Paper~2: Blanco~1, Ruprecht~134, and Berkeley~72]{Estimated cluster selection functions for three OCs from Paper~2: Blanco~1, Ruprecht~134, and Berkeley~72. The left column shows computed cluster selection functions and a combined cluster selection function after accounting for all three dominant selection effects. The right column shows the CMD of each considered cluster for comparison.}
     \label{fig:dynamics:masses:selection_effects}
- \end{figure}
+\end{figure}
+
+\todo{figure in this sec is ugly}
+
+Next, it is important to correct for selection effects. In Paper 2, we derived cluster membership lists down to magnitudes as faint as $G\sim20$. However, particularly at the faint end, clusters still become increasingly incomplete. This depends strongly on the position of the cluster in the disk: in the most extreme cases, for clusters in regions with high numbers of sources (such as towards the galactic centre), incompleteness is clear from magnitudes as bright as $G=17$. It is clear that accurate determination of cluster masses will require incorporation of these effects. The selection function of \gaia\ and subsamples of it have been relatively well studied in works such as \cite{boubert_completeness_2020,boubert_completeness_2020-1}, \cite{boubert_completeness_2020-1}, \cite{rix_selection_functions_2021}, \cite{cantat-gaudin_empirical_model_2023}, and \cite{castro-ginard_estimating_selection_2023}, whose work I will adapt in this section to calculate star cluster selection functions.
+
+The incompleteness of a cluster's membership list in Paper 2 is governed by three primary effects. Firstly, there is the simple probability that a source with attributes $\vec{q}=\left\{ l,b,G,... \right\}$ appears in the \gaia\ catalogue at all, $S_C^\text{parent}(\vec{q})$. To compute this, I use the selection function presented in \cite{cantat-gaudin_empirical_model_2023}, who compared the \gaia\ catalogue with deep photometric surveys of the galactic disk and globular clusters, deriving $S_C^\text{parent}(\vec{q})$ empirically as a function of the position and magnitude of a source for the entire \gaia\ DR3 catalogue. This builds on the purely theoretical \gaia\ selection function derived in \cite{boubert_completeness_2020,boubert_completeness_2020-1}. 
+
+However, many of the sources in \gaia\ do not include proper motions and parallaxes, do not include full photometry, or do not have reliable astrometry. Our Paper 2 membership lists were computed for a subsample of \gaia\ sources: namely, those with five or six parameter astrometric solutions, $G$, $BP$, and $RP$ photometry, and a \cite{rybizki_classifier_2022} v1 quality flag greater than 0.5, indicating that the source is likely to have reliable astrometry. This constitutes a subsample of 729~million stars from the overall \gaia\ DR3 catalogue.
+
+To compute the probability that a source appears in this subsample given that it is also in the \gaia\ catalogue, i.e. $S_C^\text{subsample}(\vec{q} \mid \vec{q}\text{ in parent})$, I use the method outlined in \cite{castro-ginard_estimating_selection_2023} and based on \cite{rix_selection_functions_2021}. Firstly, sources are binned based on their attributes $\vec{q}$. Then, within bins, the chance that a source with attributes $\vec{q}$ appears in the subsample is modelled as a binomial distribution $\mathcal{B}(n,\,p)$, where $n$ is the number of sources in the \gaia\ catalogue in this bin with attributes $\vec{q}$ and $p$ is the probability that a source with these attributes makes it into the subsample of valid stars. In practice, $p$ is unknown; hence, an uninformative uniform Beta distribution prior on $p$ given the number of observed sources in the bin is used \citep[see ][for full methodology]{castro-ginard_estimating_selection_2023}.
+
+In practice, one must choose the attributes $\vec{q'}$ on which the selection function is assumed to depend. The subsample of stars we use is almost entirely dependent on astrometric quality. The astrometric quality of \gaia\ is strongly correlated with sky position and G-band magnitude, corresponding to background star density, the number of scans of a given position by the \gaia\ telescope, and the brightness (signal to noise ratio) of a source \citep{lindegren_gaia_2021}. Hence, I compute $S_C^\text{subsample}(\vec{q} \mid \vec{q}\text{ in parent})$ as a function of position and magnitude, selecting a region corresponding roughly to the on-sky extent of a cluster for consideration and binning them in bins of size $0.2$~mag. Bins were expanded until every bin contained at least ten sources, ensuring that no range of the selection function was under-sampled, but while preserving high resolution between $11 < G < 20$ where most sources in \gaia\ are.
+
+Finally, I also found that the selection function of star cluster membership lists could depend on effects due to our adopted clustering algorithm and methodology in Paper~2, which is the probability that a given source is assigned as a member of a cluster by our clustering algorithm given that it appears in the subsample of valid sources considered for clustering analysis, $S_C^\text{algorithm}(\vec{q} \mid \vec{q}\text{ in subsample})$. Especially at high distances or within crowded fields, cluster proper motions and parallaxes become relatively uninformative, with many cluster members becoming relatively indistinguishable from field stars in these axes of \gaia\ astrometry. For distant clusters such as King~9, which is at a distance of $\sim6$~kpc, this can have a strong effect on our membership lists. Our adopted clustering algorithm from Paper 2, HDBSCAN, is density-based -- meaning that members are only assigned to a given cluster if they increase the contrast of a given cluster against unclustered stars. In practice, this means that stars away from the mean cluster proper motion or parallax are less likely to be assigned as cluster members, with many probably being missed. This is particularly dominant for faint sources at which \gaia\ astrometric errors can be on the order of (or even larger than) our measured cluster proper motion and parallax dispersions, meaning that many member stars are likely missed for the most distant objects. Errors on positions are correspondingly negligible compared to the generally no smaller than $0.1^\circ$ size of clusters, and so this effect is only of concern for cluster proper motions and parallaxes.
+
+To model this effect, I developed a novel stochastic technique to simulate the probability that a source would have mean \gaia\ astrometry within the detected HDBSCAN cluster. Firstly, the cluster detected by HDBSCAN is modelled as a three-dimensional ellipsoid in proper motion and parallax space. Then, 100\,000 stars with magnitudes uniformly distributed in the range $2 < G < 21$ were simulated, with astrometric errors assigned to each star depending on the error distribution of sources in the on-sky vicinity of a cluster. For each star, ten mean astrometric positions were simulated, given its simulated \gaia\ astrometric errors which form a multivariate normal distribution in proper motion and parallax space. For each simulation, a mean astrometric position within the cluster ellipsoid is assumed to be assigned as a cluster member, and a star whose mean astrometric position is outside of the cluster ellipsoid is assumed to be assigned as a non-member. The results of these simulations for each cluster are binned using the same bins as the subsample selection function, and are then combined into an estimated per-cluster clustering algorithm selection function as a function of G-band magnitude. Poisson uncertainties are computed as the uncertainties on these bins.
+
+Finally, all three independent selection effects are multiplied together, giving the total cluster selection function $S_C^\text{cluster}$:
+
+\begin{equation}
+    S_C^\text{cluster} = 
+    S_C^\text{parent}(\vec{q})
+    \cdot
+    S_C^\text{subsample}(\vec{q} \mid \vec{q}\text{ in parent})
+    \cdot
+    S_C^\text{algorithm}(\vec{q} \mid \vec{q}\text{ in subsample}).
+    \label{eqn:dynamics:masses:selection_function}
+\end{equation}
+
+Figure~\ref{fig:dynamics:masses:selection_effects} shows the computed cluster selection functions for three OCs: Blanco~1, Ruprecht~134, and Berkeley~72. Blanco~1 is a nearby ($d\approx240$~pc), high galactic latitude OC that suffers minimally from background crowding and is easy to separate from field stars. Its selection function is mostly complete down to $G\sim19$. On the other hand, Ruprecht~134 is an older, more distant cluster ($d\approx2.3$~kpc) that is in one of the densest regions of the galactic disk, with $l=0.3^\circ$ and $b=-1.6^\circ$. It is probably one of the most incomplete clusters in our entire catalogue. Its incompleteness is mostly due to the subsample selection function, as many sources do not have high enough quality \gaia\ astrometry to be included in our subsample of considered sources. Finally, Berkeley~72 is a distant, smaller cluster ($d\approx5.1$~kpc) whose members are more difficult to separate from field stars. Like many distant objects, the selection function of Berkeley~72 appears mostly dominated by the selection function of our clustering algorithm from Paper~2 when applied with our methodology. 
+
+It is also worth noting that in general, no clusters appear to have a range in $G$ in which their CMD is 100\% complete. Primarily, many of these missing stars across all magnitudes are likely to be binaries. Other than for a small subsample of around 1~million sources, \gaia\ DR3 astrometric fits assume that each source is a single star. Hence, binaries with deviations large enough to be detectable by \gaia\ can have poor-quality astrometric fits, resulting in high reduced $\chi^2$ values and high error astrometry that is rejected by quality cuts such as the one used for our subsample of stars \citep[][; see also Sect.~\ref{sec:intro:history:gaia:background}]{lindegren_gaia_2021}.
+
 
 
 \subsection{Correction for binaries}
@@ -88,7 +127,7 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \includegraphics[width=\textwidth]{fig/c4/mass_functions.pdf}
     \caption[Mass function fits to the three OCs from Fig.~\ref{fig:dynamics:masses:selection_effects}]{Mass function fits to the three OCs from Fig.~\ref{fig:dynamics:masses:selection_effects}. The blue points show measured binned stellar masses, the orange points show these masses after correcting for selection effects and modest assumptions about binary stars, and the black dashed line shows the best-fitting \cite{kroupa_variation_2001} IMF. The integral of the cluster mass function is written in the top right of each plot.}
     \label{fig:dynamics:masses:mass_functions}
- \end{figure}
+\end{figure}
 
 
 \subsection{Jacobi radius inference}
@@ -97,16 +136,16 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/masses_jacobi_radii.pdf}
-    \caption[TODO]{TODO}
+    \caption[Jacobi radius determination for three OCs: Blanco~1, Ruprecht~134, and Melotte~25]{Jacobi radius determination for three OCs: Blanco~1, Ruprecht~134, and Melotte~25 (the Hyades). Each of the three columns corresponds to each cluster. \emph{Top row:} the estimated total mass contained within a radius $r$ is shown in blue, with the $1\sigma$ error region shaded on the plot. The orange line shows the theoretical amount of mass contained within a radius $r$ according to the Jacobi radius equation (Eqn.~\ref{eqn:intro:jacobi_radius}). The intersection of these two lines corresponds to the cluster's $r_J$. \emph{Bottom row:} the distribution of cluster member stars. To remove spherical distortions, positions are rotated to an arbitrary coordinate frame with longitude $\lambda$ and latitude $\phi$ centred on the cluster centre. Stars within $r_J$ are shown in orange while stars outside of $r_J$ are shown in blue. The dashed red line shows $r_J$, while the dashed purple line corresponds to the approximate value of $r_t$ determined in Paper 2.}
     \label{fig:dynamics:masses:radii_examples}
- \end{figure}
+\end{figure}
 
- \begin{figure}[t]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/masses_jacobi_determination.pdf}
-    \caption[TODO]{The results of Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects (see Sect.~\ref{c3:sec:discussion-moving_groups} and Fig.~\ref{c3:fig:sus_clusters}). On the top row, cluster }
+    \caption[Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects]{Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects (see Sect.~\ref{c3:sec:discussion-moving_groups} and Fig.~\ref{c3:fig:sus_clusters}). The plot is formatted the same as Fig.~\ref{fig:dynamics:masses:radii_examples}.}
     \label{fig:dynamics:masses:radii_examples_sus}
- \end{figure}
+\end{figure}
 
 
 
@@ -121,9 +160,78 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/dispersion_pdf.pdf}
-    \caption[TODO]{TODO}
+    \caption[Proper motion dispersion likelihood in Eqn.~\ref{eqn:dynamics:velocities:likelihood} evaluated for different subsets of stars in Melotte~22]{Proper motion dispersion likelihood in Eqn.~\ref{eqn:dynamics:velocities:likelihood} evaluated for different subsets of stars in Melotte~22 (the Pleiades). The blue curve shows all 1400 stars within my calculated value of $r_J$. The orange and red curves are for sets of 100 and 10 stars respectively that were randomly sampled from the overall cluster, showing how the likelihood becomes broader and assymmetric as uncertainty on the true value increases.}
     \label{fig:dynamics:velocities:pdfs}
- \end{figure}
+\end{figure}
+
+Here I present a full derivation of the likelihood from \todo{this sentence wrong yo}. Given the set of all proper motion measurements for stars within a cluster $\{\vec{\mu}\}$, which each have corresponding covariances from the set of all covariance matrices  $\{\Sigma\}$, a mean cluster proper motion $\vec{\mu}_c = (\mu_{\alpha, c}, \mu_{\delta, c})$, and a cluster proper motion dispersion $\sigma_c$, I wish to maximise the likelihood
+
+\begin{equation}\label{eqn:dynamics:velocities:likelihood}
+    \mathcal{L} 
+    = P(\{\vec{\mu}\}\mid\vec{\mu}_c,\sigma_c,\{\Sigma\}).
+\end{equation}
+
+I begin by defining generative and measurement models from which the true and measured proper motions for each star are assumed to be drawn from. 
+
+Assuming that stars within a cluster of $n$ stars have independent, uncorrelated velocities -- namely, there is no overall axis of rotation within the cluster, and the cluster is well described by a \cite{king_structure_1966} profile -- the distribution of stellar velocities within the cluster will be well described by a multivariate normal distribution with a dispersion $\sigma_c$ in all axes \citep{king_structure_1966}. In the case of proper motions, this is simply a bivariate normal distribution with a mean described by the proper motion vector $\vec{\mu}_c$, a dispersion $\sigma_c$, and zero covariance between axes (i.e. the cluster is axisymmetric in proper motion space), assuming that proper motions have been rotated to a coordinate frame without spherical distortions and that the size of the cluster along the line of sight is negligible compared to the actual distance to the cluster. This distance assumption is somewhat violated for the nearest OCs (such as the Hyades), but in practice produces a systematic much smaller than the final uncertainty on the proper motion dispersion of the cluster. Hence, I define the generative model for the cluster: every $i^{th}$ star has a true proper motion $\vec{\bar{\mu}}_i~=~(\bar{\mu}_{\alpha,~i},\bar{\mu}_{\delta,~i})$ drawn from the model
+
+\begin{equation}\label{eqn:dynamics:velocities:generative_model}
+    P(\vec{\bar{\mu}}_i \mid
+    \vec{\mu}_c, \sigma_c)_i \sim \mathcal{N}(\vec{\mu}_c \mid \sigma_c)
+\end{equation}
+
+\noindent
+where $\mathcal{N}$ denotes a bivariate normal distribution.
+
+However, \emph{Gaia} proper motion measurements have uncertainties, and the measured proper motion of every source $\vec{\mu}_i~=~(\mu_{\alpha,~i},~\mu_{\delta,~i})$ is the true proper motion $\vec{\bar{\mu}}_i$ convolved with Gaussian measurement uncertainties. $\vec{\mu}_i$ has a covariance matrix $\Sigma_i$ defined as:
+
+\begin{equation}
+    \Sigma_i = 
+        \begin{bmatrix}
+        \sigma_{\mu_\alpha, i}^2 
+        & \rho_i \sigma_{\mu_\alpha, i} \sigma_{\mu_\delta, i}\\
+        \rho_i \sigma_{\mu_\alpha, i} \sigma_{\mu_\delta, i}
+        & \sigma_{\mu_\delta, i}^2
+        \end{bmatrix}
+\end{equation}
+
+\noindent
+where $\sigma_{\mu_\alpha, i}$ and $\sigma_{\mu_\delta, i}$ are the uncertainties on proper motions in right ascension and declination respectively, and $\rho_i$ is the covariance coefficient between them. Every measured proper motion $\vec{\mu}_i$ is therefore drawn from a bivariate normal distribution centred on the true proper motion $\vec{\bar{\mu}}_i$ as:
+
+\begin{equation}\label{eqn:dynamics:velocities:measurement_model}
+    P(\vec{\mu}_i \mid
+    \vec{\bar{\mu}}_i, \Sigma_i)_i \sim \mathcal{N}(\vec{\bar{\mu}}_i \mid \Sigma_i),
+\end{equation}
+
+\noindent
+which is the measurement model for each star which accounts for \emph{Gaia} astrometric uncertainties.
+
+Since the true proper motion $\vec{\bar{\mu}}_i$ is unknown, all possible values of this parameter must be marginalised over to remove it from the likelihood and arrive at a final (solvable) equation. The final likelihood for each star is hence given by
+
+\begin{equation}
+    \mathcal{L}_i = P(\vec{\mu}_i \mid \vec{\mu}_c, \sigma_c, \Sigma)_i = 
+    \int P(\vec{\mu}_i, \vec{\bar{\mu}}_i \mid \vec{\mu}_c, \sigma_c, \Sigma)_i \; d \vec{\bar{\mu}}_i.
+\end{equation}
+
+\noindent
+Using the product rule and conditional independence between parameters, this can be expressed in terms of Eqns.~\ref{eqn:dynamics:velocities:generative_model}~and~\ref{eqn:dynamics:velocities:measurement_model} as:
+
+\begin{equation}
+    \mathcal{L}_i% = P(\vec{\mu}_i \mid \vec{\mu}_c, \sigma_c, \Sigma)_i
+    = \int P(\vec{\mu}_i \mid \vec{\bar{\mu}}_i, \Sigma_i)_i \;
+    P(\vec{\bar{\mu}}_i \mid \vec{\mu}_c, \sigma_c)_i \;
+    d \vec{\bar{\mu}}_i.
+\end{equation}
+
+Finally, for all $n$ stars in the cluster, assuming that the set of all proper motion measurements $\{\vec{\mu}\}$ with corresponding covariances $\{\Sigma\}$ is independent, the final likelihood is given by:
+
+\begin{equation}
+    \mathcal{L} 
+    = P(\{\vec{\mu}\}\mid\vec{\mu}_c,\sigma_c,\{\Sigma\}) 
+    = \prod_{i=1}^{n} \mathcal{L}_i.
+\end{equation}
+
+In practice, \emph{Gaia} measurements are not strictly independent, and coordinate frame distortions (especially near the poles of the adopted coordinate system) can cause clusters to have distorted, non-Gaussian proper motion distributions. In the next section, I discuss how cluster proper motions are corrected for various distortions arising from spherical geometry, cluster radial velocity projected into the tangential proper motion plane, and \gaia\ systematics.
 
 
 \subsection{Coordinate frame and radial velocity corrections}
@@ -138,7 +246,7 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \includegraphics[width=\textwidth]{fig/c4/dispersion_binaries.pdf}
     \caption[TODO]{TODO}
     \label{fig:dynamics:velocities:binary_contamination}
- \end{figure}
+\end{figure}
 
 
 % -------------------------------------
@@ -154,7 +262,7 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \includegraphics[width=\textwidth]{fig/c4/results_mass_comparison.pdf}
     \caption[TODO]{TODO}
     \label{fig:dynamics:results:mass_comparison}
- \end{figure}
+\end{figure}
 
 
 \subsection{Jacobi radii}
@@ -165,7 +273,7 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \includegraphics[width=\textwidth]{fig/c4/results_p_jac_distribution.pdf}
     \caption[TODO]{TODO}
     \label{fig:dynamics:results:jacobi_radii_distribution}
- \end{figure}
+\end{figure}
 
 
 \subsection{Virial ratios}
@@ -183,7 +291,7 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \includegraphics[width=\textwidth]{fig/c4/results_q_distribution.pdf}
     \caption[TODO]{TODO}
     \label{fig:dynamics:results:virial_ratio_distribution}
- \end{figure}
+\end{figure}
 
 
 \subsection{An updated observational definition of open clusters}
