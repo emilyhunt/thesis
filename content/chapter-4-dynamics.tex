@@ -7,29 +7,25 @@
 
 \authorship{The results presented in this chapter will be published in Hunt and Reffert (\emph{in prep.}). All calculations, figures, and writing in this chapter were conducted by myself.}
 
-\todo{dynamics section}
-
 % -------------------------------------
 \section{Introduction}
 \label{sec:dynamics:introduction}
 
 Five years on since the release of \gaia\ DR2 \citep{brown_gaia_2018}, the census of open clusters (OCs) has been resoundingly overhauled \citep{cantat-gaudin_milky_2022}. Thousands of new objects have been discovered \citep[e.g.][]{liu_catalog_2019,castro-ginard_hunting_2020}, parameters have been determined to previously impossible levels of accuracy \citep[e.g.][]{bossini_age_2019,cantat-gaudin_painting_2020}, and many OCs reported before \gaia\ have been ruled out as asterisms \citep{cantat-gaudin_clusters_2020,piatti_assessing_2023,hunt_improving_open_2023}. However, the OC census in the age of \gaia\ remains far from perfect, and one resoundingly large issue stands out that I will attempt to address in this chapter: there is no robust observational criteria or definition for what an OC actually is \citep{hunt_improving_open_2023}.
 
-Following up from the first major catalogue of OCs in the \gaia\ era \citep{cantat-gaudin_gaia_2018}, \citep{cantat-gaudin_clusters_2020} conducted a search for OCs that remained undetected in \gaia\ data, and created a set of empirical observational criteria intended to split dubious objects apart from OCs. This included recommendations that a candidate OC is a clear overdensity with at least $\sim10$ member stars, a colour-magnitude diagram (CMD) that follows a clear isochrone, a median radius $r_{50}$ smaller than 15~pc, and a proper motion dispersion corresponding to an upper limit no greater than 5~km\,s\textsuperscript{-1}. In their work, they used these criteria to show that a number of objects were asterisms.
+Following up from the first major catalogue of OCs in the \gaia\ era \citep{cantat-gaudin_gaia_2018}, \citep{cantat-gaudin_clusters_2020} conducted a search for OCs that remained undetected in \gaia\ data, and created a set of empirical observational criteria intended to split dubious objects apart from OCs. This included recommendations that a candidate OC is a clear overdensity with at least $\sim10$ member stars, a colour-magnitude diagram (CMD) that follows a clear isochrone, a median radius $r_{50}$ smaller than 15~pc, and a proper motion dispersion corresponding to an upper limit no greater than 5~km\,s\textsuperscript{-1}. In their work, they used these criteria to show that a number of objects were highly likely to be asterisms.
 
-In \citep{hunt_improving_open_2023} (hereafter Paper 2), we constructed the largest catalogue of OCs to date from a blind search of \gaia\ DR3 data \citep{gaia_collaboration_gaia_2022}. However, we found that the \cite{cantat-gaudin_clusters_2020} observational criteria were too permissive. Many of the objects we detected that passed these criteria were visually much more reminiscent of moving groups (MGs), with sparse, flat distributions that do not resemble the clustered nature of reliable, gravitationally bound OCs. In turn, this creates an awkward situation where our Paper 2 catalogue is challenging to use in many respects, with simple queries of the catalogue returning mostly MGs, particularly within a few hundred pc of the Sun where MGs are most common. It is clear that a more accurate method to distinguish between bound OCs and unbound MGs is required. 
+In \citep{hunt_improving_open_2023} (hereafter Paper 2), we constructed the largest catalogue of OCs to date from a blind search of \gaia\ DR3 data \citep{gaia_collaboration_gaia_2022}. However, we found that the \cite{cantat-gaudin_clusters_2020} observational criteria were too permissive. Many of the objects we detected that passed these criteria were visually much more reminiscent of moving groups (MGs), with sparse, flat distributions that do not resemble the clustered nature of reliable, gravitationally bound OCs. In turn, this creates an awkward situation where our Paper 2 catalogue is challenging to use in many respects, with simple queries of the catalogue returning mostly MGs -- particularly within a few hundred pc of the Sun where MGs are most common. It is clear that a more precise method to distinguish between bound OCs and unbound MGs is required. 
 
-Primarily, it appears that the radius and proper motion constraints presented in \cite{cantat-gaudin_clusters_2020} are the primary area of the OC observational definition that requires improvement. Recalling Eqns.~\ref{eqn:intro:jacobi_radius}~and~\ref{eqn:intro:virial_ratio}, in addition to theories of bound and unbound star clusters discussed in works such as \cite{portegies_zwart_young_2010} and \cite{krause_physics_2020}, one can note that a cluster's mass, radius, and velocity dispersion form a three-way link in defining the dynamical status of a star cluster. Simple inidivudal cuts on radius, dispersion, or even cluster mass should be insufficient to accurately split OCs from MGs.
+It appears that the radius and proper motion constraints presented in \cite{cantat-gaudin_clusters_2020} are the primary area of the OC observational definition that requires improvement. Recalling Eqns.~\ref{eqn:intro:jacobi_radius}~and~\ref{eqn:intro:virial_ratio}, in addition to the theory around bound and unbound star clusters discussed in works such as \cite{portegies_zwart_young_2010} or \cite{krause_physics_2020}, one can note that a cluster's mass, radius, and velocity dispersion form a three-way link in defining the dynamical status of a star cluster. Simple inidivudal cuts on radius, dispersion, or even cluster mass should be insufficient to accurately split OCs from MGs.
 
-For example, let us consider a cluster at the upper end of allowed radii from the cuts of \cite{cantat-gaudin_clusters_2020} with $r_{50}=15$~pc. Assuming $r_{50}\sim 2 r_t$ for convenience (which is approximately correct for most OCs), Eqn.~\ref{eqn:intro:jacobi_radius} predicts that in the solar neighbourhood, a cluster of this size would require a total mass of $\sim10^4$~\MSun\ in order to be a bound object with a valid Jacobi radius, a mass so high that it corresponds to some of the largest known clusters in the Milky Way \citep{portegies_zwart_young_2010,cantat-gaudin_milky_2022}. Such a high mass appears unrealistic for the many small, sparse new clusters we detected in the solar neighbourhood in Paper 2. 
+For example, let us consider a cluster at the upper end of allowed radii from the cuts of \cite{cantat-gaudin_clusters_2020}, with $r_{50}=15$~pc. Assuming $2 \, r_{50}\approx r_t$ for convenience (which is a fair approximation for most OCs), Eqn.~\ref{eqn:intro:jacobi_radius} predicts that in the solar neighbourhood, a cluster of this size would require a total mass of $\sim10^4$~\MSun\ in order to be a bound object with a Jacobi radius of this size -- a mass so high that it corresponds to some of the largest known young clusters in the Milky Way \citep{portegies_zwart_young_2010,cantat-gaudin_milky_2022}. Such a high mass appears unrealistic for the many small, sparse new clusters we detected in the solar neighbourhood in Paper 2. 
 
-On the other hand, the proper motion dispersion upper limit from \cite{cantat-gaudin_clusters_2020} corresponding to 5~\kms\ when converted to velocity dispersions is also likely to be much too high for many clusters. Many of the moving groups we detected in Paper 2 have proper motion dispersions that correspond to velocity dispersions in the range of 1 to 4~\kms. 
+On the other hand, the proper motion dispersion upper limit from \cite{cantat-gaudin_clusters_2020} (corresponding to 5~\kms\ when converted to velocity dispersions) is also likely to be much too high for many clusters. Many of the moving groups we detected in Paper 2 have proper motion dispersions that, when converted to velocity dispersions, correspond to dispersions in the range of 1 to 4~\kms. Even with a relatively small $r_{50}$ of 1~pc, a cluster with a velocity dispersion of 2~\kms\ would need to have a mass of $\sim10^4$~\MSun\ to be in virial equilibrium, which once again would be a high mass for an OC in the Milky Way, let alone within a few hundred pc of the Sun. 
 
-Thanfully, theoretical models of star clusters are well studied, particularly for simple \citep{plummer_problem_1911} models for which a wide range of parameters can be derived \citep{portegies_zwart_young_2010}.
+These rough estimates suggest that analysis of the masses and dynamics could be fruitful in attempting to discern between bound OCs and unbound moving groups. In this chapter, I hence aim to refine the observational definition of OCs by measuring the masses, Jacobi radii, and dynamics of star clusters in our catalogue from Paper 2. Doing so will allow for a new, more accurate determination of which objects are compatible with bound OCs. 
 
-% As a thought experiment, one can imagine a reliable cluster such as Melotte~22 (the Pleiades), one of the most nearby and well-studied OCs in the Milky Way. Unsurprisingly, Melotte~22 passes all of the tests outlined in \citep{cantat-gaudin_clusters_2020}. In Paper 2, we detected around 1000 member stars for this cluster. An object with the same distance, radius, and velocity dispersion as Melotte~22 but merely ten member stars (i.e. 1\% of the mass) would have far too little mass in too large a radius and with too much kinetic energy to be gravitationally bound \citep{portegies_zwart_young_2010}. Yet since the 
-
-
+\todo{discuss what comes next in the paper from here}
 
 % PLAN
 % - Masses are useful! Dynamics are useful! They're comparable to theory and represent measurements of fundamental (physical) parameters of OCs.
@@ -49,9 +45,10 @@ Thanfully, theoretical models of star clusters are well studied, particularly fo
 \section{Mass calculations}
 \label{sec:dynamics:masses}
 
+At the time of writing, there exists no large catalogue of OC masses derived using \gaia\ data, with the largest study to date including only 78 of the many thousands of OCs in the Milky Way \citep{cordoni_photometric_binaries_2023}. In this section, I outline a method to accurately derive photometric masses of a given cluster of stars detected in \gaia, including accounting for a range of selection effects, in addition to using that mass to derive the Jacobi radius of a given population.
+
 % PLAN
 % - give a quick overview of what's in this methods section
-
 
 \subsection{Inference of stellar primary masses}
 \label{sec:dynamics:masses:isochrones}
@@ -59,9 +56,13 @@ Thanfully, theoretical models of star clusters are well studied, particularly fo
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.8\textwidth]{fig/c4/masses_stellar.pdf}
-    \caption[TODO]{TODO}
+    \caption[CMD of NGC~2451A with stars shaded by their median sampled stellar mass]{CMD of NGC~2451A with stars shaded by their median sampled stellar mass from interpolation against cluster isochrones. 100 isochrones sampled from the age-determination neural network in Paper 2 are plotted in black.}
     \label{fig:dynamics:masses:stellar_masses}
  \end{figure}
+
+ The first step in deriving the photometric mass of a cluster requires calculating the masses of the cluster's member stars. To do so, I follow a common method as used in numerous other works, such as \cite{meingast_extended_2021} and \cite{cordoni_photometric_2023}.
+
+ Firstly, using 100 isochrones for each cluster in our sample, 
 
 
 \subsection{Correction for selection effects}
@@ -70,7 +71,7 @@ Thanfully, theoretical models of star clusters are well studied, particularly fo
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/mass_selection_functions.pdf}
-    \caption[TODO]{TODO}
+    \caption[Estimated cluster selection functions for three OCs from Paper~2: Blanco~1, Ruprecht~134, and Berkeley~72]{Estimated cluster selection functions for three OCs from Paper~2: Blanco~1, Ruprecht~134, and Berkeley~72. The left column shows computed cluster selection functions and a combined cluster selection function after accounting for all three dominant selection effects. The right column shows the CMD of each considered cluster for comparison.}
     \label{fig:dynamics:masses:selection_effects}
  \end{figure}
 
@@ -85,7 +86,7 @@ Thanfully, theoretical models of star clusters are well studied, particularly fo
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/mass_functions.pdf}
-    \caption[TODO]{TODO}
+    \caption[Mass function fits to the three OCs from Fig.~\ref{fig:dynamics:masses:selection_effects}]{Mass function fits to the three OCs from Fig.~\ref{fig:dynamics:masses:selection_effects}. The blue points show measured binned stellar masses, the orange points show these masses after correcting for selection effects and modest assumptions about binary stars, and the black dashed line shows the best-fitting \cite{kroupa_variation_2001} IMF. The integral of the cluster mass function is written in the top right of each plot.}
     \label{fig:dynamics:masses:mass_functions}
  \end{figure}
 
@@ -97,7 +98,14 @@ Thanfully, theoretical models of star clusters are well studied, particularly fo
     \centering
     \includegraphics[width=\textwidth]{fig/c4/masses_jacobi_radii.pdf}
     \caption[TODO]{TODO}
-    \label{fig:dynamics:masses:radii}
+    \label{fig:dynamics:masses:radii_examples}
+ \end{figure}
+
+ \begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/masses_jacobi_determination.pdf}
+    \caption[TODO]{The results of Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects (see Sect.~\ref{c3:sec:discussion-moving_groups} and Fig.~\ref{c3:fig:sus_clusters}). On the top row, cluster }
+    \label{fig:dynamics:masses:radii_examples_sus}
  \end{figure}
 
 
@@ -109,6 +117,13 @@ Thanfully, theoretical models of star clusters are well studied, particularly fo
 
 \subsection{Gaussian velocity dispersion model}
 \label{sec:dynamics:velocities:model}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/dispersion_pdf.pdf}
+    \caption[TODO]{TODO}
+    \label{fig:dynamics:velocities:pdfs}
+ \end{figure}
 
 
 \subsection{Coordinate frame and radial velocity corrections}
@@ -187,7 +202,7 @@ Type & Criteria & Identifier & Count \\
 
 OC & $P(r_J) > 0.5$ and $M_J < 50$ \MSun & & TODO \\
 - bound OC & $Q_{J,\text{corrected}} \leq 10$ & \texttt{o} & TODO \\
-- dissolving OC & $Q_{J,\text{corrected}} \geq 10$ & \texttt{od} & TODO \\
+- dissolving OC? & $Q_{J,\text{corrected}} \geq 10$ & \texttt{od} & TODO \\
 - unbound OC? & $Q_{J,\text{corrected}} \geq 50$ & \texttt{ou} & TODO \\
 \hline
 MG & $P(r_J) > 0.5$ or $M_J < 50$ & & TODO \\
@@ -195,6 +210,8 @@ MG & $P(r_J) > 0.5$ or $M_J < 50$ & & TODO \\
 - with Jacobi component & $P(r_J) > 0.5$ & \texttt{mj} & TODO \\
 \hline
 GC & in \citeme{Vasiliev} & \texttt{g} & TODO \\
+\hline
+Too distant & $d >= 15$~kpc & & TODO \\
 \hline
 
 \end{tabular}
