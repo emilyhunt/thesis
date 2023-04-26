@@ -154,34 +154,38 @@ More work should be done to improve the fitting process of cluster mass function
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/masses_jacobi_radii.pdf}
-    \caption[Jacobi radius determination for three OCs: Blanco~1, Ruprecht~134, and Melotte~25]{Jacobi radius determination for three OCs: Blanco~1, Ruprecht~134, and Melotte~25 (the Hyades). Each of the three columns corresponds to each cluster. \emph{Top row:} the estimated total mass contained within a radius $r$ is shown in blue ($M(r)$), with the $1\sigma$ error region shaded on the plot. The orange line shows the theoretical amount of mass contained within a radius $r$ according to the Jacobi radius equation ($M_J(r)$, Eqn.~\ref{eqn:intro:jacobi_radius}). The intersection of these two lines corresponds to the cluster's $r_J$. \emph{Bottom row:} the distribution of cluster member stars. To remove spherical distortions, positions are rotated to an arbitrary coordinate frame with longitude $\lambda$ and latitude $\phi$ centred on the cluster centre. Stars within $r_J$ are shown in orange while stars outside of $r_J$ are shown in blue. The dashed red line shows $r_J$, while the dashed purple line corresponds to the approximate value of $r_t$ determined in Paper 2.}
+    \caption[Jacobi radius determination for three OCs: Blanco~1, Ruprecht~134, and Melotte~25]{Jacobi radius determination for three OCs: Blanco~1, Ruprecht~134, and Melotte~25 (the Hyades). Each of the three columns corresponds to each cluster. \emph{Top row:} the estimated total mass contained within a radius $r$ is shown in blue ($M_\text{obs}(r)$), with the $1\sigma$ error region shaded on the plot. The orange line shows the theoretical amount of mass contained within a radius $r$ according to the Jacobi radius equation ($M_J(r)$, Eqn.~\ref{eqn:intro:jacobi_radius}). The intersection of these two lines corresponds to the cluster's $r_J$. \emph{Bottom row:} the distribution of cluster member stars. To remove spherical distortions, positions are rotated to an arbitrary coordinate frame with longitude $\lambda$ and latitude $\phi$ centred on the cluster centre. Stars within $r_J$ are shown in orange while stars outside of $r_J$ are shown in blue. The dashed red line shows $r_J$, while the dashed purple line corresponds to the approximate value of $r_t$ determined in Paper 2.}
     \label{fig:dynamics:masses:radii_examples}
 \end{figure}
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/masses_jacobi_determination.pdf}
-    \caption[Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects]{Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects (see Sect.~\ref{c3:sec:discussion-moving_groups} and Fig.~\ref{c3:fig:sus_clusters}). The plot is formatted the same as Fig.~\ref{fig:dynamics:masses:radii_examples}. The most likely Jacobi radius for HSC~1131 and HSC~2376 is shown, although $M(r)<M_J(r)$ for all radii for both clusters and they are hence more likely to be MGs (see text).}
+    \caption[Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects]{Jacobi radius determination for three candidate new OCs from Paper 2 that were highlighted as example new objects (see Sect.~\ref{c3:sec:discussion-moving_groups} and Fig.~\ref{c3:fig:sus_clusters}). The plot is formatted the same as Fig.~\ref{fig:dynamics:masses:radii_examples}. The most likely Jacobi radius for HSC~1131 and HSC~2376 is shown, although $M_\text{obs}(r)<M_J(r)$ for all radii for both clusters and they are hence more likely to be MGs (see text).}
     \label{fig:dynamics:masses:radii_examples_sus}
 \end{figure}
 
 Finally, having constructed a pipeline to calculate cluster masses, I used these methods to infer the Jacobi radius $r_J$ of the clusters in our sample. Recalling Sect.~\ref{sec:intro:theory:profile}, the Jacobi radius defines the radius within which a star cluster's gravitational potential is greater than the potential of the Milky Way. Within this radius, all stars have the potential to be bound together. I define the amount of mass within this radius as the Jacobi (or bound) mass $M_J$ of each cluster.
 
-The Jacobi radius of each cluster was calculated using the method of \cite{meingast_extended_2021}. Firstly, I calculated the circular and epicyclic frequencies at the cluster's distance from the galactic centre using \texttt{galpy} \citep{bovy_galpy_python_2015} and the \texttt{MWPotential2014} potential model defined in \cite{bovy_galpy_python_2015}. Next, for each cluster, the theoretical value of the Jacobi mass as a function of radius $M_J(r)$ was calculated at all radii outwards from the centre of the cluster. Finally, the observed cluster mass as a function of radius $M(r)$ was calculated by repeating the process of binning stars by mass, applying a correction for unresolved binaries, and fitting Kroupa IMFs to the resulting cluster mass functions. The radius at which $M(r) = M_J(r)$ is then hence the Jacobi radius of the cluster. Only radii at which the cluster would have at least ten observed bound members were considered, differentiating any potential bound cluster from multiple star systems and in accordance with common minimum limits on the size of an OC \citep{cantat-gaudin_clusters_2020,portegies_zwart_young_2010}.
+The Jacobi radius of each cluster was calculated using the method of \cite{meingast_extended_2021}. Firstly, I calculated the circular and epicyclic frequencies at the cluster's distance from the galactic centre using \texttt{galpy} \citep{bovy_galpy_python_2015} and the \texttt{MWPotential2014} potential model defined in \cite{bovy_galpy_python_2015}. Next, for each cluster, the theoretical value of the Jacobi mass as a function of radius $M_J(r)$ was calculated at all radii outwards from the centre of the cluster. Finally, the observed cluster mass as a function of radius $M_\text{obs}(r)$ was calculated by repeating the process of binning stars by mass, applying a correction for unresolved binaries, and fitting Kroupa IMFs to the resulting cluster mass functions. The radius at which $M_\text{obs}(r) = M_J(r)$ is then hence the Jacobi radius of the cluster. Only radii at which the cluster would have at least ten observed bound members were considered, differentiating any potential bound cluster from multiple star systems and in accordance with common minimum limits on the size of an OC \citep{cantat-gaudin_clusters_2020,portegies_zwart_young_2010}.
 
-There are two special cases of this method worth discussing. Firstly, for clusters without a valid Jacobi radius, $M(r)<M_J(r)$ at all radii. These clusters can be considered to have no radius at which their potential is stronger than that of the Milky Way, and would be better classified as MGs instead of OCs. For these clusters, I take the radius at which they are closest to having a valid Jacobi radius and compute the probability of a cluster nevertheless having a valid Jacobi radius, given the uncertainties on their computed observed mass. For most clusters with $M(r)<M_J(r)$ for all $r$, this probability is near zero; although some edge-case objects may still have a small chance of having a valid Jacobi radius. Secondly, some clusters have an observed mass greater than their Jacobi mass even at the highest angular distance of any member star from the cluster core. This is particularly common for more distant or difficult to detect clusters, and is likely becuase they do not have detected member stars out to their true $r_J$. For these clusters, I compute $r_J$ for the mass of the entire detected cluster, giving a Jacobi radius larger than the total extent of the cluster on the sky. This value is likely to be an under-estimate of the true cluster $r_J$ as the undetected outskirts of the cluster would increase $r_J$ further.
+There are two special cases of this method worth discussing. Firstly, for clusters without a valid Jacobi radius, $M_\text{obs}(r)<M_J(r)$ at all radii. These clusters can be considered to have no radius at which their potential is stronger than that of the Milky Way, and would be better classified as MGs instead of OCs. For these clusters, I take the radius at which they are closest to having a valid Jacobi radius and compute the probability of a cluster nevertheless having a valid Jacobi radius, given the uncertainties on their computed observed mass. For most clusters with $M_\text{obs}(r)<M_J(r)$ for all $r$, this probability is near zero; although some edge-case objects may still have a small chance of having a valid Jacobi radius. Secondly, some clusters have an observed mass greater than their Jacobi mass even at the highest angular distance of any member star from the cluster core. This is particularly common for more distant or difficult to detect clusters, and is likely becuase they do not have detected member stars out to their true $r_J$. For these clusters, I compute $r_J$ for the mass of the entire detected cluster, giving a Jacobi radius larger than the total extent of the cluster on the sky. This value is likely to be an under-estimate of the true cluster $r_J$ as the undetected outskirts of the cluster would increase $r_J$ further.
 
-Figure~\ref{fig:dynamics:masses:radii_examples} shows $M(r)$ and $M_J(r)$ for three clusters: Blanco~1, Ruprecht~134, and Melotte~25 (the Hyades), in addition to the member stars within these radii. Firstly, it can be noted that at $r<r_J$, $M(r)$ is greater than $M_J(r)$ for Blanco~1 and Melotte~25, showing that these are reliable clusters with a range of radii where enough mass is present that the cluster's gravitational potential is stronger than that of the Milky Way. Ruprecht~134 is a more distant and difficult to detect cluster for which $M(r)$ is always greater than $M_J(r)$. The Jacobi radius of its total population is larger than the observed maximum radius of the cluster.
+Figure~\ref{fig:dynamics:masses:radii_examples} shows $M_\text{obs}(r)$ and $M_J(r)$ for three clusters: Blanco~1, Ruprecht~134, and Melotte~25 (the Hyades), in addition to the member stars within these radii. Firstly, it can be noted that at $r<r_J$, $M_\text{obs}(r)$ is greater than $M_J(r)$ for Blanco~1 and Melotte~25, showing that these are reliable clusters with a range of radii where enough mass is present that the cluster's gravitational potential is stronger than that of the Milky Way. Ruprecht~134 is a more distant and difficult to detect cluster for which $M_\text{obs}(r)$ is always greater than $M_J(r)$. The Jacobi radius of its total population is larger than the observed maximum radius of the cluster.
 
 This method also appears to be a good test of whether an object is an OC or an MG. Figure~\ref{fig:dynamics:masses:radii_examples_sus} shows the Jacobi radius determination for three candidate OCs from Paper~2 that were highlighted as example new objects. In Sect.~\ref{c3:sec:discussion-moving_groups}, we suggested that HSC~1131 and HSC~2376 were sparse objects that appear more compatible with moving groups, and HSC~1185 is an object with a denser core that could be compatible with a small OC. Figure~\ref{fig:dynamics:masses:radii_examples_sus} suggests that this is the case: HSC~1131 and HSC~2376 both do not have a valid Jacobi radius, while HSC~1185 is compatible with a small cluster with around 65~\MSun of bound stellar content.
 
-Finally, it is worth commenting on a remaining issue with this calculation that I hope to fix before publication. $M(r)$ values in Figs.~\ref{fig:dynamics:masses:radii_examples}~and~\ref{fig:dynamics:masses:radii_examples_sus} often jump up and down. In addition, the fitted mass within a radius $r$ can even decrease as $r$ increases, as appears to be the case for Blanco~1. This is due to issues with mass function fitting identified in Sect.~\ref{sec:dynamics:masses:imf_fits}, which causes mass function fits to be unstable and biased by outlier mass bins. Improvements to mass function fitting should make this process more stable and should improve the accuracy of $r_J$ determination for all clusters.
+Finally, it is worth commenting on a remaining issue with this calculation that I hope to fix before publication. $M_\text{obs}(r)$ values in Figs.~\ref{fig:dynamics:masses:radii_examples}~and~\ref{fig:dynamics:masses:radii_examples_sus} often jump up and down. In addition, the fitted mass within a radius $r$ can even decrease as $r$ increases, as appears to be the case for Blanco~1. This is due to issues with mass function fitting identified in Sect.~\ref{sec:dynamics:masses:imf_fits}, which causes mass function fits to be unstable and biased by outlier mass bins. Improvements to mass function fitting should make this process more stable and should improve the accuracy of $r_J$ determination for all clusters.
 
 
 
 % -------------------------------------
 \section{Velocity dispersion inference}
 \label{sec:dynamics:velocities}
+
+While the derived cluster masses and Jacobi radii from the previous section are effective to determine which clusters have the possibility of being bound, the dynamical state of a cluster depends not only on its mass and radius, but also its velocity dispersion (Eqn.~\ref{eqn:intro:virial_ratio}). Velocity dispersions from \gaia\ data have been used in a number of works such as \cite{bravi_gaia-eso_2018}, \cite{kuhn_kinematics_2019}, and \cite{pang_3d_2021} to probe the current dynamical status of star clusters. Even for clusters with a valid Jacobi radius, it may be that their velocity dispersion is so high that it is clear the cluster is a dense (but unbound) object. 
+
+While some dynamical studies have used radial velocities to study the dynamics of OCs \citep[e.g.][]{bravi_gaia-eso_2018} or proper motions in combination with radial velocities \citep[e.g.][]{evans_mass_2022-1}, I aim to use exclusively proper motions \citep[e.g. as in][]{kuhn_kinematics_2019}, as they are the only measurement available reliably across the entire sample of clusters. Hence, in this section, I outline a method to derive approximate cluster velocity dispersions from cluster proper motions based on a simple Gaussian model.
 
 
 \subsection{Gaussian velocity dispersion model}
@@ -194,20 +198,20 @@ Finally, it is worth commenting on a remaining issue with this calculation that 
     \label{fig:dynamics:velocities:pdfs}
 \end{figure}
 
-Here I present a full derivation of the likelihood from \todo{this sentence wrong yo}. Given the set of all proper motion measurements for stars within a cluster $\{\vec{\mu}\}$, which each have corresponding covariances from the set of all covariance matrices  $\{\Sigma\}$, a mean cluster proper motion $\vec{\mu}_c = (\mu_{\alpha, c}, \mu_{\delta, c})$, and a cluster proper motion dispersion $\sigma_c$, I wish to maximise the likelihood
+By definition, dynamically relaxed virialised clusters are expected to have an isothermal (Maxwellian) velocity dispersion that will be well described by a Gaussian \citep{king_structure_1966,portegies_zwart_young_2010}, assuming that stars within a cluster of $n$ stars have independent, uncorrelated velocities -- namely, that there is no overall axis of rotation within the cluster, and the cluster is well described by a \cite{king_structure_1966} profile. Hence, the assumption of a Gaussian model for the distribution of cluster proper motions is likely to be a good approximation for most OCs, and I approximate cluster velocity dispersions as a symmetrical multivariate Gaussian distribution with a single dispersion in all axes, $\sigma_c$.
+
+Given the set of all proper motion measurements for stars within a cluster $\{\vec{\mu}\}$, which each have corresponding covariances from the set of all covariance matrices  $\{\Sigma\}$, and a mean cluster proper motion $\vec{\mu}_c = (\mu_{\alpha, c}, \mu_{\delta, c})$, the likelihood of the observed data given these cluster parameters is hence given by
 
 \begin{equation}\label{eqn:dynamics:velocities:likelihood}
     \mathcal{L} 
     = P(\{\vec{\mu}\}\mid\vec{\mu}_c,\sigma_c,\{\Sigma\}).
 \end{equation}
 
-I begin by defining generative and measurement models from which the true and measured proper motions for each star are assumed to be drawn from. 
-
-Assuming that stars within a cluster of $n$ stars have independent, uncorrelated velocities -- namely, there is no overall axis of rotation within the cluster, and the cluster is well described by a \cite{king_structure_1966} profile -- the distribution of stellar velocities within the cluster will be well described by a multivariate normal distribution with a dispersion $\sigma_c$ in all axes \citep{king_structure_1966}. In the case of proper motions, this is simply a bivariate normal distribution with a mean described by the proper motion vector $\vec{\mu}_c$, a dispersion $\sigma_c$, and zero covariance between axes (i.e. the cluster is axisymmetric in proper motion space), assuming that proper motions have been rotated to a coordinate frame without spherical distortions and that the size of the cluster along the line of sight is negligible compared to the actual distance to the cluster. This distance assumption is somewhat violated for the nearest OCs (such as the Hyades), but in practice produces a systematic much smaller than the final uncertainty on the proper motion dispersion of the cluster. Hence, I define the generative model for the cluster: every $i^{th}$ star has a true proper motion $\vec{\bar{\mu}}_i~=~(\bar{\mu}_{\alpha,~i},\bar{\mu}_{\delta,~i})$ drawn from the model
+Every $i^{th}$ star in the cluster has a true proper motion $\vec{\bar{\mu}}_i~=~(\bar{\mu}_{\alpha,~i},\bar{\mu}_{\delta,~i})$, which is drawn from the two-dimensional Gaussian
 
 \begin{equation}\label{eqn:dynamics:velocities:generative_model}
     P(\vec{\bar{\mu}}_i \mid
-    \vec{\mu}_c, \sigma_c)_i \sim \mathcal{N}(\vec{\mu}_c \mid \sigma_c)
+    \vec{\mu}_c, \sigma_c)_i \sim \mathcal{N}(\vec{\mu}_c \mid \sigma_c),
 \end{equation}
 
 \noindent
@@ -226,7 +230,7 @@ However, \emph{Gaia} proper motion measurements have uncertainties, and the meas
 \end{equation}
 
 \noindent
-where $\sigma_{\mu_\alpha, i}$ and $\sigma_{\mu_\delta, i}$ are the uncertainties on proper motions in right ascension and declination respectively, and $\rho_i$ is the covariance coefficient between them. Every measured proper motion $\vec{\mu}_i$ is therefore drawn from a bivariate normal distribution centred on the true proper motion $\vec{\bar{\mu}}_i$ as:
+where $\sigma_{\mu_\alpha, i}$ and $\sigma_{\mu_\delta, i}$ are the uncertainties on proper motions in right ascension and declination respectively, and $\rho_i$ is the covariance coefficient between them. Every measured proper motion $\vec{\mu}_i$ is therefore drawn from a bivariate normal distribution centred on the true proper motion of star $i$ $\vec{\bar{\mu}}_i$ as:
 
 \begin{equation}\label{eqn:dynamics:velocities:measurement_model}
     P(\vec{\mu}_i \mid
@@ -255,28 +259,43 @@ Using the product rule and conditional independence between parameters, this can
 
 Finally, for all $n$ stars in the cluster, assuming that the set of all proper motion measurements $\{\vec{\mu}\}$ with corresponding covariances $\{\Sigma\}$ is independent, the final likelihood is given by:
 
-\begin{equation}
+\begin{equation}\label{eqn:dynamics:velocities:final_likelihood}
     \mathcal{L} 
     = P(\{\vec{\mu}\}\mid\vec{\mu}_c,\sigma_c,\{\Sigma\}) 
     = \prod_{i=1}^{n} \mathcal{L}_i.
 \end{equation}
 
-In practice, \emph{Gaia} measurements are not strictly independent, and coordinate frame distortions (especially near the poles of the adopted coordinate system) can cause clusters to have distorted, non-Gaussian proper motion distributions. In the next section, I discuss how cluster proper motions are corrected for various distortions arising from spherical geometry, cluster radial velocity projected into the tangential proper motion plane, and \gaia\ systematics.
+Evaluations of this likelihood for the Pleiades are shown in Fig.~\ref{fig:dynamics:velocities:binary_contamination}, as well as for smaller subsets of stars randomly sampled from the Pleiades. When the cluster dispersion is possible to measure precisely, the Eqn.~\ref{eqn:dynamics:velocities:likelihood} likelihood is symmetric; in less certain cases, the likelihood becomes assymetric, with a long tail towards high $\sigma_c$ values.
+
+In practice, \emph{Gaia} measurements are not strictly independent, and coordinate frame distortions due to effects such as the radial motion of the cluster will cause clusters to have distorted, non-Gaussian proper motion distributions. In the next section, I discuss how cluster proper motions are corrected for various distortions arising from spherical geometry, cluster radial velocity projected into the tangential proper motion plane, and \gaia\ systematics.
 
 
 \subsection{Coordinate frame and radial velocity corrections}
 \label{sec:dynamics:velocities:correction}
 
+Cluster proper motions are corrected in two ways. I remove the impact of an effect known as `perspective expansion' due to the relative motion of a cluster to the Sun. Particularly for clusters with high radial velocities such as the Hyades, this effect can cause stars to appear to expand or contract away from the centre of the cluster \citep{kuhn_kinematics_2019}. To first order, this contributes an excess proper motion $\Delta \mu_{\alpha^*,i}$ and $\Delta \mu_{\delta,i}$ to star $i$ given by \citep{vanleeuwen_parallaxes_proper_2009}:
 
-\subsection{Binary star contamination}
-\label{sec:dynamics:velocities:binaries}
+\begin{equation}
+    \Delta \mu_{\alpha^*,i} \approx \Delta\alpha_i \left( 
+        \mu_{\delta,c} \sin\delta_c - \frac{v_{r,c} \varpi_c}{k}\cos\delta_c
+    \right)
+\end{equation}
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\textwidth]{fig/c4/dispersion_binaries.pdf}
-    \caption[TODO]{TODO}
-    \label{fig:dynamics:velocities:binary_contamination}
-\end{figure}
+\begin{equation}
+    \Delta \mu_{\delta} \approx -\Delta\alpha_i \mu_{\alpha^*,c} \sin\delta_c - \Delta\delta_i \frac{v_{r,c}\varpi_c}{k},
+\end{equation}
+
+\noindent
+where $\alpha_c$, $\delta_c$, $\mu_{\alpha^*,c}$, $\mu_{\delta,c}$, and $\varpi_c$ are the astrometric parameters for the cluster derived in Paper~2, $\Delta\alpha_i$ and $\Delta\delta_i$ are the distance in right ascension and declination of the star from the cluster centre, $v_{r,c}$ is the cluster radial velocity determined in Paper~2, and $k$ is a constant equal to 4.74. For 1418 clusters with no determined radial velocity (which are generally distant and would be minimally affected by perspective expansion), this correction was not applied.
+
+In addition, to remove any possible spherical distortions on cluster proper motions, I rotate the coordinate frame of astrometric measurements and associated proper motions into a frame centred on the cluster centre determined in Paper~2. Errors on proper motions are transformed to the new frame. For most clusters, the effect of this correction is negligible; however, for clusters near to the poles of the adopted coordinate frame, this correction prevents cluster proper motions from having a ring-like distribution.
+
+\subsection{Inference procedure}
+\label{sec:dynamics:velocities:inference}
+
+Finally, cluster velocity dispersions were inferred for all clusters with a maximum likelihood method. Only stars within the identified Jacobi radius of each cluster were considered when inferring $\sigma_c$, which mostly removes the signature of cluster tidal tails from clusters. In addition, only stars with a renormalised unit weight error (RUWE) value of less than 1.4 were considered, which should help to restrict inference to only stars with reliable astrometry and should remove some obvious astrometric binaries \citep{lindegren_gaia_2021,penoyre_astrometric_2022,penoyre_astrometric_2022-1}.
+
+The full PDF and associated confidence intervals around the most likely $\sigma_c$ value were determined. To marginalise over and integrate the likelihood in Eqn.~\ref{eqn:dynamics:velocities:likelihood} quickly for all sources, a \texttt{C++} program was written using the integration package in the the GNU Scientific Library\footnote{\url{https://www.gnu.org/software/gsl/}}.
 
 
 % -------------------------------------
@@ -306,7 +325,7 @@ In practice, \emph{Gaia} measurements are not strictly independent, and coordina
 \end{figure}
 
 
-\subsection{Virial ratios}
+\subsection{Virial ratios and binary star contamination}
 \label{sec:dynamics:results:virial}
 
 \begin{figure}[t]
@@ -315,6 +334,13 @@ In practice, \emph{Gaia} measurements are not strictly independent, and coordina
     \caption[TODO]{TODO}
     \label{fig:dynamics:results:virial_vs_mass}
  \end{figure}
+
+ \begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/dispersion_binaries.pdf}
+    \caption[TODO]{TODO}
+    \label{fig:dynamics:velocities:binary_contamination}
+\end{figure}
 
 \begin{figure}[t]
     \centering
