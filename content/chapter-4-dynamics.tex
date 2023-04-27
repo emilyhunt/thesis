@@ -305,21 +305,15 @@ The full PDF and associated confidence intervals around the most likely $\sigma_
 In this section, I present an overview of the current results from my work into OC masses and dynamics. I begin with an overview of the cluster mass results.
 
 
-\subsection{Masses}
+\subsection{Masses and radii}
 \label{sec:dynamics:results:masses}
 
-\begin{figure}[t]
+\begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_mass_comparison.pdf}
     \caption[Cluster masses derived in this work compared against masses derived in literature works.]{Cluster masses derived in this work compared against masses derived in \cite{piskunov_tidal_2008}, \cite{meingast_extended_2021}, and \cite{cordoni_photometric_binaries_2023} for clusters that appear in both this work and the literature work.}
     \label{fig:dynamics:results:mass_comparison}
 \end{figure}
-
-As there are few cluster mass catalogues in the literature, comparison with other works is relatively difficult.
-
-
-\subsection{Jacobi radii}
-\label{sec:dynamics:results:radii}
 
 \begin{figure}[t]
     \centering
@@ -327,6 +321,23 @@ As there are few cluster mass catalogues in the literature, comparison with othe
     \caption[The distribution of probabilities that a cluster has a valid Jacobi radius]{The distribution of probabilities that a cluster has a valid Jacobi radius for all clusters within 15~kpc.}
     \label{fig:dynamics:results:jacobi_radii_distribution}
 \end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/results_mass_distribution.pdf}
+    \caption[The distribution of probabilities that a cluster has a valid Jacobi radius]{The distribution of probabilities that a cluster has a valid Jacobi radius for all clusters within 15~kpc.}
+    \label{fig:dynamics:results:jacobi_radii_distribution}
+\end{figure}
+
+Masses were successfully derived for 6974 clusters in the sample from Paper~2 that are not known globular clusters and are closer than 15~kpc. 72 clusters more distant than this limit have unreliable age and extinction estimates due to their distance not being supported by the age inference neural network from Paper~2. An alternative isochrone fitting method could be used for these objects to derive more accurate age and extinction estimates. This would be particularly interesting as it would make it possible to confirm or dispute any potential distant OC discoveries in Paper~2.
+
+As there are few cluster mass catalogues in the literature, comparison with other works is relatively difficult. However, comparison with literature 
+
+
+\subsection{Jacobi radii}
+\label{sec:dynamics:results:radii}
+
+
 
 
 \subsection{Virial ratios and binary star contamination}
