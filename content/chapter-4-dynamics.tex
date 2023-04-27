@@ -302,6 +302,8 @@ The full PDF and associated confidence intervals around the most likely $\sigma_
 \section{Results}
 \label{sec:dynamics:results}
 
+In this section, I present an overview of the current results from my work into OC masses and dynamics. I begin with an overview of the cluster mass results.
+
 
 \subsection{Masses}
 \label{sec:dynamics:results:masses}
@@ -312,6 +314,8 @@ The full PDF and associated confidence intervals around the most likely $\sigma_
     \caption[Cluster masses derived in this work compared against masses derived in literature works.]{Cluster masses derived in this work compared against masses derived in \cite{piskunov_tidal_2008}, \cite{meingast_extended_2021}, and \cite{cordoni_photometric_binaries_2023} for clusters that appear in both this work and the literature work.}
     \label{fig:dynamics:results:mass_comparison}
 \end{figure}
+
+As there are few cluster mass catalogues in the literature, comparison with other works is relatively difficult.
 
 
 \subsection{Jacobi radii}
@@ -331,21 +335,21 @@ The full PDF and associated confidence intervals around the most likely $\sigma_
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_virial_vs_mass.pdf}
-    \caption[TODO]{Virial ratios as a function of mass for }
+    \caption[Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$]{Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$. Points are shaded based on the median distance to the cluster $d_{50}$. In the upper plot, virial ratios measured for all stars within the cluster's Jacobi radius are shown. In the bottom plot, an approximate correction for dispersion increase arising from unresolved binary stars was applied.}
     \label{fig:dynamics:results:virial_vs_mass}
- \end{figure}
+\end{figure}
 
- \begin{figure}[t]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/dispersion_binaries.pdf}
-    \caption[TODO]{TODO}
+    \caption[Simulated binary star velocity dispersion contaminations as a function of distance for all clusters in the sample]{Simulated binary star velocity dispersion contaminations as a function of distance for all clusters in the sample. Cluster binary star contaminations are shown as a two dimensional histogram, with bin shading giving the number of clusters in each bin. The measured velocity dispersion of all clusters is shown as a blue contour plot above this histogram.}
     \label{fig:dynamics:velocities:binary_contamination}
 \end{figure}
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_q_distribution.pdf}
-    \caption[TODO]{TODO}
+    \caption[The distribution of cluster virial ratios]{The distribution of cluster virial ratios. The blue histogram shows virial ratios for clusters with a valid Jacobi radius, the orange histogram shows virial ratios for the same clusters with an approximate correction for binarity applied, and the red histogram shows the virial ratio of the entire cluster for clusters without a valid Jacobi radius.}
     \label{fig:dynamics:results:virial_ratio_distribution}
 \end{figure}
 
@@ -356,7 +360,7 @@ The full PDF and associated confidence intervals around the most likely $\sigma_
 \begin{table}[t]
 
 % Define first header
-\caption{\label{tab:dynamics:catalogue_results}TODO}
+\caption{\label{tab:dynamics:catalogue_results}Total counts of clusters within various different criteria.}
 
 \centering
 \begin{tabular}{lccc}
@@ -364,16 +368,16 @@ The full PDF and associated confidence intervals around the most likely $\sigma_
 Type & Criteria & Identifier & Count \\
 \hline
 
-OC & $P(r_J) > 0.5$ and $M_J < 50$ \MSun & & TODO \\
+Open cluster (OC) & $P(r_J) > 0.5$ and $M_J \geq 50$ \MSun & & TODO \\
 - bound OC & $Q_{J,\text{corrected}} \leq 10$ & \texttt{o} & TODO \\
 - dissolving OC? & $Q_{J,\text{corrected}} \geq 10$ & \texttt{od} & TODO \\
 - unbound OC? & $Q_{J,\text{corrected}} \geq 50$ & \texttt{ou} & TODO \\
 \hline
-MG & $P(r_J) > 0.5$ or $M_J < 50$ & & TODO \\
-- without Jacobi component & $P(r_J) < 0.5$ & \texttt{m} & TODO \\
-- with Jacobi component & $P(r_J) > 0.5$ & \texttt{mj} & TODO \\
+Moving group (MG) & $P(r_J) > 0.5$ or $M_J < 50$ \MSun & & TODO \\
+- no Jacobi component & $P(r_J) < 0.5$ & \texttt{m} & TODO \\
+- has Jacobi component & $P(r_J) > 0.5$ & \texttt{mj} & TODO \\
 \hline
-GC & in \citeme{Vasiliev} & \texttt{g} & TODO \\
+Globular cluster (GC) & in \cite{vasiliev_gaia_2021} & \texttt{g} & TODO \\
 \hline
 Too distant & $d >= 15$~kpc & & TODO \\
 \hline
