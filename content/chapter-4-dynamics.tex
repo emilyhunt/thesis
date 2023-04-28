@@ -434,30 +434,30 @@ As stated in the introduction to this chapter, this chapter is a work in progres
 \caption{\label{tab:dynamics:catalogue_results}Total counts of clusters within various different criteria.}
 
 \centering
-\begin{tabular}{lp{30mm}ccc}
+\begin{tabular}{lp{35mm}ccc}
 \hline\hline
-Type & Criteria & Identifier & Count & (high quality) \\
+Type & Criteria & Identifier & Count & (high quality)\tablefootmark{a} \\
 \hline
 
-Open cluster (OC) & $P(r_J)>0.5$ and $M_J\geq~50$~\MSun & & 5721 & 3529\\
+Open cluster (OC) & $P(r_J)>0.5$ and\newline$M_J\geq~50$~\MSun & & 5721 & 3529\\
 - bound OC & $Q_{J,\text{corrected}} < 5$ & \texttt{o} & 5077 & 3326 \\
 - dissolving OC & $5 \leq Q_{J,\text{corrected}} < 50$ & \texttt{od} & 572 & 193 \\
 - unbound OC? & $50 \leq Q_{J,\text{corrected}}$ & \texttt{ou} & 71 & 10 \\
 \hline
-Moving group (MG) & $P(r_J)~<~0.5$ or $M_J~<~50$~\MSun & 1355 & 559 \\
+Moving group (MG) & $P(r_J)~<~0.5$ or\newline$M_J~<~50$~\MSun & 1355 & 559 \\
 - no $r_J$ & $P(r_J) < 0.5$ & \texttt{m} & 961 & 282 \\
 - has $r_J$ & $P(r_J) > 0.5$ & \texttt{mj} & 374 & 269 \\
 \hline
 Globular cluster (GC) & in \cite{vasiliev_gaia_2021} & \texttt{g} & 121 & 21 \\
 \hline
-Too distant & $d >= 15$~kpc & 91 & 17 \\
+Too distant & $d >= 15$~kpc & & 91 & 17 \\
 \hline
 
 \end{tabular}
 
-% \tablefoot{
-% \tablefoottext{a}{}
-% }
+\tablefoot{
+\tablefoottext{a}{Number of clusters passing criteria and that are in the high-quality sample of objects from Paper~2, i.e. those with a median CMD class of greater than 0.5 and an astrometric S/N greater than $5\sigma$.}
+}
 
 \end{table} 
 
