@@ -60,7 +60,7 @@ At the time of writing, there exists no large catalogue of OC masses derived usi
     \label{fig:dynamics:masses:stellar_masses}
  \end{figure}
 
- The first step in deriving the photometric mass of a cluster requires calculating the masses of the cluster's member stars. To do so, I follow a similar method to those as used in numerous other works, such as \cite{meingast_extended_2021} and \cite{cordoni_photometric_2023}.
+ The first step in deriving the photometric mass of a cluster requires calculating the masses of the cluster's member stars. To do so, I follow a similar method to those as used in numerous other works, such as \cite{meingast_extended_2021} and \cite{cordoni_photometric_binaries_2023}.
 
 Using isochrone fits from Paper 2 and assuming solar metallicity for all clusters, PARSEC isochrones \citep{bressan_parsec_2012} were interpolated to predict mass as a function of G-band magnitude, $m(G)$. In general, this is sufficient for most member stars within clusters, and derives the most accurate stellar mass given \gaia\ G-band photometry and other calculated cluster parameters. 
  
@@ -299,10 +299,10 @@ The full PDF and associated confidence intervals around the most likely $\sigma_
 
 
 % -------------------------------------
-\section{Results}
+\section{Masses, radii, and virial ratios for the entire sample of clusters}
 \label{sec:dynamics:results}
 
-In this section, I present an overview of the current results from my work into OC masses and dynamics. I begin with an overview of the cluster mass results.
+In this section, I present an overview of the current results from my work into OC masses and dynamics. I begin with an overview of the cluster mass and Jacobi radius results.
 
 
 \subsection{Masses and radii}
@@ -311,7 +311,7 @@ In this section, I present an overview of the current results from my work into 
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_mass_comparison.pdf}
-    \caption[Cluster masses derived in this work compared against masses derived in literature works.]{Cluster masses derived in this work compared against masses derived in \cite{piskunov_tidal_2008}, \cite{meingast_extended_2021}, and \cite{cordoni_photometric_binaries_2023} for clusters that appear in both this work and the literature work.}
+    \caption[Cluster masses derived in this work compared against masses derived in literature works.]{Cluster masses derived in this work compared against masses derived in \cite{piskunov_tidal_2008}, \cite{meingast_extended_2021}, and \cite{cordoni_photometric_binaries_2023} for clusters that appear in both this work and the literature work. Values on the dashed line $y=x$ are in agreement between this work and the literature work.}
     \label{fig:dynamics:results:mass_comparison}
 \end{figure}
 
@@ -325,19 +325,29 @@ In this section, I present an overview of the current results from my work into 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_mass_distribution.pdf}
-    \caption[The distribution of probabilities that a cluster has a valid Jacobi radius]{The distribution of probabilities that a cluster has a valid Jacobi radius for all clusters within 15~kpc.}
-    \label{fig:dynamics:results:jacobi_radii_distribution}
+    \caption[The distribution of Jacobi masses for all clusters with mass measurements within 15~kpc]{The distribution of Jacobi masses for all clusters with mass measurements within 15~kpc and excluding globular clusters. Clusters are split into samples based on the probability that they have a valid Jacobi radius. In addition, solid lines show this for the `high quality' sample of clusters from Paper~2 (those with an astrometric S/N greater than $5\sigma$ and a median CMD class greater than 0.5), while dashed lines include all clusters with mass measurements in this work.}
+    \label{fig:dynamics:results:mass_distribution}
 \end{figure}
 
-Masses were successfully derived for 6974 clusters in the sample from Paper~2 that are not known globular clusters and are closer than 15~kpc. 72 clusters more distant than this limit have unreliable age and extinction estimates due to their distance not being supported by the age inference neural network from Paper~2. An alternative isochrone fitting method could be used for these objects to derive more accurate age and extinction estimates. This would be particularly interesting as it would make it possible to confirm or dispute any potential distant OC discoveries in Paper~2.
+Masses and Jacobi radii were successfully derived for 6974 clusters in the sample from Paper~2 that are not known globular clusters and are closer than 15~kpc. 72 clusters more distant than this limit have unreliable age and extinction estimates due to their distance not being supported by the age inference neural network from Paper~2. An alternative isochrone fitting method could be used for these objects to derive more accurate age and extinction estimates. This would be particularly interesting as it would make it possible to confirm or dispute any potential distant OC discoveries in Paper~2.
 
-As there are few cluster mass catalogues in the literature, comparison with other works is relatively difficult. However, comparison with literature 
+\todo{figure y=x lines are NOT correctly plotted, please fix!}
 
+There are few cluster mass catalogues in the literature. However, comparison with literature results is still possible on a limited scale. Figure~\ref{fig:dynamics:results:mass_comparison} compares cluster masses derived in this work with masses derived by profile fitting and observations in \cite{piskunov_tidal_2008}, from a similar method to this work in \cite{meingast_extended_2021}, and from \gaia\ DR3 data in \cite{cordoni_photometric_binaries_2023}. The only paper with reasonably good agreement with this work is that of \cite{meingast_extended_2021}, who apply a similar methodology to ten nearby clusters. Although my masses are generally slightly lower than theirs, the results are nevertheless relatively similar. The cluster with the largest disagreement and the largest error bars, Blanco~1, has a mass affected by mass profile fitting issues discussed in Sect.~\ref{sec:dynamics:masses:imf_fits} that will be fixed when this work is published.
 
-\subsection{Jacobi radii}
-\label{sec:dynamics:results:radii}
+However, agreement with other works is generally worse. My masses are much larger than the profile-based masses derived in \cite{piskunov_tidal_2008}. To derive their masses, the authors used two methods. Firstly, they fit King profiles to 236 clusters in the All Sky Compiled Catalogue 2.5 \cite{kharchenko_allsky_compiled_2001}. Then, assuming that the \cite{king_structure_star_1962} tidal radius $r_t$ is equivalent to $r_J$, one can derive a cluster mass from a profile fit given Eqn.~\ref{eqn:intro:jacobi_radius}. However, this method is extremely sensitive to the adopted cluster radius, since $M_J \propto r_J^3$. As noted in Sect.~\ref{sec:dynamics:masses:jacobi}, there are some cases (such as Ruprecht~134) where my derived Jacobi radius is larger than the observed extent of the cluster -- this is the case for 1195 clusters in the catalogue. Given the depth and quality of \gaia\ data, with cluster membership lists in Paper~2 containing on average four times as many stars as those in \cite{kharchenko_global_2013}, a plausible explanation for this mass value mismatch would be that many clusters in \cite{piskunov_tidal_2008} may have smaller radii than in this work. On average, King tidal radii derived in Paper~2 are $\approx 1.5\times$ larger than those in \cite{piskunov_tidal_2008}, corresponding to mass estimates that would be $\sim 3\times$ larger in this work. This is roughly equal to the difference in masses between this work and their King profile fitting derived masses. In addition, \cite{piskunov_tidal_2008} also fit semi-major axes to a larger sample of 650 clusters and used these as a proxy for cluster tidal radii, for which our masses have slightly more disagreement and by a similar factor.
 
+\cite{cordoni_photometric_binaries_2023} recently created a catalogue of OC masses for 78 clusters by fitting bespoke mass functions to the observed counts of stars for clusters in their sample. For some clusters, my masses are in good agreement with their results. However, there are other clusters for which their masses are very different to those derived in this work. Haffner~26 is the cluster with the highest reported mass in their work, with a total mass extrapolated from their mass function fit of 14563~\MSun, which is extremely discrepant with the \todo{add value} value of the mass derived for Haffner~26 in this work. In \cite{cordoni_photometric_binaries_2023}, they fit mass functions to every cluster, and fit a steep power law with an overall value of 3.37 above 1~\MSun and 4.78 below 1~\MSun, which is significantly steeper than a Kroupa IMF. Given the reasonably high distance to the cluster of $\sim 3$~kpc, not much of the cluster's low mass regime is resolved in \gaia\ data, and extrapolation of such a steep mass function to unobserved low mass stars is likely to be the reason why their value is so much higher than in this work. While potentially less accurate in some cases for nearby clusters, assumption of a Kroupa IMF for all clusters is at least consistent, and avoids errors in extrapolating steep mass functions to stars that are not observed within a cluster.
 
+Having compared masses derived in this work to those derived in the literature, it is next interesting to comment on the overall distribution of results for clusters in this work. Figure~\ref{fig:dynamics:results:jacobi_radii_distribution} shows the distribution of probabilities that a cluster has a valid Jacobi radius, $P(r_J)$. Around 1000 clusters are strongly incompatible with having a bound component, with $P(r_J)\approx0$. On the other hand, around 6000 clusters are strongly compatible with having a valid Jacobi radius, with a handful of clusters taking middling values where they may or may not have a valid $r_J$.
+
+Some moving groups in the Solar neighbourhood appear to have been identified as having a possible valid Jacobi radius, for instance in the densest part of the beta Tucanae moving group detected in Paper~2. The Jacobi masses of these moving groups are generally less than 50~\MSun, with some being lower than 20~\MSun. It is likely that these Jacobi radii are errors. In assuming that all clusters have a mass distribution well-described by a Kroupa IMF, the cluster masses in this work are a more lenient upper limit on the mass of evolved, older systems that may have already lost a number of low-mass stars. Given this method, dynamically evolved moving groups that have lost much of their low-mass content will have an overestimated mass, particularly in their densest regions -- leading to a Jacobi radius being erroneously identified. In addition, the Jacobi radius equation (Eqn.~\ref{eqn:intro:jacobi_radius}) can only be accurately applied on spherically symmetric clusters. Many of these small components of moving groups are not spherically symmetric or have low member counts, which may violate basic assumptions of this method \citep{binney_galactic_1987}. Hence, in deciding which objects are or are not bound OCs, I suggest that an additional minimum $M_J$ of 50~\MSun is adopted, since this is already a mass lower than those of any known and reliable OC and removes edge cases where the method simply may not work.
+
+\todo{ensure that these are MJ and not MA! Label is wrong}
+
+Figure~\ref{fig:dynamics:results:mass_distribution} shows the distribution of cluster Jacobi masses for all clusters in the sample, including comparing these masses against clusters in both the high and low quality samples of clusters in Paper~2. The overall mass distribution of clusters is well characterised by two components, with OC masses centred on a modal mass of around $\sim500$~\MSun and moving group masses centred on a mass of \todo{wrong if MA not used} $\sim75$~\MSun. 
+
+In total, masses and Jacobi radii derived in this work appear to be consistent with literature works where relevant, and also show promise in discriminating between clusters that plausibly and implausibly have a gravitational potential stronger than that of the Milky Way, hence implying that they are compatible with bound objects. I next review the measurements of virial ratios, which incorporate velocity dispersions to derive a second test for how bound cluster candidates are. 
 
 
 \subsection{Virial ratios and binary star contamination}
@@ -349,6 +359,21 @@ As there are few cluster mass catalogues in the literature, comparison with othe
     \caption[Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$]{Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$. Points are shaded based on the median distance to the cluster $d_{50}$. In the upper plot, virial ratios measured for all stars within the cluster's Jacobi radius are shown. In the bottom plot, an approximate correction for dispersion increase arising from unresolved binary stars was applied.}
     \label{fig:dynamics:results:virial_vs_mass}
 \end{figure}
+
+I calculated velocity dispersions for all clusters within 15~kpc using the method outlined in Sect.~\ref{sec:dynamics:velocities} and for all stars within the identified Jacobi radius of each cluster, in addition to all stars within an entire cluster. Then, computing the median radius from the cluster centre for stars within the Jacobi radius, I computed corresponding virial ratios of each cluster for both the entire cluster and purely the stars within $r_J$, deriving virial ratios $Q_A$ and $Q_J$ for the entire cluster and purely the cluster within $r_J$ respectively.
+
+The distribution of cluster virial ratios as a function of $M_J$ is shown in \ref{fig:dynamics:results:virial_vs_mass}. A clear trend is apparent with $Q_J$ increasing for clusters of lower $M_J$ in an approximately log-linear relation. These results suggest that almost all clusters in the sample appear to be supervirial, with almost no clusters having an observed virial ratio lower than 1 (i.e. twice the ideal value).
+
+To a certain extent, this mirrors results of recent studies into OC dynamics. For instance, \cite{bravi_gaia-eso_2018}, \cite{kuhn_kinematics_2019}, and \cite{pang_3d_2021} have all found that almost all OCs they studied appear to be supervirial, which is compatible with OCs all being dynamically heated and tidally disrupted by the Milky Way's potential, as is expected for OCs in the disk \citep{krause_physics_2020}. However, the presence of such a clear trend in $Q_J$ as a function of mass is somewhat remarkable, and warrants further investigation.
+
+To begin with, it is worth noting clear flaws in the assumption of a single component Gaussian model for cluster velocity dispersions. Most clusters have tidal tails, implying that stars are being ejected from within the main bound part of the cluster due to tidal interactions with the Milky Way \citep{meingast_extended_2021,tarricq_structural_2022}. In the most extreme cases, a number of nearby clusters such as Melotte~25 (the Hyades) and Platais~9 show heavy ongoing disruption, with their tidal tails containing significantly more mass than the clusters themselves \citep{oh_kinematic_modelling_2020,meingast_extended_2021}. Even within the Jacobi radius, many stars should be being ejected from within the cluster, which will cause an inflation of the mean cluster velocity dispersion. 
+
+A two-component model for cluster velocity dispersions may be more appropriate for such disrupting clusters \citep[see e.g.][]{kuhn_kinematics_2019}, with a component for both bound and unbound stars. However, it may be extremely difficult to reliably differentiate between bound stars and stars undergoing ejection, and such a method is certainly unlikely to be applicable to small or distant clusters with only a few dozen member stars, for which it would be difficult to tell whether a two-component model is a better fit or simply a case of overfitting.
+
+Another explanation for the observed high virial ratios may be unresolved binary stars. Unresolved binaries have been shown to contribute to overinflation of cluster radial velocity dispersions in multiple works \citep[e.g.][]{gieles_velocity_2010,rastello_effect_binarity_2020}, with dynamical mass estimates in the worst cases potentially being inflated by factors of 10 to 45 (of which dynamical masses have the same $\sigma_\text{1D}^2$ dependence as $Q$). However, the effect of unresolved binaries on proper motion-derived cluster velocity dispersions has been minimally studied, with a number of important differences and difficulties being present.
+
+
+\subsubsection{Unresolved binaries as an explanation for high cluster virial ratios}
 
 \begin{figure}[t]
     \centering
@@ -364,9 +389,44 @@ As there are few cluster mass catalogues in the literature, comparison with othe
     \label{fig:dynamics:results:virial_ratio_distribution}
 \end{figure}
 
+Unresolved binary star systems can have proper motions perturbed from their true value depending on a number of factors \citep{penoyre_binary_2020}. The principal difference between radial velocity binary contributions and proper motion binary contributions is their mechanism. For a radial velocity to be perturbed, spectral line shifts or broadening due to the orbital motion of binaries contributes directly to the measured radial velocity excess \citep{gieles_velocity_2010}. For instance, a star in a binary pair with a 1~\kms\ orbital speed along the line of sight will have a radial velocity overestimated by 1~\kms\ relative to the barycentre of the system.
+
+However, in the case of an unresolved binary with a proper motion excess, it is the centre of light of the binary system that moves, and not an individual star. This incurs a number of important differences \citep{penoyre_binary_2020}. For instance, an equal mass binary star will have little to no proper motion perturbation, as the centre of light of the system observed by \gaia\ will not move throughout the binary star's orbit. On the other hand, for unequal mass binaries with mass ratios not equal to unity, each star will orbit the barycentre of the binary system at a different radius, causing the centre of light of the system to shift throughout the orbit of the binary and be measured as a shift in the unresolved binary's position over time. This also means that only a small subset of binaries that will impact a cluster's velocity dispersion can be detected with photometric methods, such as those in \cite{cordoni_photometric_binaries_2023} or \cite{donada_multiplicity_fraction_2023}, as these methods are generally only viable in detecting binaries with mass ratios greater than $\sim0.6$, although many binary stars with lesser mass ratios will exist within OCs and will contribute a larger overall amount to OC velocity dispersion inflation.
+
+Proper motion excesses or anomalies have been used by a number of works intentionally to derive catalogues of astrometric binary stars, generally focusing on those within the immediate solar neighbourhood \citep{kervella_stellar_substellar_2019,penoyre_astrometric_2022-1}. However, astrometric binaries within clusters have not yet been studied with \gaia\ data to the best of my knowledge.
+
+To approximately estimate the possible extent of binary star contamination in my derived velocity dispersions, I used \texttt{astromet} \citep{penoyre_astrometric_2022,penoyre_astrometric_2022-1} and \texttt{SPISEA} \citep{hosek_jr_pypopstar_2020} to simulate the clusters in this work and their velocity dispersion excess given mean binary star parameters (such as period and eccentricity) for field stars given in \cite{moe_mind_2017}. Both single and binary star astrometry was simulated with \texttt{astromet}. Then, velocity dispersions were measured for these simulated clusters using the pipeline described in Sect.~\ref{sec:dynamics:velocities}.
+
+Figure~\ref{fig:dynamics:velocities:binary_contamination} shows the binary contamination for each cluster as a function of distance. Binary star contamination is lowest for nearby clusters, which have CMDs with deep photometry dominated by lower mass stars, which are expected to have significantly lower chances of being in binary systems than higher mass stars \citep{moe_mind_2017}. This causes the overall velocity dispersion excess at nearby distances to be lower. On the other hand, clusters at distances greater than around 2~kpc have the highest estimated binary star dispersion excess, as their CMDs are dominated by higher mass stars which are expected to mostly be multiple star systems. 
+
+The measured velocity dispersions of clusters in the sample are also overplotted as contours in Fig.~\ref{fig:dynamics:velocities:binary_contamination}, and surprisingly, many clusters have velocity dispersions that are compatible with being almost entirely due to binary star contamination. These simulations are very approximate, and do not include effects such as the evolution of binary star orbital parameters as a function of age.
+
+For the sample of clusters in this work, these simulations are likely to be an overestimate, since cluster selection functions derived in Sect.~\ref{sec:dynamics:masses:selection} suggest that many clusters are missing stars at all magnitudes, which are likely to be binaries with poor quality astrometry that was rejected by the \cite{rybizki_classifier_2022} cut, in addition to the cut on stars with RUWE values greater than 1.4 in velocity dispersion inference (Sect.~\ref{sec:dynamics:velocities:inference}). Nevertheless, they challenge the validity of results showing that most (or even all) clusters are supervirial, and suggest that more work should be done to estimate the excess velocity dispersion that binary stars may contribute to OC proper motion dispersions. 
+
+Motivated by these simulations, I tried a number of methods to remove binary stars from velocity dispersion inference. \cite{penoyre_astrometric_2022,penoyre_astrometric_2022-1} show that cuts on unit weight error, RUWE, or a renormalised local version of the RUWE can be effective in identifying astrometric binaries. However, lowering of the RUWE cut to 1.25 or even 1.0 used in velocity dispersion inference only lowered cluster velocity dispersions by around $\sim10$\%. These approximate methods based on \gaia\ diagnostic criteria are likely imperfect, and may miss many binary stars with periods longer than a few years that can still contribute significantly to cluster velocity dispersions, or with mass ratios that make it too difficult to detect them from astrometry alone.
+
+As an example, Melotte~22 (the Pleiades) is a relatively archetypal cluster, with a mass of $\approx10^3$~\MSun and $r_{50}\approx 2.5$~pc. According to Eqn.~\ref{eqn:intro:virial_ratio}, such a cluster should have an ideal velocity dispersion of just 415~\ms. It is easy to simulate scenarios in which a remainder of undetected unresolved binary stars could still contribute even just 100~\ms of extra dispersion to a cluster's velocity dispersion, resulting in a virial ratio which is $\sim$50\% larger than the ideal value.
+
+It may not be possible to conclusively remove the impact of unresolved binary stars on cluster velocity dispersions until at least \gaia\ DR4. DR4 is expected to contain significantly more non-single star solutions than \gaia\ DR3 \citep{gaia_collaboration_gaia_2022}.
+
+\todo{needs new reference here if I split the Q(m) fig}
+
+For comparison, Fig.~\ref{fig:dynamics:results:virial_ratio_distribution} shows the distribution of virial ratios of clusters as measured for those with a valid Jacobi radius, for those without a valid Jacobi radius, and after subtracting estimated binary star contaminations from cluster velocity dispersions by assuming that the true dispersion $\sigma_\text{c,true}=\sqrt{\sigma_\text{c,measured}^2 - \sigma_\text{binary}^2}$, where $\sigma_\text{binary}$ is the simulated binary star contribution for the cluster. In addition, Fig.~\ref{fig:dynamics:results:virial_vs_mass} shows approximately corrected virial ratios as a function of mass, showing that the trend towards higher $Q_J$ values for decreasing cluster mass $M_J$ could be explained by unresolved binaries alone, since the trend apparent in $Q_J$ is removed by the approximate binary correction.
+
+Even after approximately correcting for binaries, some clusters still have significantly higher $Q_J$ values than the ideal value of 0.5. For instance, Melotte~25 (the Hyades) has an uncorrected $Q_J=40.1\pm4.5$, with $Q_{J,\text{corrected}}=25.7\pm3.6$. Inspection of the proper motions of stars within its Jacobi radius shows that many member stars within this radius appear to be being ejected from the cluster, shown by their alignment with the cluster tidal tails. As discussed previously, $Q_J$ is hence not an estimate of the virial ratio of the remaining bound members of a cluster, but rather an estimate of the virial ratio of all stars within my estimated $r_J$ for each cluster, which can include a number of disrupting stars. This may make $Q_J$ also useful as a proxy for how strongly a cluster is currently being disrupted.   
+
+
+% -------------------------------------
+\section{Discussion}
+\label{sec:dynamics:discussion}
+
+As stated in the introduction to this chapter, this chapter is a work in progress ahead of publication of these results hopefully within the coming months. However, even at this early stage, it is still possible to discuss some interesting results that come from this work. I begin by quantifying how many bound and unbound clusters are in the catalogue in Paper~2.
+
 
 \subsection{An updated observational definition of open clusters}
-\label{sec:dynamics:results:definition}
+\label{sec:dynamics:discussion:definition}
+
+\todo{this one ugly ass table}
 
 \begin{table}[t]
 
@@ -374,23 +434,23 @@ As there are few cluster mass catalogues in the literature, comparison with othe
 \caption{\label{tab:dynamics:catalogue_results}Total counts of clusters within various different criteria.}
 
 \centering
-\begin{tabular}{lccc}
+\begin{tabular}{lp{30mm}ccc}
 \hline\hline
-Type & Criteria & Identifier & Count \\
+Type & Criteria & Identifier & Count & (high quality) \\
 \hline
 
-Open cluster (OC) & $P(r_J) > 0.5$ and $M_J \geq 50$ \MSun & & TODO \\
-- bound OC & $Q_{J,\text{corrected}} \leq 10$ & \texttt{o} & TODO \\
-- dissolving OC? & $Q_{J,\text{corrected}} \geq 10$ & \texttt{od} & TODO \\
-- unbound OC? & $Q_{J,\text{corrected}} \geq 50$ & \texttt{ou} & TODO \\
+Open cluster (OC) & $P(r_J)>0.5$ and $M_J\geq~50$~\MSun & & 5721 & 3529\\
+- bound OC & $Q_{J,\text{corrected}} < 5$ & \texttt{o} & 5077 & 3326 \\
+- dissolving OC & $5 \leq Q_{J,\text{corrected}} < 50$ & \texttt{od} & 572 & 193 \\
+- unbound OC? & $50 \leq Q_{J,\text{corrected}}$ & \texttt{ou} & 71 & 10 \\
 \hline
-Moving group (MG) & $P(r_J) > 0.5$ or $M_J < 50$ \MSun & & TODO \\
-- no Jacobi component & $P(r_J) < 0.5$ & \texttt{m} & TODO \\
-- has Jacobi component & $P(r_J) > 0.5$ & \texttt{mj} & TODO \\
+Moving group (MG) & $P(r_J)~<~0.5$ or $M_J~<~50$~\MSun & 1355 & 559 \\
+- no $r_J$ & $P(r_J) < 0.5$ & \texttt{m} & 961 & 282 \\
+- has $r_J$ & $P(r_J) > 0.5$ & \texttt{mj} & 374 & 269 \\
 \hline
-Globular cluster (GC) & in \cite{vasiliev_gaia_2021} & \texttt{g} & TODO \\
+Globular cluster (GC) & in \cite{vasiliev_gaia_2021} & \texttt{g} & 121 & 21 \\
 \hline
-Too distant & $d >= 15$~kpc & & TODO \\
+Too distant & $d >= 15$~kpc & 91 & 17 \\
 \hline
 
 \end{tabular}
@@ -399,12 +459,7 @@ Too distant & $d >= 15$~kpc & & TODO \\
 % \tablefoottext{a}{}
 % }
 
-\end{table}    
-
-
-% -------------------------------------
-\section{Discussion}
-\label{sec:dynamics:discussion}
+\end{table} 
 
 
 \subsection{Completeness of the \gaia\ DR3 open cluster census}
