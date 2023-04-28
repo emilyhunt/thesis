@@ -325,27 +325,25 @@ In this section, I present an overview of the current results from my work into 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_mass_distribution.pdf}
-    \caption[The distribution of Jacobi masses for all clusters with mass measurements within 15~kpc]{The distribution of Jacobi masses for all clusters with mass measurements within 15~kpc and excluding globular clusters. Clusters are split into samples based on the probability that they have a valid Jacobi radius. In addition, solid lines show this for the `high quality' sample of clusters from Paper~2 (those with an astrometric S/N greater than $5\sigma$ and a median CMD class greater than 0.5), while dashed lines include all clusters with mass measurements in this work.}
+    \caption[The distribution of total masses for all clusters with mass measurements]{The distribution of total masses for all clusters with mass measurements and excluding globular clusters. Clusters are split into samples based on the probability that they have a valid Jacobi radius. In addition, solid lines show this for the `high quality' sample of clusters from Paper~2 (those with an astrometric S/N greater than $5\sigma$ and a median CMD class greater than 0.5), while dashed lines include all clusters with mass measurements in this work.}
     \label{fig:dynamics:results:mass_distribution}
 \end{figure}
 
-Masses and Jacobi radii were successfully derived for 6974 clusters in the sample from Paper~2 that are not known globular clusters and are closer than 15~kpc. 72 clusters more distant than this limit have unreliable age and extinction estimates due to their distance not being supported by the age inference neural network from Paper~2. An alternative isochrone fitting method could be used for these objects to derive more accurate age and extinction estimates. This would be particularly interesting as it would make it possible to confirm or dispute any potential distant OC discoveries in Paper~2.
+Masses and Jacobi radii were successfully derived for 6974 clusters in the sample from Paper~2 that are not known globular clusters and are closer than 15~kpc. 72 clusters more distant than this limit have unreliable age and extinction estimates due to their distance not being supported by the age inference neural network from Paper~2. An alternative isochrone fitting method could be used for these objects to derive more accurate age and extinction estimates, before then finding their masses. This would be particularly interesting as it would make it possible to confirm or dispute any potential distant OC discoveries in Paper~2.
 
-\todo{figure y=x lines are NOT correctly plotted, please fix!}
+There are few cluster mass catalogues in the literature. However, comparison with literature results is still possible on a limited scale. Figure~\ref{fig:dynamics:results:mass_comparison} compares cluster masses derived in this work with masses derived by profile fitting and observations in \cite{piskunov_tidal_2008}, from a similar method to this work in \cite{meingast_extended_2021}, and from \gaia\ DR3 data in \cite{cordoni_photometric_binaries_2023}. 
 
-There are few cluster mass catalogues in the literature. However, comparison with literature results is still possible on a limited scale. Figure~\ref{fig:dynamics:results:mass_comparison} compares cluster masses derived in this work with masses derived by profile fitting and observations in \cite{piskunov_tidal_2008}, from a similar method to this work in \cite{meingast_extended_2021}, and from \gaia\ DR3 data in \cite{cordoni_photometric_binaries_2023}. The only paper with reasonably good agreement with this work is that of \cite{meingast_extended_2021}, who apply a similar methodology to ten nearby clusters. Although my masses are generally slightly lower than theirs, the results are nevertheless relatively similar. The cluster with the largest disagreement and the largest error bars, Blanco~1, has a mass affected by mass profile fitting issues discussed in Sect.~\ref{sec:dynamics:masses:imf_fits} that will be fixed when this work is published.
+My results are in some agreement with this work is that of \cite{meingast_extended_2021}, who apply a similar methodology to ten nearby clusters. However, my masses are generally hgiher than theirs, which likely arises due to their mass measurements not being corrected for incompleteness. The cluster with the largest disagreement is Platais~9, for which \cite{meingast_extended_2021} find has almost no stars within its Jacobi radius and derive a low bound mass of just 13.1~\MSun, which is significantly lower than my mass measurement of $94.2 \pm 10.3$~\MSun.
 
-However, agreement with other works is generally worse. My masses are much larger than the profile-based masses derived in \cite{piskunov_tidal_2008}. To derive their masses, the authors used two methods. Firstly, they fit King profiles to 236 clusters in the All Sky Compiled Catalogue 2.5 \cite{kharchenko_allsky_compiled_2001}. Then, assuming that the \cite{king_structure_star_1962} tidal radius $r_t$ is equivalent to $r_J$, one can derive a cluster mass from a profile fit given Eqn.~\ref{eqn:intro:jacobi_radius}. However, this method is extremely sensitive to the adopted cluster radius, since $M_J \propto r_J^3$. As noted in Sect.~\ref{sec:dynamics:masses:jacobi}, there are some cases (such as Ruprecht~134) where my derived Jacobi radius is larger than the observed extent of the cluster -- this is the case for 1195 clusters in the catalogue. Given the depth and quality of \gaia\ data, with cluster membership lists in Paper~2 containing on average four times as many stars as those in \cite{kharchenko_global_2013}, a plausible explanation for this mass value mismatch would be that many clusters in \cite{piskunov_tidal_2008} may have smaller radii than in this work. On average, King tidal radii derived in Paper~2 are $\approx 1.5\times$ larger than those in \cite{piskunov_tidal_2008}, corresponding to mass estimates that would be $\sim 3\times$ larger in this work. This is roughly equal to the difference in masses between this work and their King profile fitting derived masses. In addition, \cite{piskunov_tidal_2008} also fit semi-major axes to a larger sample of 650 clusters and used these as a proxy for cluster tidal radii, for which our masses have slightly more disagreement and by a similar factor.
+Agreement with other works is generally worse. My masses are much larger than the profile-based masses derived in \cite{piskunov_tidal_2008}, although a similar upwards trend exists for some clusters. To derive their masses, the authors used two methods. Firstly, they fit King profiles to 236 clusters in the All Sky Compiled Catalogue 2.5 \cite{kharchenko_allsky_compiled_2001}. Then, assuming that the \cite{king_structure_star_1962} tidal radius $r_t$ is equivalent to $r_J$, one can derive a cluster mass from a profile fit given Eqn.~\ref{eqn:intro:jacobi_radius}. However, this method is extremely sensitive to the adopted cluster radius, since $M_J \propto r_J^3$. As noted in Sect.~\ref{sec:dynamics:masses:jacobi}, there are some cases (such as Ruprecht~134) where my derived Jacobi radius is larger than the observed extent of the cluster -- this is the case for 1195 clusters in the catalogue. Given the depth and quality of \gaia\ data, with cluster membership lists in Paper~2 containing on average around four times as many stars as those in \cite{kharchenko_global_2013}, a plausible explanation for this mass value mismatch would be that many clusters in \cite{piskunov_tidal_2008} may have smaller radii than in this work. On average, King tidal radii derived in Paper~2 are $\approx 1.5\times$ larger than those in \cite{piskunov_tidal_2008}, corresponding to mass estimates that would be $\sim 3\times$ larger in this work. In addition, \cite{piskunov_tidal_2008} also fit semi-major axes to a larger sample of 650 clusters and used these as a proxy for cluster tidal radii, for which my masses have even less correlation.
 
-\cite{cordoni_photometric_binaries_2023} recently created a catalogue of OC masses for 78 clusters by fitting bespoke mass functions to the observed counts of stars for clusters in their sample. For some clusters, my masses are in good agreement with their results. However, there are other clusters for which their masses are very different to those derived in this work. Haffner~26 is the cluster with the highest reported mass in their work, with a total mass extrapolated from their mass function fit of 14563~\MSun, which is extremely discrepant with the \todo{add value} value of the mass derived for Haffner~26 in this work. In \cite{cordoni_photometric_binaries_2023}, they fit mass functions to every cluster, and fit a steep power law with an overall value of 3.37 above 1~\MSun and 4.78 below 1~\MSun, which is significantly steeper than a Kroupa IMF. Given the reasonably high distance to the cluster of $\sim 3$~kpc, not much of the cluster's low mass regime is resolved in \gaia\ data, and extrapolation of such a steep mass function to unobserved low mass stars is likely to be the reason why their value is so much higher than in this work. While potentially less accurate in some cases for nearby clusters, assumption of a Kroupa IMF for all clusters is at least consistent, and avoids errors in extrapolating steep mass functions to stars that are not observed within a cluster.
+\cite{cordoni_photometric_binaries_2023} recently created a catalogue of OC masses for 78 clusters by fitting bespoke mass functions to the observed counts of stars for clusters in their sample. For some clusters, my masses are in mild agreement with their results, although my masses are generally higher as \cite{cordoni_photometric_binaries_2023} do not incorporate a correction for CMD incompleteness. However, there are other clusters for which their masses are extremely different to those derived in this work. Haffner~26 is the cluster with the highest reported mass in their work, with a total mass from their mass function fit of 14563~\MSun, which is extremely discrepant with the $852\pm83$~\MSun value of the mass derived for Haffner~26 in this work. In \cite{cordoni_photometric_binaries_2023}, they fit mass functions to every cluster, and fit a steep power law with an overall value of 3.37 above 1~\MSun and 4.78 below 1~\MSun, which is significantly steeper than a Kroupa IMF. Given the reasonably high distance to the cluster of $\sim 3$~kpc, not much of the cluster's low mass regime is resolved in \gaia\ data, and extrapolation of such a steep mass function to unobserved low mass stars is likely to be the reason why their value is so much higher than in this work. While potentially less accurate in some cases for nearby clusters, assumption of a Kroupa IMF for all clusters is at least consistent, and avoids errors in extrapolating steep mass functions to stars that are not observed within a cluster. Nevertheless, the mass function for Haffner~26 within its Jacobi radius in this work appears consistent with a Kroupa IMF down to 0.7~\MSun, suggesting that the steep power law coefficients in \cite{cordoni_photometric_binaries_2023} for this cluster may also be incorrect.
 
 Having compared masses derived in this work to those derived in the literature, it is next interesting to comment on the overall distribution of results for clusters in this work. Figure~\ref{fig:dynamics:results:jacobi_radii_distribution} shows the distribution of probabilities that a cluster has a valid Jacobi radius, $P(r_J)$. Around 1000 clusters are strongly incompatible with having a bound component, with $P(r_J)\approx0$. On the other hand, around 6000 clusters are strongly compatible with having a valid Jacobi radius, with a handful of clusters taking middling values where they may or may not have a valid $r_J$.
 
-Some moving groups in the Solar neighbourhood appear to have been identified as having a possible valid Jacobi radius, for instance in the densest part of the beta Tucanae moving group detected in Paper~2. The Jacobi masses of these moving groups are generally less than 50~\MSun, with some being lower than 20~\MSun. It is likely that these Jacobi radii are errors. In assuming that all clusters have a mass distribution well-described by a Kroupa IMF, the cluster masses in this work are a more lenient upper limit on the mass of evolved, older systems that may have already lost a number of low-mass stars. Given this method, dynamically evolved moving groups that have lost much of their low-mass content will have an overestimated mass, particularly in their densest regions -- leading to a Jacobi radius being erroneously identified. In addition, the Jacobi radius equation (Eqn.~\ref{eqn:intro:jacobi_radius}) can only be accurately applied on spherically symmetric clusters. Many of these small components of moving groups are not spherically symmetric or have low member counts, which may violate basic assumptions of this method \citep{binney_galactic_1987}. Hence, in deciding which objects are or are not bound OCs, I suggest that an additional minimum $M_J$ of 50~\MSun is adopted, since this is already a mass lower than those of any known and reliable OC and removes edge cases where the method simply may not work.
+Some moving groups in the Solar neighbourhood appear to have been identified as having a possible valid Jacobi radius, for instance in the densest part of the beta Tucanae moving group detected in Paper~2. The Jacobi masses of these moving groups are generally less than 50~\MSun, with some being lower than 20~\MSun. It is likely that these Jacobi radii are errors. In assuming that all clusters have a mass distribution well-described by a Kroupa IMF, the cluster masses in this work are a more lenient upper limit on the mass of evolved, older systems that may have already lost a number of low-mass stars. Given this method, dynamically evolved moving groups that have lost much of their low-mass content will have an overestimated mass, particularly in their densest regions -- leading to a Jacobi radius being erroneously identified. In addition, the Jacobi radius equation (Eqn.~\ref{eqn:intro:jacobi_radius}) can only be accurately applied on spherically symmetric clusters. Many of these small components of moving groups are not spherically symmetric or have low member counts, which may violate basic assumptions of this method \citep{binney_galactic_1987}. Hence, in deciding which objects are or are not bound OCs, I suggest that an additional minimum $M_J$ of 50~\MSun is adopted, since this is already a mass lower than those of almost any known and reliable OC and removes edge cases where the method simply may not work. Moving groups with a possible Jacobi radius should still be flagged separately in the final catalogue, however, and would also be interesting follow-up candidates for further study of their structure, as a moving group with a core that does have a small Jacobi radius could be a remnant of a dissolved OC.
 
-\todo{ensure that these are MJ and not MA! Label is wrong}
-
-Figure~\ref{fig:dynamics:results:mass_distribution} shows the distribution of cluster Jacobi masses for all clusters in the sample, including comparing these masses against clusters in both the high and low quality samples of clusters in Paper~2. The overall mass distribution of clusters is well characterised by two components, with OC masses centred on a modal mass of around $\sim500$~\MSun and moving group masses centred on a mass of \todo{wrong if MA not used} $\sim75$~\MSun. 
+Figure~\ref{fig:dynamics:results:mass_distribution} shows the distribution of cluster Jacobi masses for all clusters in the sample, including comparing these masses against clusters in both the high and low quality samples of clusters in Paper~2. The overall mass distribution of clusters is well characterised by two components, with OC masses centred on a modal mass of around $\sim500$~\MSun and moving group masses centred on a mass of $\sim75$~\MSun. 
 
 In total, masses and Jacobi radii derived in this work appear to be consistent with literature works where relevant, and also show promise in discriminating between clusters that plausibly and implausibly have a gravitational potential stronger than that of the Milky Way, hence implying that they are compatible with bound objects. I next review the measurements of virial ratios, which incorporate velocity dispersions to derive a second test for how bound cluster candidates are. 
 
@@ -356,7 +354,7 @@ In total, masses and Jacobi radii derived in this work appear to be consistent w
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_virial_vs_mass.pdf}
-    \caption[Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$]{Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$. Points are shaded based on the median distance to the cluster $d_{50}$. In the upper plot, virial ratios measured for all stars within the cluster's Jacobi radius are shown. In the bottom plot, an approximate correction for dispersion increase arising from unresolved binary stars was applied.}
+    \caption[Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$]{Virial ratios as a function of mass for all clusters with $P(r_J) > 0.5$. Points are shaded based on the median distance to the cluster $d_{50}$. In the upper plot, virial ratios measured for all stars within the cluster's Jacobi radius are shown. In the bottom plot, an approximate correction for dispersion increase arising from unresolved binary stars was applied. On both plots, the dashed red line shows the ideal value of the virial ratio for cluster in dynamical equilibrium, $Q=0.5$.}
     \label{fig:dynamics:results:virial_vs_mass}
 \end{figure}
 
@@ -409,8 +407,6 @@ As an example, Melotte~22 (the Pleiades) is a relatively archetypal cluster, wit
 
 It may not be possible to conclusively remove the impact of unresolved binary stars on cluster velocity dispersions until at least \gaia\ DR4. DR4 is expected to contain significantly more non-single star solutions than \gaia\ DR3 \citep{gaia_collaboration_gaia_2022}.
 
-\todo{needs new reference here if I split the Q(m) fig}
-
 For comparison, Fig.~\ref{fig:dynamics:results:virial_ratio_distribution} shows the distribution of virial ratios of clusters as measured for those with a valid Jacobi radius, for those without a valid Jacobi radius, and after subtracting estimated binary star contaminations from cluster velocity dispersions by assuming that the true dispersion $\sigma_\text{c,true}=\sqrt{\sigma_\text{c,measured}^2 - \sigma_\text{binary}^2}$, where $\sigma_\text{binary}$ is the simulated binary star contribution for the cluster. In addition, Fig.~\ref{fig:dynamics:results:virial_vs_mass} shows approximately corrected virial ratios as a function of mass, showing that the trend towards higher $Q_J$ values for decreasing cluster mass $M_J$ could be explained by unresolved binaries alone, since the trend apparent in $Q_J$ is removed by the approximate binary correction.
 
 Even after approximately correcting for binaries, some clusters still have significantly higher $Q_J$ values than the ideal value of 0.5. For instance, Melotte~25 (the Hyades) has an uncorrected $Q_J=40.1\pm4.5$, with $Q_{J,\text{corrected}}=25.7\pm3.6$. Inspection of the proper motions of stars within its Jacobi radius shows that many member stars within this radius appear to be being ejected from the cluster, shown by their alignment with the cluster tidal tails. As discussed previously, $Q_J$ is hence not an estimate of the virial ratio of the remaining bound members of a cluster, but rather an estimate of the virial ratio of all stars within my estimated $r_J$ for each cluster, which can include a number of disrupting stars. This may make $Q_J$ also useful as a proxy for how strongly a cluster is currently being disrupted.   
@@ -426,31 +422,29 @@ As stated in the introduction to this chapter, this chapter is a work in progres
 \subsection{An updated observational definition of open clusters}
 \label{sec:dynamics:discussion:definition}
 
-\todo{this one ugly ass table}
-
 \begin{table}[t]
 
 % Define first header
 \caption{\label{tab:dynamics:catalogue_results}Total counts of clusters with various different criteria.}
 
 \centering
-\begin{tabular}{lp{35mm}ccc}
+\begin{tabular}{lp{35mm}cc}
 \hline\hline
-Type & Criteria & Identifier & Count & (high quality)\tablefootmark{a} \\
+Type & Criteria & Count & (high quality)\tablefootmark{a} \\
 \hline
 
-Open cluster (OC) & $P(r_J)>0.5$ and\newline$M_J\geq~50$~\MSun & & 5721 & 3529\\
-- bound OC & $Q_{J,\text{corrected}} < 5$ & \texttt{o} & 5077 & 3326 \\
-- dissolving OC & $5 \leq Q_{J,\text{corrected}} < 50$ & \texttt{od} & 572 & 193 \\
-- unbound OC? & $50 \leq Q_{J,\text{corrected}}$ & \texttt{ou} & 71 & 10 \\
+Open cluster (OC) & $P(r_J)\geq0.5$ and\newline$M_J\geq~50$~\MSun & 5619 & 3515\\
+- bound OC & $Q_{J,\text{corrected}} < 5$ & 5051 & 3317 \\
+- dissolving OC & $5 \leq Q_{J,\text{corrected}} < 50$ & 501 & 190 \\
+- unbound OC? & $50 \leq Q_{J,\text{corrected}}$ & 66 & 8 \\
 \hline
 Moving group (MG) & $P(r_J)~<~0.5$ or\newline$M_J~<~50$~\MSun & 1355 & 559 \\
-- no $r_J$ & $P(r_J) < 0.5$ & \texttt{m} & 961 & 282 \\
-- has $r_J$ & $P(r_J) > 0.5$ & \texttt{mj} & 374 & 269 \\
+- no $r_J$ & $P(r_J) < 0.5$ & 961 & 282 \\
+- has $r_J$ & $P(r_J) \geq 0.5$ & 374 & 269 \\
 \hline
-Globular cluster (GC) & in \cite{vasiliev_gaia_2021} & \texttt{g} & 121 & 21 \\
+Globular cluster (GC) & in \cite{vasiliev_gaia_2021} & 121 & 21 \\
 \hline
-Too distant & $d >= 15$~kpc & & 91 & 17 \\
+Too distant & $d \geq 15$~kpc & 91 & 17 \\
 \hline
 
 \end{tabular}
@@ -462,8 +456,55 @@ Too distant & $d >= 15$~kpc & & 91 & 17 \\
 \end{table} 
 
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/discussion_xyz_distribution.pdf}
+    \caption[The distribution in galactocentric coordinates of 3515 OCs in the high quality sample of OCs]{The distribution in galactocentric coordinates of 3515 OCs in the high quality sample of OCs from Table~\ref{tab:dynamics:catalogue_results}. The Sun is at $X=Y=0$~pc. OCs are shaded by their Jacobi mass.}
+    \label{fig:dynamics:discussion:xyz_distribution}
+\end{figure}
+
+
+In Paper~2, we remarked that our catalogue was likely to contain many moving groups. It is now possible to answer how many objects are compatible with moving groups and how many are better characterised as OCs.
+
+The probability of a cluster having a valid Jacobi radius, $P(r_J)$, appears to be a powerful tool in discerning OCs from MGs in our sample from Paper~2. Excluding GCs and 91 clusters more distant than 15~kpc, the total sample of 6974 candidate OCs contains 5721 clusters with $P(r_J)>10$, a minimum mass of 50~\MSun, and at least ten observed stars, representing 82\% of the Paper~2 catalogue. However, most moving groups in Paper~2 appeared to be near to the Sun; within 250~pc, only 32 of 234 clusters (16\%) are compatible with OCs.
+
+Virial ratios derived from cluster velocity dispersions appear much less useful than Jacobi radii for discerning between OCs and MGs, particularly due to the flaws with measured cluster velocity dispersions discussed in Sect.~\ref{sec:dynamics:results:virial}. It is difficult to even choose sensible upper limits on $Q$, as measurements of the virial ratio are likely to be mostly dominated by systematic errors. Systematics due to the $\eta=10$ assumption in Eqn.~\ref{eqn:intro:virial_ratio} can contribute a systematic upto a factor of around two, and simulations of cluster expansion after star formation and during the stellar feedback phase show that star clusters are expected to be supervirial for at least the first 10 to 50~Myr of their lives, and so some degree of superviriality is to be expected for many star clusters \citep{banerjee_how_2017}. 
+
+Assuming that the binary star dispersion corrections from Sect.~\ref{sec:dynamics:results:virial} are even approximately correct, a maximum value of $Q_{J,\text{corrected}}$ of 5 (ten times the ideal value) is probably appropriate, and allows for some amount of superviriality. 5077 clusters pass this limit. A further 572 OCs have $Q_{J,\text{corrected}}$ between 5 and 50, which makes them compatible with OCs that are known to be undergoing strong dissolution -- such as Melotte~25 (the Hyades), for which I measure $Q_{J,\text{corrected}}=25.7 \pm 7.2$. Finally, 71 OCs have $Q_{J,\text{corrected}}\geq50$. These objects may be better classified as MGs due to their extremely high velocity dispersions, which are incompatible with dynamically relaxed objects given even the highest estimated binary star velocity dispersion contamination estimates \citep{rastello_effect_binarity_2020}. Only ten of these 71 objects also have a median CMD class greater than 0.5 and an astrometric S/N of greater than 5$\sigma$, suggesting that many of the objects with such high virial ratios are simply false positives.
+
+It is also interesting to tally how many of the new objects reported in Paper~2 are compatible with OCs. Of 1407 of the 2387 newly reported objects in Paper~2 are compatible with OCs. Of the 739 high quality new objects from Paper~2, 469 are also compatible with being OCs.
+
+The overall statistics on total numbers of clusters are shown in Table~\ref{tab:dynamics:catalogue_results}. Counts are shown for both all clusters and clusters that are in the high quality sample from Paper~2.
+
+The distribution of clusters in Paper~2 had a clear maximum in the region a few hundred parsecs around the Sun, due to the many unremoved MGs in the catalogue. Figure~\ref{fig:dynamics:discussion:xyz_distribution} shows the distribution of high-quality OCs in cartesian coordinates. The distribution around the Sun is relatively uniform out to $\sim1$~kpc, suggesting that the Jacobi radius cut successfully removes most unbound MGs from the catalogue.
+
+
 \subsection{Completeness of the \gaia\ DR3 open cluster census}
 \label{sec:dynamics:results:completeness}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/discussion_completeness.pdf}
+    \caption[TODO]{TODO}
+    \label{fig:dynamics:discussion:completeness}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/discussion_completeness_kde.pdf}
+    \caption[TODO]{TODO}
+    \label{fig:dynamics:discussion:completeness_kde}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig/c4/discussion_completeness_function.pdf}
+    \caption[TODO]{TODO}
+    \label{fig:dynamics:discussion:completeness_function}
+\end{figure}
+
+Although I have not had much time to analyse the results of this chapter further, one of the most fascinating possible applications of this work would be in deriving the completeness of the \gaia\ DR3 OC census. One of the most widely disproven claims in the \gaia\ era of OC science is that the OC census is not complete within 1.8~kpc \citep{cantat-gaudin_milky_2022}, which is at odds with the catalogue of \cite{kharchenko_global_2013} who derived a completeness limit of 1.8~kpc for the OC census before \gaia. \cite{anders_milky_2020} derived an approximate \gaia\ DR2 OC census completeness limit, but without access to cluster masses, they commented that their completeness estimate was missing a key variable. It is not known how much the completeness of the OC census depends on mass.
+
 
 
 % -------------------------------------
