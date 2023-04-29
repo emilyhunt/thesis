@@ -11,11 +11,11 @@
 \section{Introduction}
 \label{sec:dynamics:introduction}
 
-Five years on since the release of \gaia\ DR2 \citep{brown_gaia_2018}, the census of open clusters (OCs) has been resoundingly overhauled \citep{cantat-gaudin_milky_2022}. Thousands of new objects have been discovered \citep[e.g.][]{liu_catalog_2019,castro-ginard_hunting_2020}, parameters have been determined to previously impossible levels of accuracy \citep[e.g.][]{bossini_age_2019,cantat-gaudin_painting_2020}, and many OCs reported before \gaia\ have been ruled out as asterisms \citep{cantat-gaudin_clusters_2020,piatti_assessing_2023,hunt_improving_open_2023}. However, the OC census in the age of \gaia\ remains far from perfect, and one resoundingly large issue stands out that I will attempt to address in this chapter: there is no robust observational criteria or definition for what an OC actually is \citep{hunt_improving_open_2023}.
+Five years on since the release of \gaia\ DR2 \citep{brown_gaia_2018}, the census of open clusters (OCs) has been resoundingly overhauled \citep{cantat-gaudin_milky_2022}. Thousands of new objects have been discovered \citep[e.g.][]{liu_catalog_2019,castro-ginard_hunting_2020}, parameters have been determined to previously impossible levels of accuracy \citep[e.g.][]{bossini_age_2019,cantat-gaudin_painting_2020}, and many OCs reported before \gaia\ have been ruled out as asterisms \citep{cantat-gaudin_clusters_2020,piatti_assessing_2023,hunt_improving_2021,hunt_improving_open_2023}. However, the OC census in the age of \gaia\ remains far from perfect, and one resoundingly large issue stands out that I will attempt to address in this chapter: there is no robust observational criteria or definition for what an OC actually is \citep{hunt_improving_open_2023}.
 
 Following up from the first major catalogue of OCs in the \gaia\ era \citep{cantat-gaudin_gaia_2018}, \citep{cantat-gaudin_clusters_2020} conducted a search for OCs that remained undetected in \gaia\ data, and created a set of empirical observational criteria intended to split dubious objects apart from OCs. This included recommendations that a candidate OC is a clear overdensity with at least $\sim10$ member stars, a colour-magnitude diagram (CMD) that follows a clear isochrone, a median radius $r_{50}$ smaller than 15~pc, and a proper motion dispersion corresponding to an upper limit no greater than 5~km\,s\textsuperscript{-1}. In their work, they used these criteria to show that a number of objects were highly likely to be asterisms.
 
-In \citep{hunt_improving_open_2023} (hereafter Paper 2), we constructed the largest catalogue of OCs to date from a blind search of \gaia\ DR3 data \citep{gaia_collaboration_gaia_2022}. However, we found that the \cite{cantat-gaudin_clusters_2020} observational criteria were too permissive. Many of the objects we detected that passed these criteria were visually much more reminiscent of moving groups (MGs), with sparse, flat distributions that do not resemble the clustered nature of reliable, gravitationally bound OCs. In turn, this creates an awkward situation where our Paper 2 catalogue is challenging to use in many respects, with simple queries of the catalogue returning mostly MGs -- particularly within a few hundred pc of the Sun where MGs are most common. It is clear that a more precise method to distinguish between bound OCs and unbound MGs is required. 
+In \cite{hunt_improving_open_2023} (hereafter Paper 2), we constructed the largest catalogue of OCs to date from a blind search of \gaia\ DR3 data \citep{gaia_collaboration_gaia_2022}. However, we found that the \cite{cantat-gaudin_clusters_2020} observational criteria were too permissive. Many of the objects we detected that passed these criteria were visually much more reminiscent of moving groups (MGs), with sparse, flat distributions that do not resemble the clustered nature of reliable, gravitationally bound OCs. In turn, this creates an awkward situation where our Paper 2 catalogue is challenging to use in many respects, with simple queries of the catalogue returning mostly MGs -- particularly within a few hundred pc of the Sun where MGs are most common. It is clear that a more precise method to distinguish between bound OCs and unbound MGs is required. 
 
 It appears that the radius and proper motion constraints presented in \cite{cantat-gaudin_clusters_2020} are the primary area of the OC observational definition that requires improvement. Recalling Eqns.~\ref{eqn:intro:jacobi_radius}~and~\ref{eqn:intro:virial_ratio}, in addition to the theory around bound and unbound star clusters discussed in works such as \cite{portegies_zwart_young_2010} or \cite{krause_physics_2020}, one can note that a cluster's mass, radius, and velocity dispersion form a three-way link in defining the dynamical status of a star cluster. Simple inidivudal cuts on radius, dispersion, or even cluster mass should be insufficient to accurately split OCs from MGs.
 
@@ -25,7 +25,7 @@ On the other hand, the proper motion dispersion upper limit from \cite{cantat-ga
 
 These rough estimates suggest that analysis of the masses and dynamics could be fruitful in attempting to discern between bound OCs and unbound moving groups. In this chapter, I hence aim to refine the observational definition of OCs by measuring the masses, Jacobi radii, and dynamics of star clusters in our catalogue from Paper 2. Doing so will allow for a new, more accurate determination of which objects are compatible with bound OCs. 
 
-\todo{discuss what comes next in the paper from here. emphasise that it's a W.I.P..}
+In Sect.~\ref{sec:dynamics:masses}, I outline a pipeline to calculate accurate cluster masses, including correcting for three different selection effects. Section~\ref{sec:dynamics:velocities} outlines my method to infer velocity dispersions from cluster proper motions. Section~\ref{sec:dynamics:results} outlines the mass, radius, and dispersion results of this work, including discussing the validity of velocity dispersions given potential binary star contamination. I discuss the results of this work further in Sect.~\ref{sec:dynamics:discussion}, including estimating the total number of OCs and MGs in the catalogue and estimating the completeness of the \gaia\ OC census. Finally, I briefly conclude this work in Sect.~\ref{sec:dynamics:conclusion}.
 
 % PLAN
 % - Masses are useful! Dynamics are useful! They're comparable to theory and represent measurements of fundamental (physical) parameters of OCs.
@@ -141,7 +141,7 @@ Having calculated accurate completeness and binary-corrected mass bins for every
 
 One could also fit bespoke mass functions to each cluster \citep[e.g. as in][]{cordoni_photometric_binaries_2023}. The IMF is known to be a broken power law for most populations, with a break point around 0.5~\MSun \citep{kroupa_variation_2001}. However, low masses are poorly resolved for many of the clusters in our sample, with clusters more distant than $\sim1$~kpc or clusters with reddening values $A_V \gtrsim 2$ having few or no stars at masses lower than 0.5~\MSun. Hence, it would not be possible to fit a two-part mass function to these clusters, preventing an accurate estimate of their true total mass. The `safer' option in this case is to fit Kroupa IMFs to all clusters, deriving masses on the same scale with the same assumed mass function.
 
-Some N-body simulations have suggested that cluster mass functions become depleted of low mass stars over time, due to lower mass stars being preferentially ejected from clusters \citeme{this}. Before publishing this work, it may also be insightful to fit bespoke mass functions to nearby clusters to investigate this effect. However, this would likely also require a better determination of a binary star mass function correction for each cluster, which may be beyond the scope of this work.
+Some N-body simulations have suggested that cluster mass functions become depleted of low mass stars over time, due to lower mass stars being preferentially ejected from clusters \citep{krause_physics_2020}. Before publishing this work, it may also be insightful to fit bespoke mass functions to nearby clusters to investigate this effect. However, this would likely also require a better determination of a binary star mass function correction for each cluster, which may be beyond the scope of this work.
 
 Figure~\ref{fig:dynamics:masses:mass_functions} shows mass function fits to the three clusters from Fig.~\ref{fig:dynamics:masses:selection_effects}. Generally, Kroupa IMFs are a reasonable approximation for most clusters, and the integral of these mass functions produces reasonable values of the total mass for each cluster. 
 
@@ -383,7 +383,7 @@ Another explanation for the observed high virial ratios may be unresolved binary
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/results_q_distribution.pdf}
-    \caption[The distribution of cluster virial ratios]{The distribution of cluster virial ratios. The blue histogram shows virial ratios for clusters with a valid Jacobi radius, the orange histogram shows virial ratios for the same clusters with an approximate correction for binarity applied, and the red histogram shows the virial ratio of the entire cluster for clusters without a valid Jacobi radius.}
+    \caption[Distribution of cluster virial ratios]{Distribution of cluster virial ratios. The blue histogram shows virial ratios for clusters with a valid Jacobi radius, the orange histogram shows virial ratios for the same clusters with an approximate correction for binarity applied, and the red histogram shows the virial ratio of the entire cluster for clusters without a valid Jacobi radius.}
     \label{fig:dynamics:results:virial_ratio_distribution}
 \end{figure}
 
@@ -459,7 +459,7 @@ Too distant & $d \geq 15$~kpc & 91 & 17 \\
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/discussion_xyz_distribution.pdf}
-    \caption[The distribution in galactocentric coordinates of 3515 OCs in the high quality sample of OCs]{The distribution in galactocentric coordinates of 3515 OCs in the high quality sample of OCs from Table~\ref{tab:dynamics:catalogue_results}. The Sun is at $X=Y=0$~pc. OCs are shaded by their Jacobi mass.}
+    \caption[Distribution in galactocentric coordinates of 3515 OCs in the high quality sample of OCs]{Distribution in galactocentric coordinates of 3515 OCs in the high quality sample of OCs from Table~\ref{tab:dynamics:catalogue_results}. The Sun is at $X=Y=0$~pc. OCs are shaded by their Jacobi mass.}
     \label{fig:dynamics:discussion:xyz_distribution}
 \end{figure}
 
@@ -476,7 +476,7 @@ It is also interesting to tally how many of the new objects reported in Paper~2 
 
 The overall statistics on total numbers of clusters are shown in Table~\ref{tab:dynamics:catalogue_results}. Counts are shown for both all clusters and clusters that are in the high quality sample from Paper~2.
 
-The distribution of clusters in Paper~2 had a clear maximum in the region a few hundred parsecs around the Sun, due to the many unremoved MGs in the catalogue. Figure~\ref{fig:dynamics:discussion:xyz_distribution} shows the distribution of high-quality OCs in cartesian coordinates. The distribution around the Sun is relatively uniform out to $\sim1$~kpc, suggesting that the Jacobi radius cut successfully removes most unbound MGs from the catalogue.
+The distribution of clusters in Paper~2 had a clear maximum in the region a few hundred parsecs around the Sun, due to the many unremoved MGs in the catalogue. Figure~\ref{fig:dynamics:discussion:xyz_distribution} shows the distribution of high-quality OCs in Cartesian coordinates. The distribution around the Sun is relatively uniform out to $\sim1$~kpc, suggesting that the Jacobi radius cut successfully removes most unbound MGs from the catalogue.
 
 
 \subsection{Completeness of the \gaia\ DR3 open cluster census}
@@ -485,28 +485,59 @@ The distribution of clusters in Paper~2 had a clear maximum in the region a few 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/discussion_completeness.pdf}
-    \caption[TODO]{TODO}
+    \caption[Distance distribution of the clusters in this work divided into multiple mass bins]{Distance distribution of the clusters in this work divided into multiple mass bins. Cluster distance probability distributions $P(d)$ are smoothed using kernel density estimation, and normalised to all have a peak of one.}
     \label{fig:dynamics:discussion:completeness}
 \end{figure}
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/discussion_completeness_kde.pdf}
-    \caption[TODO]{TODO}
+    \caption[Mass-distance distribution of clusters shown as a kernel density estimate]{Mass-distance distribution of clusters shown as a kernel density estimate. At a given mass, the density estimate is normalised to have a peak of one, such that every horizontal strip of the diagram is effectively a normalised PDF of cluster distances at a given mass. The dotted red line shows the best fitting log-linear completeness model.}
     \label{fig:dynamics:discussion:completeness_kde}
 \end{figure}
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{fig/c4/discussion_completeness_function.pdf}
-    \caption[TODO]{TODO}
+    \caption[Simple log-linear model for the approximate 100\% completeness limit ($R_{100\%}$) of the cluster census]{Simple log-linear model for the approximate 100\% completeness limit ($R_{100\%}$) of the cluster census as a function of mass.}
     \label{fig:dynamics:discussion:completeness_function}
 \end{figure}
 
-Although I have not had much time to analyse the results of this chapter further, one of the most fascinating possible applications of this work would be in deriving the completeness of the \gaia\ DR3 OC census. One of the most widely disproven claims in the \gaia\ era of OC science is that the OC census is not complete within 1.8~kpc \citep{cantat-gaudin_milky_2022}, which is at odds with the catalogue of \cite{kharchenko_global_2013} who derived a completeness limit of 1.8~kpc for the OC census before \gaia. \cite{anders_milky_2020} derived an approximate \gaia\ DR2 OC census completeness limit, but without access to cluster masses, they commented that their completeness estimate was missing a key variable. It is not known how much the completeness of the OC census depends on mass.
+Although I have not had much time to analyse the results of this chapter further, one of the most fascinating possible applications of this work would be in deriving the completeness of the \gaia\ DR3 OC census. One of the most widely disproven claims in the \gaia\ era of OC science is that the OC census is not complete within 1.8~kpc \citep{cantat-gaudin_milky_2022}, which is at odds with the catalogue of \cite{kharchenko_global_2013} who derived a completeness limit of 1.8~kpc for the OC census before \gaia. \cite{anders_milky_2020} derived an approximate \gaia\ DR2 OC census completeness limit, but without access to cluster masses, they commented that their completeness estimate was missing a key variable -- it is not known how much the completeness of the OC census depends on mass.
 
+\todo{below paragraph is poorly explained}
+Approximating the distribution of OCs in two dimensions and viewing the Milky Way's disk top-down in Cartesian coordinates, one can define a two-dimensional radius away from the Sun $R=\sqrt{X^2+Y^2}$. The number of OCs in a strip of size $R+\Delta R$ should be proportional to $R$, such that the number of OCs as a function of distance will increase linearly. At some point where incompleteness begins to take effect, this distribution will peak. It should be noted that the distribution of OCs in the galaxy is known to be non-uniform, with imprints of the Milky Way's spiral arms being visible in the distribution of OCs \cite{castro-ginard_milky_2021}: hence, the actual observed distribution of OCs is unlikely to follow this simple model exactly.
+
+Figure~\ref{fig:dynamics:discussion:completeness} shows the $R$ distribution of the OCs identified in this work in multiple mass bins and smoothed using kernel density estimation. The distribution of clusters appears to depend strongly on mass, with clusters at low masses of $50 \leq M_J < 100$~\MSun\ having a peak around 1~kpc, with higher mass clusters with $1600 \leq M_J < 3200$~\MSun\ peaking around 2.6~kpc.
+
+Estimation of the true completeness of the OC census is challenging, as the distribution of OCs depends on some distribution function of OCs in the Milky Way, and cannot be assumed to be uniform \cite{anders_milky_2020}. Deriving such a model for OCs is beyond the scope of this work; however, I can produce a rough estimate of the OC completeness distribution as a function of mass for comparison with other estimates.
+
+Figure~\ref{fig:dynamics:discussion:completeness_kde} shows the mass-$R$ distribution of OCs smoothed with kernel density estimation. To enhance clarity of the peak of this distribution as a function of mass, every horizontal strip is normalised to have a peak of one. Upto a cluster mass of around 1000~\MSun, this distribution appears to be log-linear; for clusters higher than this mass, the peak remains at roughly 2600~pc, suggesting that this is the upper limit of \gaia\ OC completeness for high mass clusters, potentially due to limitations of current DR3 data due to astrometric accuracy or extinction.
+
+I fitted a simple log-linear model to the peak of this distribution, finding the radius at which the DR3 OC census is approximately 100\% complete $R_{100\%}$. This takes the form
+
+\begin{equation}
+    R_{100\%} = \alpha \log M_J + \beta
+\end{equation}
+
+\noindent
+with the additional constraints that $R_{100\%}$ is clipped to be greater than or equal to zero and may not be larger than some value $R_\text{break}$. Fitting to the distribution in Fig.~\ref{fig:dynamics:discussion:completeness_kde}, I find $\alpha=667.8\pm58.2$, $\beta=-1820.3\pm1707.8$, and $R_\text{break}=2720.0\pm69.4$. This approximate fit is shown in Fig.~\ref{fig:dynamics:discussion:completeness_function}. 
+
+In \cite{kharchenko_global_2013}, it was claimed that the OC census is complete within 1.8~kpc. However, based on this simple mass-only model for the completeness of the \gaia\ DR3 OC census, I find that the OC census is only complete within 1.8~kpc for clusters heavier than around 230~\MSun, being incomplete at distances larger than around 1~kpc for clusters at a mass of 100~\MSun.
 
 
 % -------------------------------------
-\section{Conclusions and areas for improvement before publication}
+\section{Conclusion}
 \label{sec:dynamics:conclusion}
+
+In this chapter of preliminary results, I aimed to investigate methods to distinguish between bound OCs and unbound MGs. To do so, I derived masses, Jacobi radii, and proper motion dispersions for 6974 clusters from Paper~2, and used these to compute the probabilities that clusters have valid Jacobi radii and have virial ratios compatible with bound objects. I show that it is possible to accurately distinguish between bound OCs and unbound MGs using \gaia\ data.
+
+My mass measurements form the largest catalogue of OC masses to date, being over 70 times larger than the largest catalogue of OC masses made using \gaia data. For each cluster, I computed the selection function of its CMD as a function of $G$ magnitude, estimating three separate quantities that contribute towards CMD incompleteness to derive accurate cluster masses. My OC masses are generally higher than results derived in the literature, which is likely due to the addition of these incompleteness estimates. 
+
+Using my mass measurement pipeline, I derived Jacobi radii for the sample of clusters. I found that only 82\% of the clusters from Paper~2 are compatible with bound objects that have a valid Jacobi radius, dropping to just 16\% of the clusters in Paper~2 within 250~pc.
+
+In addition, I investigated the virial ratios of the clusters in the catalogue, using the proper motions of member stars to derive cluster proper motion dispersions with a maximum likelihood method. However, I found that \gaia\ proper motions are generally an ineffective tool in distringuishing between bound and unbound objects, as the velocity dispersion of most OCs appears to be compatible with being dominated by dispersion contributions from resolved and unresolved binary stars.
+
+Combining these results, I find that there are 5619 OCs in the catalogue with 3515 being of high quality. Likewise, there are 1355 MGs in the catalogue, 559 of which are of a high quality. I find that cluster Jacobi radii are a particularly effective tool to distinguish between bound OCs and unbound MGs. These results represent a leap forwards in the ability to distinguish between bound and unbound star clusters in the Milky Way: by applying relatively simple physical laws governing the dynamics of star clusters, I am able to show with significantly higher accuracy which objects are and are not bound compared to previous empirical methods.
+
+Finally, I use these results to derive tentative approximate estimates of the completeness of the OC census in \gaia\ DR3. I find that the completeness of the census is well described by a logarithmic function until a distance around 2700~pc, at which the 100\% completeness limit does not increase higher with increasing OC mass. Within 1.8~kpc, the OC census only appears approximately complete for OCs heavier than around 230~\MSun.

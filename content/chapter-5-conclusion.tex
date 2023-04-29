@@ -5,4 +5,27 @@
 
 \cleanchapterquote{No observational problem will not be solved by more data.}{Vera Rubin}{}
 
-\todo{conclusion}
+At the beginning of this thesis, I painted a bright view of the scientific potential of OCs in the Milky Way. For over a century, these objects have played a key role in furthering our understanding of stellar and galactic evolution. Thanks to \gaia, Milky Way astronomy is currently undergoing a renaissance: but the methodologies and catalogues used to analyse OCs must keep pace with the incredible data that \gaia\ is providing to modern astronomy.
+
+In this thesis, I worked to improve the methods for detecting, cataloguing, and analysing OCs using the astrometric and photometric data of \gaia -- targeting five broad problems with the current census of OCs. Beyond simply proving that these methodologies are effective, I used these methods to create the largest homogeneous catalogue of OCs to date. With a focus on rigorous, statistical approaches, I quantified the reliability of all objects in the catalogue and derived parameters for them, in addition to reporting over two thousand new star clusters and showing that over a thousand OCs reported before \gaia\ are highly unlikely to be real. Finally, I derived accurate cluster masses and Jacobi radii for the largest ever sample of clusters for such parameters, using them to distinguish accurately between bound OCs and unbound MGs and derive an approximate completeness estimate for the \gaia\ DR3 OC census.
+
+After reviewing the current status of the literature surrounding OCs in the introduction to this thesis, in the first scientific chapter (Sect.~\ref{sec:comparison}), I reviewed and trialed a number of different methods to recover OCs from \gaia\ data. Since the release of \gaia\ DR1, automated clustering algorithms have been used to tremendous success to detect new OCs in \gaia\ data or to derive membership lists for existing clusters \citep{castro-ginard_new_2018,castro-ginard_hunting_2019,castro-ginard_hunting_2020,castro-ginard_hunting_2022,liu_catalog_2019,cantat-gaudin_characterising_2018,cantat-gaudin_clusters_2020,cantat-gaudin_gaia_2019,he_catalogue_2021,he_new_2022,hao_sixteen_2020,jaehnig_membership_2021}. However, despite the widespread use of numerous algorithms in dozens of different works, the different methodologies used in the literature had never been compared side by side for application on OCs.
+
+In Sect.~\ref{sec:comparison}, I compared three different algorithms for OC recovery -- DBSCAN, HDBSCAN, and Gaussian mixture models. Using the results of a practical test of the three algorithms applied to \gaia\ DR2 data, I found that no algorithm was without flaws. However, HDBSCAN was clearly the most sensitive for OC recovery -- despite not having been used by any authors at the time for detecting OCs, with almost all works preferring to use DBSCAN or Gaussian mixture models. To mitigate issues with HDBSCAN reporting a high number of false positive clusters, I developed a computationally efficient statistical density test to postprocess standard OC clustering results and derive an astrometric S/N for candidate clusters, which acts as a description of the quality of detected objects. Finally, I was able to detect 41 new OCs within the data in this work. 
+
+Having proven HDBSCAN as the most sensitive method for OC recovery, I used \gaia\ DR3 data to conduct the largest all-sky blind search for OCs to date, searching for OCs amongst a total of 729~million stars. By conducting a single search with HDBSCAN, I 
+
+
+
+% SCIENCE REVIEW
+% - step by step -> what did I do?
+% - relate back to identified problems with the OC census
+
+% HOW RELEVANT
+% - how will people use my results?
+% - how does it help others?
+
+% TAKE HOME MESSAGE
+% - gaia, lsst, gaianir is gonna keep on giving
+% - improving the OC census will be a never-ending task, but the payoff is pretty gorgeous!
+
