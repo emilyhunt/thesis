@@ -9,7 +9,7 @@
 % 344 words
 
 For over a century, open clusters have been a key tool for understanding stellar and galactic evolution. 
-Now, thanks to groundbreaking new astrometric and photometric data from the European Space Agency's \gaia\ satellite, it is possible to study open clusters to a never before seen level of accuracy and precision. 
+Now, thanks to groundbreaking new astrometric and photometric data from the European Space Agency's \gaia\ satellite, it is possible to study open clusters to never before seen levels of accuracy and precision. 
 In this thesis, I develop and apply new methodologies to improve the census of open clusters with data from \gaia. 
 I focus on using modern, efficient, and statistically rigorous techniques, aiming to maximise the reliability and usefulness of the open cluster census despite the many challenges of working with the billion-star dataset of \gaia.
 Firstly, I conducted a comparative study of clustering algorithms for retrieving open clusters blindly from \gaia\ data.
@@ -31,21 +31,36 @@ The methods developed in this thesis will be applicable to future data releases 
 {\usekomafont{chapter}Zusammenfassung}
 \label{sec:abstract-diff}
 
-Seit über hundert Jahren werden offene Sternhaufen benutzt, um stellare und galaktische Evolution zu verstehen. 
-Dank neuer, bahnbrechender astrometrischer und photometrischer Daten des \gaia\ Satelliten der Europäischen Weltrauorganisation (ESA) ist es nun möglich offene Sternhaufen so genau wie noch nie zu untersuchen. 
-In dieser Doktorarbeit entwickelte und implementierte ich neue Methodologien, um den Zensus offener Sternhaufen mit \gaia\ Daten zu verbessern. 
-Ich konzentrierte mich auf moderne, effiziente und statistisch präzise Verfahren, mit dem Ziel, die Reliabilität und Nützlichkeit des Zensus, trotz der vielen Herausforderungen, die die Arbeit mit dem Milliarden-Sternen Datensatz von \gaia\ mit sich bringt, zu maximieren. 
-Zuerst führte ich eine vergleichende Studie von Clustering- Algorithmen durch, die zur **tastende Suche** [1] von Offenen Sternhaufen aus \gaia\ Daten genutzt werden. 
-Ich fand heraus, dass ein bisher nicht getesteter Algorithmus, HDBSCAN, der empfindlichste Algorithmus für die Wiederherstellung von offene Sternhaufen ist.
-Anschließend, nutze ich anhand dieser Methodologie \gaia\ DR3 Daten, um den bis jetzt größten homogenen Katalog offener Sternhaufen zu erstellen. 
-Aus den Daten gehen 7167 Sternhaufen hervor, 2387 davon (sind) **potentielle neue Objekte** [2]. 
-Ich entwickelte ein approximatives Bayessches Neuronennetz, um die Reliabilität von **colour magnitude diagrams** [3] der Sternhaufen des Zensus zu klassifizieren. 
+% Seit über hundert Jahren werden offene Sternhaufen benutzt, um stellare und galaktische Evolution zu verstehen. 
+% Dank neuer, bahnbrechender astrometrischer und photometrischer Daten des \gaia\ Satelliten der Europäischen Weltrauorganisation (ESA) ist es nun möglich offene Sternhaufen so genau wie noch nie zu untersuchen. 
+% In dieser Doktorarbeit entwickelte und implementierte ich neue Methodologien, um den Zensus offener Sternhaufen mit \gaia\ Daten zu verbessern. 
+% Ich konzentrierte mich auf moderne, effiziente und statistisch präzise Verfahren, mit dem Ziel, die Reliabilität und Nützlichkeit des Zensus, trotz der vielen Herausforderungen, die die Arbeit mit dem Milliarden-Sternen Datensatz von \gaia\ mit sich bringt, zu maximieren. 
+% Zuerst führte ich eine vergleichende Studie von Clustering- Algorithmen durch, die zur **tastende Suche** [1] von Offenen Sternhaufen aus \gaia\ Daten genutzt werden. 
+% Ich fand heraus, dass ein bisher nicht getesteter Algorithmus, HDBSCAN, der empfindlichste Algorithmus für die Wiederherstellung von offene Sternhaufen ist.
+% Anschließend, nutze ich anhand dieser Methodologie \gaia\ DR3 Daten, um den bis jetzt größten homogenen Katalog offener Sternhaufen zu erstellen. 
+% Aus den Daten gehen 7167 Sternhaufen hervor, 2387 davon (sind) **potentielle neue Objekte** [2]. 
+% Ich entwickelte ein approximatives Bayessches Neuronennetz, um die Reliabilität von **colour magnitude diagrams** [3] der Sternhaufen des Zensus zu klassifizieren. 
+% Außerdem benutzte ich eine Modifikation dieses Netzwerkes, um Parameter, wie das Alter und die Extinktion dieser Sternhaufen zu erschließen.
+% Da viele der Objekte in meine Katalog eher Sternassoziation ähneln, berechnete ich akkurate Massen, Jacobi Radii, sowie Geschiwndigkeits-Dispersion für diese Sternhaufen, und erstellte somit den größten Katalog der oben genannten Parameter für offene Sternhaufen bisher. 
+% Anhand der Parameter zeigte ich, dass lediglich 5619 der Sternhaufen in meinem Katalog gebundenen offenen Sternhaufen entsprechen. 
+% Ich benutzte meine Masse-Schätzungen, um eine approximative Gesamtheitsestimat für den \gaia\ DR3 Zensus offener Sternhaufen abzuleiten und fand heraus, dass das approximative 100\% Gesamtheitslimit stark von der Masse der Sternhaufen abhängt. 
+% Die Ergebnisse dieser Arbeit zeigen, dass es möglich ist, verlässlich einen Katalog offener Sternhaufen mit einem einzelnen tastenden Suchlauf zu erstellen und außerdem die Parameter der Objekte zu messen. 
+% Die in dieser Arbeit entwickeltem Methoden werden auf zukünftige Datensätze von \gaia\ sowie anderen Quellen anwendbar sein. 
+
+Seit über einhundert Jahren ist die Erforschung offener Sternhaufen ein wichtiges Mittel um die stellare und galaktische Evolution zu verstehen.
+Dank neuer, bahnbrechender astrometrischer und photometrischer Daten des \gaia\ Satelliten der Europäischen Weltraumorganisation (ESA) ist es nun möglich offene Sternhaufen mit bisher ungekannter Genauigkeit und Präzision zu untersuchen.
+In dieser Doktorarbeit entwickelte und implementierte ich neue Methodiken, um den Zensus offener Sternhaufen anhand von \gaia\ Daten zu verbessern.
+Ich konzentrierte mich dabei auf moderne, effiziente und statistisch präzise Verfahren, mit dem Ziel, die Reliabilität und Anwendbarkeit des Zensus zu maximieren, trotz der vielen Herausforderungen des Milliarden-Sterne Datensatzes von \gaia\.
+Zuerst führte ich eine vergleichende Studie von Clustering- Algorithmen durch, die zur blinden Suche nach offenen Sternhaufen in \gaia\ Daten genutzt werden.
+Ich fand heraus, dass der bisher nicht getestete Algorithmus HDBSCAN der empfindlichste Algorithmus für das Wiederfinden offener Sternhaufen ist.
+Anhand dieser Methode nutzte ich anschließend \gaia\ DR3 Daten, um den bisher größten, homogenen Katalog offener Sternhaufen zu erstellen. Aus den Daten gehen 7167 Sternhaufen hervor, wovon 2387 Kandidaten für bisher nicht entdeckte Sternhaufen sind.
+Zusätzlich entwickelte ich ein approximatives Bayessches Neuronennetz, um die Reliabilität von Farben-Helligkeits-Diagrammen der Sternhaufen zu klassifizieren.
 Außerdem benutzte ich eine Modifikation dieses Netzwerkes, um Parameter, wie das Alter und die Extinktion dieser Sternhaufen zu erschließen.
-Da viele der Objekte in meine Katalog eher Sternassoziation ähneln, berechnete ich akkurate Massen, Jacobi Radii, sowie Geschiwndigkeits-Dispersion für diese Sternhaufen, und erstellte somit den größten Katalog der oben genannten Parameter für offene Sternhaufen bisher. 
-Anhand der Parameter zeigte ich, dass lediglich 5619 der Sternhaufen in meinem Katalog gebundenen offenen Sternhaufen entsprechen. 
-Ich benutzte meine Masse-Schätzungen, um eine approximative Gesamtheitsestimat für den \gaia\ DR3 Zensus offener Sternhaufen abzuleiten und fand heraus, dass das approximative 100\% Gesamtheitslimit stark von der Masse der Sternhaufen abhängt. 
-Die Ergebnisse dieser Arbeit zeigen, dass es möglich ist, verlässlich einen Katalog offener Sternhaufen mit einem einzelnen tastenden Suchlauf zu erstellen und außerdem die Parameter der Objekte zu messen. 
-Die in dieser Arbeit entwickeltem Methoden werden auf zukünftige Datensätze von \gaia\ sowie anderen Quellen anwendbar sein. 
+Da viele der Objekte des Katalogs Sternassoziationen ähneln, berechnete ich akkurate Massen, Jacobi Radien, sowie Geschwindigkeits-Dispersionen, und erstellte somit den bisher größten Katalog dieser Parameter für offene Sternhaufen.
+Anhand dieser Parameter zeigte ich, dass lediglich 5619 der Sternhaufen des Katalogs gravitativ gebundenen offenen Sternhaufen entsprechen.
+Ich benutzte die berechneten Massen, um eine Abschätzung der Vollständigkeit für den \gaia\ DR3 Zensus offener Sternhaufen abzuleiten und fand heraus, dass das geschätzte 100\% Vollständigkeitslimit stark von der Masse der Sternhaufen abhängt.
+Die Ergebnisse dieser Arbeit zeigen, dass es möglich ist, einen verlässlichen Katalog offener Sternhaufen anhand eines einzelnen blinden Suchlaufes zu erstellen und zusätzlich die Parameter der Objekte zu bestimmen.
+Die in dieser Arbeit entwickelten Methoden werden auf zukünftige datensätze von \gaia\ sowie anderen Quellen anwendbar sein.
 
 % [1] blind search
 % [2] candidate new objects
