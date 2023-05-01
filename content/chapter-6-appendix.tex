@@ -1,13 +1,10 @@
 % !TEX root = ../my-thesis.tex
 %
-\chapter{Appendix}
+\chapter{Supporting material for Chapter \ref{sec:comparison}}
 \label{sec:appendix}
 
 
-
-\section{Appendices for Chapter \ref{sec:comparison}}
-
-\subsection{ADQL query used to download data}\label{app:c2:adql}
+\section{ADQL query used to download data}\label{app:c2:adql}
 
  \emph{Gaia}  DR2 data for this work was downloaded with the following ADQL query. \texttt{\{start\_number\}} should be replaced with the first possible \texttt{source\_id} of the desired pixel using Eqn.~\ref{c2:eqn:healpix}. \texttt{\{end\_number\}} should be replaced with the first possible \texttt{source\_id} of the next integer pixel.
 
@@ -62,19 +59,19 @@ AND g.phot_rp_mean_mag IS NOT NULL
 
 
 %-------------------------------------------------------------------
-\subsection{Comparison with other OC catalogues}\label{app:c2:comparison_with_cats}
+\section{Comparison with other OC catalogues}\label{app:c2:comparison_with_cats}
 
 We present brief comparisons with the results of other OC catalogues, in lieu of best practices proposed in \cite{cantat-gaudin_clusters_2020} and as a part of efforts towards generally improving the quality of the OC census, reporting on both positive and negative detections. In future works, we hope to expand comparisons such as this across the entire OC census, offering another viewpoint on the existence of many literature OCs.
 
 
-\subsubsection{\cite{cantat-gaudin_clusters_2020}}
+\subsection{\cite{cantat-gaudin_clusters_2020}}
 
 Of the 537 objects listed in \cite{cantat-gaudin_clusters_2020} and in the fields in this study, we are able to detect 86.4\% of them with at least one algorithm or parameter combination, many of which are clear overdensities with well-resolved parameters.
 
 We single out Auner 1, Berkeley 91 and Patchick 75 from Sect.~\ref{c2:sec:analysis_results} as objects that should be detectable but are not found by any algorithm. In addition, FSR 1460 and FSR 1509 are also undetected. If real, these objects are distant and difficult to detect in \emph{Gaia} data, although these objects also have heavily polluted CMDs in the membership lists of \cite{cantat-gaudin_clusters_2020} and hence may simply be associations. Future \emph{Gaia} data releases with better astrometric precision will shed more light on the status of these edge-case objects.
 
 
-\subsubsection{MWSC}
+\subsection{MWSC}
 
 We concur with the results of \cite{cantat-gaudin_gaia_2018} and \cite{cantat-gaudin_clusters_2020} that a majority of the objects in MWSC are undetectable in \emph{Gaia} data. Some of these objects may simply not be visible in \emph{Gaia} data due to reddening or large distances, although many are also likely to not be real. Future studies will have to quantify this for all OCs on a case-by-case basis. Of our 100 main OCs that were randomly selected from the MWSC catalogue, we detected OCs corresponding to 35 of them, suggesting that $\approx$35\% of the total MWSC catalogue is visible in \emph{Gaia} data. 
 
@@ -85,7 +82,7 @@ The best examples of re-detected OCs were Collinder 347, FSR 0124, FSR 0270 and 
 While the catalogue of \cite{cantat-gaudin_clusters_2020} is the most complete and homogeneous OC catalogue to date, it still appears to lack some OCs from the literature and contains a handful of OCs that are somewhat putative. Ongoing comparisons with the results of multiple different clustering algorithms and methodologies will help to confirm, question or deny the existence of more OCs in the literature.
 
 
-\subsubsection{\cite{castro-ginard_hunting_2020} and \cite{liu_catalog_2019}}
+\subsection{\cite{castro-ginard_hunting_2020} and \cite{liu_catalog_2019}}
 
 \cite{castro-ginard_hunting_2020} and \cite{liu_catalog_2019} have recently reported a combined total of over 600 new OCs in \emph{Gaia} DR2 data respectively. Of the \review{209 }objects from \cite{castro-ginard_hunting_2020} in the fields in this study, we detected OCs compatible with \review{135 }of them (\review{64.6}\%), representing a \review{sizable }fraction of their catalogue of new OCs that has been detected independently in \emph{Gaia} data for the first time. We note that the undetected OC UBC 638 is very close to UBC 637 (which is detected) - their reported centres are within 0.05$^{\circ}$ of one another, their proper motions 0.07 mas yr$^{-1}$ and parallaxes to within 0.1 mas, so they may be the same object.
 
@@ -94,7 +91,7 @@ We are able to detect OCs compatible with 24 of the 32 OCs from the catalogue of
 
 
 %-------------------------------------------------------------------
-\subsection{\review{Tables of detected clusters and members}}\label{app:c2:extra_tables}
+\section{\review{Tables of detected clusters and members}}\label{app:c2:extra_tables}
 
 \review{Four supplementary tables are available in online-only material at the CDS}\footnote{\href{https://vizier.u-strasbg.fr/}{https://vizier.u-strasbg.fr/}}\review{. For literature clusters, all detections by all algorithms are listed following the same format as Table~\ref{app:c2:tab:cluster_lists}.1. Any one cluster may have up to 12 different entries from detections by different algorithm and parameter combinations. When no detections were made of a literature cluster, a single blank row is given with only columns one and 26 filled. The 41 new objects have their mean parameters listed in a separate table following the format of Table~\ref{app:c2:tab:cluster_lists}.1 except with column 26 omitted.} \review{For both literature and new OCs, members are listed in tables following the format of Table~\ref{app:c2:tab:cluster_members}.2.}
 
@@ -175,7 +172,7 @@ We are able to detect OCs compatible with 24 of the 32 OCs from the catalogue of
 \end{table}
 
 %-------------------------------------------------------------------
-\subsection{\reviewtwo{Plots of newly detected OCs}}\label{app:c2:new_oc_plots}
+\section{\reviewtwo{Plots of newly detected OCs}}\label{app:c2:new_oc_plots}
 
 See Figs.~\ref{app:c2:fig:new_ocs_0}, \ref{app:c2:fig:new_ocs_1}, \ref{app:c2:fig:new_ocs_2}, \ref{app:c2:fig:new_ocs_3}, \ref{app:c2:fig:new_ocs_4}, \ref{app:c2:fig:new_ocs_5}, and \ref{app:c2:fig:new_ocs_6}.
 
@@ -234,7 +231,7 @@ See Figs.~\ref{app:c2:fig:new_ocs_0}, \ref{app:c2:fig:new_ocs_1}, \ref{app:c2:fi
 %-------------------------------------------------------------------
 
 
-\subsection{List of fields used in this study}\label{app:c2:fields}
+\section{List of fields used in this study}\label{app:c2:fields}
 
 See Table \ref{app:c2:table:sky_locations}.
 
@@ -318,9 +315,9 @@ Number & $\alpha$ ($^\circ$) & $\delta$ ($^\circ$) & Pixel\tablefootmark{a} & Nu
 \clearpage
 
 
-\section{Appendices for Chapter \ref{sec:census}}
+\chapter{Supporting material for Chapter \ref{sec:census}}
 
-\subsection{Description of contents of online tables}\label{app:c3:tables}
+\section{Description of contents of online tables}\label{app:c3:tables}
 
 We provide tables of clusters, rejected clusters, member stars, and members stars for rejected clusters at the CDS. Tables of clusters follow the table format in Table~\ref{app:c3:tab:cluster_lists}. Tables of members follow the same columns and column naming scheme as in \emph{Gaia} DR3 \citep{gaia_collaboration_gaia_2022}, except while also having columns referencing the cluster name and cluster ID we assign them to, the cluster membership probability, and a flag for if the star is a member within our estimated tidal radius $r_t$.
 
@@ -462,7 +459,7 @@ ID & Name & Source & Type & $\theta$ & $\theta_r$\tablefootmark{a} & $s_{\mu_{\a
 Here we provide a table of all crossmatches to all literature clusters that meet our adopted crossmatch criteria from Sect.~\ref{c3:sec:crossmatching} in Table~\ref{app:c3:tab:all_crossmatches}. For every cluster in the literature that we detect in this work, the table lists the internal cluster ID corresponding to our table of clusters in Table~\ref{c3:tab:catalogue} that corresponds to this object. For clusters that we do not redetect, only a blank row with the cluster name, source paper, and type of crossmatch is shown.
 
 
-\subsection{Bayesian neural networks}\label{app:c3:bayesian_nets}
+\section{Bayesian neural networks}\label{app:c3:bayesian_nets}
 
 Given that Bayesian neural networks (BNNs) are only just beginning to see use in the astronomical literature \citep[e.g.][]{huertas-company_hubble_2019}, here we provide a brief background overview of the advantages and caveats of the approximate BNN methodology we adopted in Sect.~\ref{c3:sec:cmd_classifier} and Sect.~\ref{c3:sec:agenn}.
 
