@@ -1,47 +1,30 @@
-# Clean Thesis
-*-- A Clean LaTeX Style for Thesis Documents --*
+[![Latest PDF](https://img.shields.io/badge/PDF-download-green.svg)](https://raw.githubusercontent.com/emilyhunt/thesis/main/my-thesis.pdf)
+[![DOI](https://img.shields.io/badge/DOI-10.11588/heidok.00033588-blue.svg)](https://doi.org/10.11588/heidok.00033588)
 
-## Table of contents
 
-* [About](#about)
-* [Getting started](#getting-started)
-* [Documentation and Support](#documentation-and-support)
-* [Contributing](#contributing)
-* [License Information](#license-information)
+# Improving the census of open clusters in the Milky Way with data from Gaia
 
-## About
+This is the repo of [my PhD thesis](https://raw.githubusercontent.com/emilyhunt/thesis/main/my-thesis.pdf).
 
-**Clean, Simple, Elegant**
-*Clean Thesis* is a LaTeX style for thesis documents, developed for my diploma thesis (Diplomarbeit). The style can be understood as my personal compromise — a typical clean looking scientific document combined and polished with minor beautifications.
+This work is a big look at open clusters in the era of Gaia. The introduction of my thesis is hopefully a nice intro and review of how Gaia has changed open cluster science, with a lot of technical details following later about how to detect open clusters in Gaia data, how to construct a catalogue, and how to define open clusters & measure their parameters.
 
-The design of this *Clean Thesis* style is inspired by user guide documents from Apple Inc.
+## Abstract
 
-Note: If you are looking for an exact and correct style regarding typographic rules, please have a look at the "[Classic Thesis Style](see http://www.miede.de/#classicthesis)".
+For over a century, open clusters have been a key tool for understanding stellar and galactic evolution. Now, thanks to groundbreaking new astrometric and photometric data from the European Space Agency's Gaia satellite, it is possible to study open clusters to never before seen levels of accuracy and precision. In this thesis, I develop and apply new methodologies to improve the census of open clusters with data from Gaia. I focus on using modern, efficient, and statistically rigorous techniques, aiming to maximise the reliability and usefulness of the open cluster census despite the many challenges of working with the billion-star dataset of Gaia. 
 
-**Donation = Postcard**
-Based on the idea of André Miede: If you like the *Clean Thesis* style I would be very pleased about a donation in the form of a POSTCARD. You can find my address at the *Clean Thesis* [website](http://cleanthesis.der-ric.de/) as well as in the [documentation](doc/cleanthesis-doc.pdf). I am going to collect all postcards and exhibit them at the website I mentioned.
+Firstly, I conducted a comparative study of clustering algorithms for retrieving open clusters blindly from Gaia data. I found that a previously untrialed algorithm, HDBSCAN, is the most sensitive algorithm for open cluster recovery. Next, using this methodology, I used Gaia DR3 data to create the largest homogeneous catalogue of open clusters to date, recovering a total of 7167 clusters -- 2387 of which are candidate new objects. I developed an approximate Bayesian neural network for classifying the reliability of the colour-magnitude diagrams of the clusters in the census. Additionally, I used a modification of this network to infer parameters such as the age and extinction of these clusters. Finally, since many of the objects in my catalogue appeared more compatible with moving groups, I measured accurate masses, Jacobi radii, and velocity dispersions for these clusters, thus creating the largest catalogue of these parameters for open clusters to date. Using said parameters, I showed that no more than 5619 of the clusters in my catalogue are compatible with bound open clusters. I used my mass estimates to derive an approximate completeness estimate for the Gaia DR3 open cluster census, finding that the approximate 100\% completeness limit depends strongly on cluster mass. 
 
-**Idea and Inspiration**
-The idea of providing my customized style for thesis documents passed through my mind while writing my own thesis. Motivated and inspired by the superb "[Classic Thesis Style](http://www.miede.de/#classicthesis)" by André Miede (thanks to André for doing a great job) I decided to collect all design and style related functionality in a separate LaTeX style and provide this style to other thesis writers.
+The results of this thesis show that it is possible to reliably create a catalogue of open clusters with a single blind search, in addition to measuring parameters for these objects. The methods developed in this thesis will be applicable to future data releases from Gaia and other sources.
 
-## Getting started
+## Citation
 
-* Make sure you have an up-to-date TeX distribution
-* Download the latest [release](https://github.com/derric/cleanthesis/releases) or clone the repository with `git clone https://github.com/derric/cleanthesis.git`
-* Check out the included [example thesis](my-thesis.tex)
-* [Read the documentation](doc/cleanthesis-doc.pdf) to learn more about *Clean Thesis* and available package options
+If you use this thesis in your work, you can cite the [DOI of my thesis](https://doi.org/10.11588/heidok.00033588); if you use one of the chapters, you should cite the relevant papers (Chapter 2: [Hunt & Reffert 2021](https://ui.adsabs.harvard.edu/abs/2021A%26A...646A.104H/abstract); Chapter 3: [Hunt & Reffert 2023](https://ui.adsabs.harvard.edu/abs/2023A%26A...673A.114H/abstract); Chapter 4: Hunt & Reffert _in prep._)
 
-## Documentation and Support
+## Thesis style
 
-The [documentation](doc/cleanthesis-doc.pdf) gives an overview of available package options.
+My thesis used the [Clean Thesis style](http://cleanthesis.der-ric.de/) by R. Langner. You can find a [template directory](https://github.com/derric/cleanthesis) here on GitHub. (It was a really pretty thesis style so I can recommend it highly!)
 
-Please ask **questions** or start **discussions** about *Clean Thesis* at [Stack Exchange](http://tex.stackexchange.com/questions/tagged/cleanthesis) (tagged [cleanthesis](http://tex.stackexchange.com/questions/tagged/cleanthesis)). GitHub issues are for development purposes, e.g, reporting bugs or requesting new features.
-
-## Contributing
-
-Did you find an error or a bug? Do you have a feature request? Before opening a [new issue](https://github.com/derric/cleanthesis/issues/new), please check out the list of [existing](https://github.com/derric/cleanthesis/issues) and [closed](https://github.com/derric/cleanthesis/issues?q=is%3Aissue+is%3Aclosed) issues.
-
-## License Information
+## License Information for the Clean Thesis Style
 
 README.md
 Copyright 2019 R. Langner
