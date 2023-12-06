@@ -1,4 +1,4 @@
-[![Latest PDF](https://img.shields.io/badge/PDF-download-green.svg)](https://raw.githubusercontent.com/emilyhunt/thesis/main/my-thesis.pdf)
+[![Latest PDF](https://img.shields.io/badge/Submitted_PDF-download-green.svg)](https://archiv.ub.uni-heidelberg.de/volltextserver/33588/1/thesis_Hunt_final.pdf)
 [![DOI](https://img.shields.io/badge/DOI-10.11588/heidok.00033588-blue.svg)](https://doi.org/10.11588/heidok.00033588)
 
 
@@ -18,7 +18,7 @@ The results of this thesis show that it is possible to reliably create a catalog
 
 ## Citation
 
-If you use this thesis in your work, you can cite the [DOI of my thesis](https://doi.org/10.11588/heidok.00033588); if you use one of the chapters, you should cite the relevant papers (Chapter 2: [Hunt & Reffert 2021](https://ui.adsabs.harvard.edu/abs/2021A%26A...646A.104H/abstract); Chapter 3: [Hunt & Reffert 2023](https://ui.adsabs.harvard.edu/abs/2023A%26A...673A.114H/abstract); Chapter 4: Hunt & Reffert _in prep._)
+If you use this thesis in your work, you can cite the [DOI of my thesis](https://doi.org/10.11588/heidok.00033588); if you use one of the chapters, you should cite the relevant papers (Chapter 2: [Hunt & Reffert 2021](https://ui.adsabs.harvard.edu/abs/2021A%26A...646A.104H/abstract); Chapter 3: [Hunt & Reffert 2023](https://ui.adsabs.harvard.edu/abs/2023A%26A...673A.114H/abstract); Chapter 4: Hunt & Reffert _submitted_)
 
 ## Thesis style
 
